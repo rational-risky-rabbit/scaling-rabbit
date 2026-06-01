@@ -1,37 +1,37 @@
 {
   "slug": "example-story",
-  "title": "Example: How Different Outlets Cover the Same Story",
+  "title": "Example: How Indian Outlets Cover the Same Story",
   "date": "2024-06-01",
   "category": "Template",
-  "summary": "A sample story showing how the same event is framed differently across news sources. Replace this file with your first real story.",
+  "summary": "A sample story showing how the same event is framed differently across Indian news sources. Replace this file with your first real story.",
   "coverages": [
     {
       "source_id": "reuters",
-      "headline": "Central bank raises interest rates by 0.25%",
+      "headline": "India's central bank holds interest rates steady amid inflation concerns",
       "url": "https://reuters.com/example",
-      "excerpt": "The Federal Reserve raised its benchmark interest rate by a quarter percentage point on Wednesday, citing persistent inflation.",
-      "bias_notes": "Neutral language. Focuses on the action and stated reason only. No emotive framing."
+      "excerpt": "The Reserve Bank of India kept its benchmark lending rate unchanged on Wednesday, citing the need to monitor inflation before making further adjustments.",
+      "bias_notes": "Neutral wire-service language. States the action and the stated reason. No political attribution, no emotive framing."
     },
     {
-      "source_id": "fox",
-      "headline": "Biden's Fed CRUSHES families with another rate hike",
-      "url": "https://foxnews.com/example",
-      "excerpt": "Americans already struggling with Biden's inflation crisis now face higher mortgage and credit card payments after the Fed raised rates again.",
-      "bias_notes": "Attributes policy to a politician. Uses 'CRUSHES' (sensational verb). Frames as crisis rather than policy decision."
+      "source_id": "republicworld",
+      "headline": "RBI DEFENDS India's economy against opposition DOOM narrative — rates held FIRM",
+      "url": "https://republicworld.com/example",
+      "excerpt": "In a decisive move that exposes the opposition's fear-mongering, the RBI held rates steady — a sign of the economy's fundamental strength under the current government.",
+      "bias_notes": "Attributes the RBI decision as a political win. Uses 'DEFENDS' and 'FIRM' (emotive). Frames opposition commentary as 'doom narrative' — classic us-vs-them framing."
     },
     {
-      "source_id": "cnn",
-      "headline": "Fed raises rates again as inflation fight continues — here's what it means for you",
-      "url": "https://cnn.com/example",
-      "excerpt": "The Federal Reserve raised interest rates Wednesday in its ongoing effort to bring down inflation, a move that affects everything from your mortgage to your savings account.",
-      "bias_notes": "Personalises impact ('for you'). Mild but slightly clickbait-oriented framing."
+      "source_id": "thehindu",
+      "headline": "RBI holds repo rate; economists warn inflation target under pressure",
+      "url": "https://thehindu.com/example",
+      "excerpt": "The Reserve Bank of India's monetary policy committee voted to hold the repo rate steady, though dissenting voices within the committee flagged upside risks to the inflation trajectory.",
+      "bias_notes": "Factual and measured. Includes dissenting voices — adds depth. Slightly emphasises risks over positives, consistent with a cautious editorial stance."
     },
     {
-      "source_id": "nyt",
-      "headline": "Fed Raises Rates, Signaling Caution Amid Uncertain Economic Outlook",
-      "url": "https://nytimes.com/example",
-      "excerpt": "Federal Reserve officials raised their benchmark interest rate on Wednesday while signaling a more cautious approach as uncertainty about the economic outlook has increased.",
-      "bias_notes": "Factual and measured. Adds context about future signals. No emotive language."
+      "source_id": "timesofindia",
+      "headline": "RBI keeps rates unchanged! Here's what it means for your home loan EMI",
+      "url": "https://timesofindia.com/example",
+      "excerpt": "Great news for borrowers — the RBI has kept the repo rate unchanged. But will your EMI actually go down? We explain everything you need to know.",
+      "bias_notes": "Personalises the story ('your EMI') for clicks. 'Great news' is an editorial judgement presented as fact. The question format is a classic clickbait structure."
     }
   ]
 }

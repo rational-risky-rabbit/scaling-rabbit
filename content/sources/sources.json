@@ -1,50 +1,62 @@
 [
   {
-    "id": "bbc",
-    "name": "BBC News",
-    "bias": { "political": -0.5, "sensational": 0.5 },
-    "description": "UK public broadcaster. Generally factual, mild centre-left lean on social issues."
-  },
-  {
-    "id": "fox",
-    "name": "Fox News",
-    "bias": { "political": 2.5, "sensational": 2.0 },
-    "description": "US cable network. Strong right-leaning, high opinion-to-fact ratio in prime time."
-  },
-  {
-    "id": "cnn",
-    "name": "CNN",
-    "bias": { "political": -1.5, "sensational": 1.5 },
-    "description": "US cable network. Left-leaning framing, higher sensationalism in headlines."
-  },
-  {
     "id": "reuters",
     "name": "Reuters",
     "bias": { "political": 0.0, "sensational": -1.0 },
-    "description": "Wire service. Consistently factual, neutral political framing, low sensationalism."
-  },
-  {
-    "id": "nyt",
-    "name": "New York Times",
-    "bias": { "political": -1.0, "sensational": 0.5 },
-    "description": "US broadsheet. High factual standards, mild progressive lean in editorial choices."
+    "description": "International wire service. Consistently factual, neutral political framing, low sensationalism. Widely used as a reference baseline."
   },
   {
     "id": "thehindu",
     "name": "The Hindu",
-    "bias": { "political": -0.5, "sensational": -0.5 },
-    "description": "Indian broadsheet. Generally factual, mild left-liberal lean, low sensationalism."
-  },
-  {
-    "id": "ndtv",
-    "name": "NDTV",
-    "bias": { "political": -1.0, "sensational": 1.0 },
-    "description": "Indian TV news. Opposition-leaning framing, moderate sensationalism."
+    "bias": { "political": -1.0, "sensational": -0.5 },
+    "description": "Chennai-based broadsheet. High factual standards, consistent left-liberal editorial lean, low sensationalism."
   },
   {
     "id": "timesofindia",
     "name": "Times of India",
     "bias": { "political": 0.5, "sensational": 2.0 },
-    "description": "India's largest English daily. Centrist-right, known for clickbait headlines."
+    "description": "India's largest English daily by circulation. Centrist-right ownership, frequently criticised for clickbait headlines and advertorial content."
+  },
+  {
+    "id": "ndtv",
+    "name": "NDTV",
+    "bias": { "political": -1.0, "sensational": 1.0 },
+    "description": "Delhi-based TV news channel. Generally opposition-leaning framing, moderate sensationalism in prime-time coverage."
+  },
+  {
+    "id": "republicworld",
+    "name": "Republic World",
+    "bias": { "political": 2.5, "sensational": 2.5 },
+    "description": "Indian news channel founded by Arnab Goswami. Strong pro-government lean, high sensationalism, aggressive debate format."
+  },
+  {
+    "id": "theprint",
+    "name": "The Print",
+    "bias": { "political": -0.5, "sensational": 0.0 },
+    "description": "Delhi-based digital outlet. Generally factual with a liberal-centrist lean. Known for policy analysis and investigative pieces."
+  },
+  {
+    "id": "thewire",
+    "name": "The Wire",
+    "bias": { "political": -2.0, "sensational": 0.5 },
+    "description": "Independent digital outlet. Strong left-liberal editorial stance, focus on civil liberties and government accountability."
+  },
+  {
+    "id": "hindustantimes",
+    "name": "Hindustan Times",
+    "bias": { "political": 0.5, "sensational": 1.0 },
+    "description": "Delhi-based English daily. Mild centre-right lean, moderate sensationalism, broad national coverage."
+  },
+  {
+    "id": "indianexpress",
+    "name": "Indian Express",
+    "bias": { "political": -0.5, "sensational": 0.0 },
+    "description": "Mumbai-based broadsheet. Generally factual, mild liberal lean, strong investigative journalism tradition."
+  },
+  {
+    "id": "ani",
+    "name": "ANI",
+    "bias": { "political": 1.0, "sensational": 0.5 },
+    "description": "Asian News International — India's largest wire service. Frequently cited as having pro-government sourcing bias, widely syndicated."
   }
 ]
