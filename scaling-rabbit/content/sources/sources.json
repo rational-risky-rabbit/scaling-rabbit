@@ -1,0 +1,50 @@
+[
+  {
+    "id": "bbc",
+    "name": "BBC News",
+    "bias": { "political": -0.5, "sensational": 0.5 },
+    "description": "UK public broadcaster. Generally factual, mild centre-left lean on social issues."
+  },
+  {
+    "id": "fox",
+    "name": "Fox News",
+    "bias": { "political": 2.5, "sensational": 2.0 },
+    "description": "US cable network. Strong right-leaning, high opinion-to-fact ratio in prime time."
+  },
+  {
+    "id": "cnn",
+    "name": "CNN",
+    "bias": { "political": -1.5, "sensational": 1.5 },
+    "description": "US cable network. Left-leaning framing, higher sensationalism in headlines."
+  },
+  {
+    "id": "reuters",
+    "name": "Reuters",
+    "bias": { "political": 0.0, "sensational": -1.0 },
+    "description": "Wire service. Consistently factual, neutral political framing, low sensationalism."
+  },
+  {
+    "id": "nyt",
+    "name": "New York Times",
+    "bias": { "political": -1.0, "sensational": 0.5 },
+    "description": "US broadsheet. High factual standards, mild progressive lean in editorial choices."
+  },
+  {
+    "id": "thehindu",
+    "name": "The Hindu",
+    "bias": { "political": -0.5, "sensational": -0.5 },
+    "description": "Indian broadsheet. Generally factual, mild left-liberal lean, low sensationalism."
+  },
+  {
+    "id": "ndtv",
+    "name": "NDTV",
+    "bias": { "political": -1.0, "sensational": 1.0 },
+    "description": "Indian TV news. Opposition-leaning framing, moderate sensationalism."
+  },
+  {
+    "id": "timesofindia",
+    "name": "Times of India",
+    "bias": { "political": 0.5, "sensational": 2.0 },
+    "description": "India's largest English daily. Centrist-right, known for clickbait headlines."
+  }
+]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Neutral News</title>
+  <meta name="description" content="Understand the news without the bias. Compare coverage. Think critically.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <div class="container">
+    <p class="eyebrow">Media Literacy Project</p>
+    <h1 class="hero">One story.<br>Many versions.</h1>
+    <p class="lede">
+      We take a single news story and show you how different outlets cover it —
+      and where each outlet sits on our neutrality scale. No agenda. Just context.
+    </p>
+
+    <div id="stories-list">
+      <p class="empty">Loading stories…</p>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    renderSiteChrome('home');
+
+    (async function () {
+      const listEl = document.getElementById('stories-list');
+      try {
+        const slugs = await loadJSON('stories/index.json');
+        if (!slugs.length) {
+          listEl.innerHTML = '<p class="empty">No stories yet — add one to /content/stories/</p>';
+          return;
+        }
+
+        const stories = await Promise.all(
+          slugs.map((slug) => loadJSON(`stories/${slug}.json`))
+        );
+        stories.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        listEl.innerHTML = stories.map((s) => `
+          <a class="story-card" href="/news/?slug=${encodeURIComponent(s.slug)}">
+            <div class="story-meta">
+              <span class="category">${escapeHTML(s.category)}</span>
+              <span class="date">${formatDate(s.date)}</span>
+            </div>
+            <h2>${escapeHTML(s.title)}</h2>
+            <p class="story-summary">${escapeHTML(s.summary)}</p>
+            <p class="font-ui" style="margin-top:0.75rem; font-size:0.8rem; color:rgba(13,13,13,0.4);">
+              ${s.coverages?.length ?? 0} sources →
+            </p>
+          </a>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+        listEl.innerHTML = '<p class="empty">Failed to load stories.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Scale · Net Neutral News</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <div class="container">
+    <p class="eyebrow">The Scale</p>
+    <h1 class="hero">How we measure bias.</h1>
+    <p class="lede">
+      Inspired by the Political Compass, our scale plots news outlets on two axes
+      instead of a single line. A source can be politically left-leaning yet deeply
+      factual, or politically central yet wildly sensational. One number can't
+      capture that.
+    </p>
+
+    <div class="compass-axes-grid">
+      <div class="axis-card">
+        <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Horizontal Axis</p>
+        <h3>Political Lean</h3>
+        <p style="color: rgba(13,13,13,0.7)">
+          From <strong style="color: #1d4ed8">far-left</strong> to
+          <strong style="color: #991b1b">far-right</strong>. Based on framing of
+          economic, social, and policy stories — not just who the outlet endorses.
+        </p>
+      </div>
+      <div class="axis-card">
+        <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Vertical Axis</p>
+        <h3>Factual vs Sensational</h3>
+        <p style="color: rgba(13,13,13,0.7)">
+          From <strong>dry & factual</strong> (top) to
+          <strong style="color: var(--accent)">emotive & sensational</strong> (bottom).
+          Measures charged language, clickbait headlines, and opinion-as-news.
+        </p>
+      </div>
+    </div>
+
+    <div class="compass-plot-wrapper">
+      <div class="compass-plot" id="compass-plot">
+        <div class="compass-quadrants"><div></div><div></div><div></div><div></div></div>
+        <div class="compass-axis-h"></div>
+        <div class="compass-axis-v"></div>
+        <div class="compass-label top">Factual</div>
+        <div class="compass-label bottom">Sensational</div>
+        <div class="compass-label left">Left</div>
+        <div class="compass-label right">Right</div>
+      </div>
+      <div class="compass-info empty" id="compass-info">
+        Hover over a dot to learn about a source.
+      </div>
+    </div>
+
+    <div class="method-note">
+      <p class="eyebrow" style="color: rgba(13,13,13,0.6)">Methodology Note</p>
+      <p>
+        These positions are editorial judgements based on consistent patterns across
+        many stories, not single events. The scale is a starting point for discussion,
+        not a verdict. Outlets shift over time, and even within a single outlet,
+        different sections (news desk vs opinion vs prime-time) can sit at very
+        different positions on this scale.
+      </p>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    renderSiteChrome('compass');
+
+    (async function () {
+      const plot = document.getElementById('compass-plot');
+      const info = document.getElementById('compass-info');
+      try {
+        const sources = await loadJSON('sources/sources.json');
+
+        // Plot each source
+        sources.forEach((s) => {
+          const x = biasToPercent(s.bias.political);
+          // factual high = top of chart = low percent.
+          // We store "sensational" so map: y = biasToPercent(sensational)
+          const y = biasToPercent(s.bias.sensational);
+
+          const dot = document.createElement('div');
+          dot.className = 'compass-dot';
+          dot.style.left = `${x}%`;
+          dot.style.top  = `${y}%`;
+          dot.innerHTML = `
+            <div class="point"></div>
+            <div class="dot-label">${escapeHTML(s.name)}</div>
+          `;
+          dot.addEventListener('mouseenter', () => {
+            info.classList.remove('empty');
+            info.innerHTML = `
+              <div class="name">${escapeHTML(s.name)}</div>
+              <div class="desc">${escapeHTML(s.description)}</div>
+            `;
+          });
+          dot.addEventListener('mouseleave', () => {
+            info.classList.add('empty');
+            info.innerHTML = 'Hover over a dot to learn about a source.';
+          });
+          plot.appendChild(dot);
+        });
+
+        // If user came here via a shared link with ?x=...&y=..., plot them too
+        const params = new URLSearchParams(window.location.search);
+        const ux = parseFloat(params.get('x'));
+        const uy = parseFloat(params.get('y'));
+        if (!isNaN(ux) && !isNaN(uy)) {
+          const dot = document.createElement('div');
+          dot.className = 'compass-dot user-dot';
+          dot.style.left = `${biasToPercent(ux)}%`;
+          dot.style.top  = `${biasToPercent(uy)}%`;
+          dot.innerHTML = `
+            <div class="point"></div>
+            <div class="dot-label">You</div>
+          `;
+          plot.appendChild(dot);
+
+          info.classList.remove('empty');
+          info.innerHTML = `
+            <div class="name">Your position</div>
+            <div class="desc">
+              Political: ${biasLabel(ux)} (${ux.toFixed(1)}) ·
+              ${uy >= 0 ? 'Sensational' : 'Factual'} (${Math.abs(uy).toFixed(1)})
+            </div>
+          `;
+        }
+      } catch (err) {
+        console.error(err);
+        info.innerHTML = 'Failed to load source data.';
+      }
+    })();
+  </script>
+</body>
+</html>

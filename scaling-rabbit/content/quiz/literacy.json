@@ -1,0 +1,84 @@
+{
+  "title": "How well can you spot bias?",
+  "description": "A short test of your media literacy. Every question comes with an explanation — the goal is to learn, not to score. Replace these placeholder questions later.",
+  "questions": [
+    {
+      "id": "L1",
+      "category": "real_vs_fake",
+      "question": "PLACEHOLDER — Which headline is most likely from a reliable news source?",
+      "options": [
+        "BREAKING: Scientists CONFIRM secret cure suppressed by Big Pharma!!!",
+        "Study finds promising results for new cancer treatment; further trials needed",
+        "You won't BELIEVE what doctors don't want you to know about this fruit",
+        "Exclusive: Government insider REVEALS hidden agenda"
+      ],
+      "correct": 1,
+      "explanation": "Reliable headlines use specific, measured language. Words like 'CONFIRM', excessive punctuation (!!!), 'you won't believe', and 'secret' are classic signs of clickbait or misinformation. Option B is specific, honest about limitations, and uses no emotive language."
+    },
+    {
+      "id": "L2",
+      "category": "bias_detection",
+      "question": "PLACEHOLDER — Two outlets cover the same protest. Outlet A calls it a 'rally', Outlet B calls it a 'mob'. What does this tell you?",
+      "options": [
+        "One outlet was at the event and the other wasn't",
+        "The two outlets have different ownership",
+        "Word choice reflects editorial framing and can signal political bias",
+        "One headline is definitely wrong"
+      ],
+      "correct": 2,
+      "explanation": "The same event described with different words ('rally' vs 'mob') reveals editorial framing. Neither may be factually wrong, but the word choice carries emotional weight and often reflects the outlet's political lean. This is called 'framing bias'."
+    },
+    {
+      "id": "L3",
+      "category": "critical_thinking",
+      "question": "PLACEHOLDER — A news article says 'Studies show that X causes Y'. What is the FIRST question you should ask?",
+      "options": [
+        "Which studies? How many? Were they peer-reviewed?",
+        "Do I agree with the conclusion?",
+        "Is this outlet left-wing or right-wing?",
+        "How many likes did this get on social media?"
+      ],
+      "correct": 0,
+      "explanation": "Vague references to 'studies' are a red flag. Always ask: which studies, conducted by whom, peer-reviewed or not, how large was the sample. Single studies rarely 'prove' anything."
+    },
+    {
+      "id": "L4",
+      "category": "real_vs_fake",
+      "question": "PLACEHOLDER — You see a shocking video clip going viral. What should you do before sharing?",
+      "options": [
+        "Share it immediately — being first matters",
+        "Share it only if it confirms what you already believe",
+        "Check if the clip is verified by at least two established news outlets and look for the full context",
+        "Check how many followers the person who posted it has"
+      ],
+      "correct": 2,
+      "explanation": "Clips can be taken out of context, edited, or fabricated. The best practice is to wait for verification from multiple established sources — the 'verification pause'."
+    },
+    {
+      "id": "L5",
+      "category": "bias_detection",
+      "question": "PLACEHOLDER — A headline reads: 'Economy SOARS under current government'. What bias does this most demonstrate?",
+      "options": [
+        "Confirmation bias",
+        "Selection bias",
+        "Sensationalism combined with political framing",
+        "Reporting bias"
+      ],
+      "correct": 2,
+      "explanation": "The word 'SOARS' is sensationalist. Combined with political attribution to 'current government', this is a double signal: emotive language plus political credit."
+    },
+    {
+      "id": "L6",
+      "category": "critical_thinking",
+      "question": "PLACEHOLDER — What is 'false balance' in journalism?",
+      "options": [
+        "When a journalist makes up quotes",
+        "When an outlet presents two sides equally even when evidence strongly favours one",
+        "When headlines don't match article content",
+        "When a journalist has a financial conflict of interest"
+      ],
+      "correct": 1,
+      "explanation": "False balance (or 'bothsidesism') happens when outlets present fringe or discredited views alongside scientific consensus as if they're equally valid. Balance should reflect the actual weight of evidence."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story · Net Neutral News</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <div class="container">
+    <a class="back-link" href="/">← All stories</a>
+    <div id="story-content">
+      <p class="empty">Loading story…</p>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    renderSiteChrome('home');
+
+    (async function () {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      const el = document.getElementById('story-content');
+
+      if (!slug) {
+        el.innerHTML = '<p class="empty">No story specified.</p>';
+        return;
+      }
+
+      try {
+        const [story, sources] = await Promise.all([
+          loadJSON(`stories/${slug}.json`),
+          loadJSON('sources/sources.json'),
+        ]);
+        document.title = story.title + ' · Net Neutral News';
+
+        const sourceMap = Object.fromEntries(sources.map((s) => [s.id, s]));
+
+        el.innerHTML = `
+          <header class="story-header">
+            <div class="story-meta">
+              <span class="category">${escapeHTML(story.category)}</span>
+              <span class="date">${formatDate(story.date)}</span>
+            </div>
+            <h1>${escapeHTML(story.title)}</h1>
+            <p class="story-summary-large">${escapeHTML(story.summary)}</p>
+          </header>
+
+          <h2 class="section-label">How each outlet covered it</h2>
+
+          ${story.coverages.map((c) => {
+            const src = sourceMap[c.source_id];
+            if (!src) return '';
+            const pct = biasToPercent(src.bias.political);
+            return `
+              <div class="coverage">
+                <div class="coverage-head">
+                  <div>
+                    <div class="source-name">${escapeHTML(src.name)}</div>
+                    <div class="source-desc">${escapeHTML(src.description)}</div>
+                  </div>
+                  <div class="bias-indicator">
+                    <div class="bias-bar-header">
+                      <span class="lbl">Political Lean</span>
+                      <span class="val">${biasLabel(src.bias.political)}</span>
+                    </div>
+                    <div class="bias-bar">
+                      <div class="bias-marker" style="left: ${pct}%"></div>
+                    </div>
+                  </div>
+                </div>
+                <h3 class="coverage-headline">&ldquo;${escapeHTML(c.headline)}&rdquo;</h3>
+                <p class="coverage-excerpt">${escapeHTML(c.excerpt)}</p>
+                <div class="bias-notes">
+                  <div class="bias-notes-label">Editorial Analysis</div>
+                  <p class="bias-notes-text">${escapeHTML(c.bias_notes)}</p>
+                </div>
+                ${c.url ? `<a class="read-original" href="${escapeHTML(c.url)}" target="_blank" rel="noopener noreferrer">Read original →</a>` : ''}
+              </div>
+            `;
+          }).join('')}
+
+          <div class="reflection">
+            <p class="eyebrow" style="color: var(--accent);">Think about it</p>
+            <h3>Which version did you find most trustworthy? <span class="quiet">And — more importantly — why?</span></h3>
+            <a class="btn" href="/quiz/">Test your media literacy →</a>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        el.innerHTML = '<p class="empty">Story not found.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

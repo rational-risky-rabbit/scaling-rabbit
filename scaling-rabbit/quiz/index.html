@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Yourself · Net Neutral News</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <div class="container-narrow">
+    <!-- View 1: Quiz chooser (default) -->
+    <div id="chooser-view">
+      <p class="eyebrow">Test Yourself</p>
+      <h1 class="hero">Two ways to test yourself.</h1>
+      <p class="lede">
+        See where you stand on our news bias scale, or test how well you can spot
+        bias and misinformation in headlines.
+      </p>
+
+      <div class="mode-chooser">
+        <a class="mode-card" href="?type=compass">
+          <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Quiz One</p>
+          <h2>Where do you stand?</h2>
+          <p>
+            Answer questions about how you read the news. We'll plot you on the
+            same 2-axis scale we use to rate news outlets — and you'll see which
+            outlets sit closest to you.
+          </p>
+        </a>
+        <a class="mode-card" href="?type=literacy">
+          <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Quiz Two</p>
+          <h2>Can you spot bias?</h2>
+          <p>
+            A short media-literacy test. Real headline or fake? Neutral framing
+            or slanted? Every question comes with an explanation — the point is
+            to learn.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- View 2: Quiz runner -->
+    <div id="quiz-view" class="hidden">
+      <a class="back-link" href="/quiz/">← Choose a different test</a>
+      <p class="eyebrow" id="quiz-eyebrow"></p>
+      <h1 id="quiz-title" class="hero" style="font-size: 2.25rem;"></h1>
+      <p class="lede" id="quiz-description"></p>
+
+      <div id="quiz-runner"></div>
+    </div>
+
+    <!-- View 3: Result -->
+    <div id="result-view" class="hidden quiz-result"></div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    renderSiteChrome('quiz');
+
+    const chooserView = document.getElementById('chooser-view');
+    const quizView    = document.getElementById('quiz-view');
+    const resultView  = document.getElementById('result-view');
+
+    const params = new URLSearchParams(window.location.search);
+    const quizType = params.get('type'); // 'compass' | 'literacy' | null
+
+    if (quizType === 'compass') {
+      startCompassQuiz();
+    } else if (quizType === 'literacy') {
+      startLiteracyQuiz();
+    }
+    // else: chooser view stays visible
+
+    // ─── COMPASS QUIZ ────────────────────────────────────────────────────────
+    async function startCompassQuiz() {
+      chooserView.classList.add('hidden');
+      quizView.classList.remove('hidden');
+
+      const data = await loadJSON('quiz/compass.json');
+      document.getElementById('quiz-eyebrow').textContent = 'Quiz One · Place yourself';
+      document.getElementById('quiz-title').textContent = data.title;
+      document.getElementById('quiz-description').textContent = data.description;
+
+      const state = {
+        index: 0,
+        selections: [], // chosen option index for each question
+        scores: { political: 0, sensational: 0 },
+      };
+
+      runQuiz({
+        questions: data.questions,
+        mode: 'compass',
+        state,
+        onSelect: (q, optIndex) => {
+          const opt = q.options[optIndex];
+          state.scores.political   += opt.weight.political || 0;
+          state.scores.sensational += opt.weight.sensational || 0;
+        },
+        onFinish: () => showCompassResult(state, data.questions.length),
+      });
+    }
+
+    function showCompassResult(state, totalQuestions) {
+      quizView.classList.add('hidden');
+      resultView.classList.remove('hidden');
+
+      // Normalize to -3..+3 range (max possible weight per question = 2)
+      const maxPerQ = 2;
+      const x = clamp(state.scores.political   / totalQuestions / maxPerQ * 3, -3, 3);
+      const y = clamp(state.scores.sensational / totalQuestions / maxPerQ * 3, -3, 3);
+
+      const shareUrl = `${window.location.origin}/compass/?x=${x.toFixed(2)}&y=${y.toFixed(2)}`;
+
+      resultView.innerHTML = `
+        <p class="eyebrow">Your position</p>
+        <div class="quiz-verdict">${escapeHTML(biasLabel(x))} · ${y >= 0 ? 'More Sensational' : 'More Factual'}</div>
+        <p class="quiz-result-text">
+          On the political axis you scored <strong>${x.toFixed(1)}</strong> (${biasLabel(x)}).
+          On the factual–sensational axis you scored <strong>${y.toFixed(1)}</strong>
+          (${y >= 0 ? 'leaning sensational' : 'leaning factual'}).
+        </p>
+        <div class="quiz-result-actions">
+          <a class="btn" href="${shareUrl}">See yourself on the compass →</a>
+          <a class="btn btn-ghost" href="/quiz/">Try the other test</a>
+        </div>
+        <div class="share-row">
+          <input type="text" readonly value="${shareUrl}" id="share-url">
+          <button class="btn btn-dark copy-btn" onclick="copyShareUrl()">Copy link</button>
+          <span class="copy-feedback" id="copy-feedback">Copied!</span>
+        </div>
+      `;
+    }
+
+    // ─── LITERACY QUIZ ───────────────────────────────────────────────────────
+    async function startLiteracyQuiz() {
+      chooserView.classList.add('hidden');
+      quizView.classList.remove('hidden');
+
+      const data = await loadJSON('quiz/literacy.json');
+      document.getElementById('quiz-eyebrow').textContent = 'Quiz Two · Spot the bias';
+      document.getElementById('quiz-title').textContent = data.title;
+      document.getElementById('quiz-description').textContent = data.description;
+
+      const state = {
+        index: 0,
+        selections: [],
+        score: 0,
+      };
+
+      runQuiz({
+        questions: data.questions,
+        mode: 'literacy',
+        state,
+        onSelect: (q, optIndex) => {
+          if (optIndex === q.correct) state.score++;
+        },
+        onFinish: () => showLiteracyResult(state, data.questions.length),
+      });
+    }
+
+    function showLiteracyResult(state, total) {
+      quizView.classList.add('hidden');
+      resultView.classList.remove('hidden');
+
+      const pct = Math.round((state.score / total) * 100);
+      let label, text;
+      if (pct >= 80) {
+        label = 'Sharp Filter';
+        text  = "You're spotting bias and framing with real precision. Keep it up — and keep questioning even the headlines you agree with.";
+      } else if (pct >= 50) {
+        label = 'Growing Awareness';
+        text  = "You catch a lot — but some framing techniques are slipping past you. The more you compare sources, the sharper this gets.";
+      } else {
+        label = 'Easy Target';
+        text  = "Right now, sensational and biased framing is shaping how you read the news more than you realise. The good news: this is a skill, not a fixed trait.";
+      }
+
+      const shareUrl = `${window.location.origin}/quiz/?type=literacy&score=${pct}`;
+
+      resultView.innerHTML = `
+        <p class="eyebrow">Your result</p>
+        <div class="quiz-score">${pct}%</div>
+        <div class="quiz-verdict">${label}</div>
+        <p class="quiz-result-text">${text}</p>
+        <div class="quiz-result-actions">
+          <button class="btn" onclick="window.location.reload()">Try again</button>
+          <a class="btn btn-ghost" href="/quiz/?type=compass">Try the other test</a>
+        </div>
+        <div class="share-row">
+          <input type="text" readonly value="${shareUrl}" id="share-url">
+          <button class="btn btn-dark copy-btn" onclick="copyShareUrl()">Copy link</button>
+          <span class="copy-feedback" id="copy-feedback">Copied!</span>
+        </div>
+      `;
+    }
+
+    // ─── GENERIC QUIZ RUNNER (used by both quiz types) ───────────────────────
+    function runQuiz({ questions, mode, state, onSelect, onFinish }) {
+      const runner = document.getElementById('quiz-runner');
+
+      function render() {
+        const q = questions[state.index];
+        const isLiteracy = mode === 'literacy';
+        const selectedIdx = state.selections[state.index];
+        const hasAnswered = selectedIdx !== undefined;
+
+        runner.innerHTML = `
+          <div class="quiz-progress-meta">
+            <span>Question ${state.index + 1} of ${questions.length}</span>
+            ${q.category ? `<span class="cat">${escapeHTML(q.category.replace(/_/g, ' '))}</span>` : ''}
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" style="width: ${((state.index + 1) / questions.length) * 100}%"></div>
+          </div>
+          <h2 class="quiz-question">${escapeHTML(q.question)}</h2>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => {
+              const text = typeof opt === 'string' ? opt : opt.text;
+              let cls = '';
+              if (hasAnswered) {
+                if (isLiteracy) {
+                  if (i === q.correct) cls = 'correct';
+                  else if (i === selectedIdx) cls = 'wrong';
+                  else cls = 'dimmed';
+                } else {
+                  cls = i === selectedIdx ? 'selected' : 'dimmed';
+                }
+              }
+              return `
+                <button class="quiz-option ${cls}" data-index="${i}" ${hasAnswered ? 'disabled' : ''}>
+                  ${escapeHTML(text)}
+                </button>
+              `;
+            }).join('')}
+          </div>
+          ${hasAnswered && isLiteracy ? `
+            <div class="quiz-explanation">
+              <div class="label">Why</div>
+              <p>${escapeHTML(q.explanation)}</p>
+            </div>
+          ` : ''}
+          ${hasAnswered ? `
+            <button class="btn" id="next-btn">
+              ${state.index + 1 >= questions.length ? 'See result →' : 'Next question →'}
+            </button>
+          ` : ''}
+        `;
+
+        // Wire option buttons
+        runner.querySelectorAll('.quiz-option').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const i = parseInt(btn.dataset.index, 10);
+            state.selections[state.index] = i;
+            onSelect(q, i);
+            render();
+          });
+        });
+
+        // Wire next button
+        const nextBtn = document.getElementById('next-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            if (state.index + 1 >= questions.length) {
+              onFinish();
+            } else {
+              state.index++;
+              render();
+            }
+          });
+        }
+      }
+
+      render();
+    }
+
+    // ─── Helpers ─────────────────────────────────────────────────────────────
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+    function copyShareUrl() {
+      const input = document.getElementById('share-url');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        const fb = document.getElementById('copy-feedback');
+        fb.classList.add('show');
+        setTimeout(() => fb.classList.remove('show'), 1500);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "title": "Where do you stand?",
+  "description": "Answer a few questions and we'll plot you on the same scale we use to rate news outlets. Replace these placeholder questions later — the scoring engine will work with any number of questions.",
+  "questions": [
+    {
+      "id": "c1",
+      "question": "PLACEHOLDER — When you read a news story, what matters most to you?",
+      "options": [
+        { "text": "Just the facts, no spin", "weight": { "political": 0, "sensational": -2 } },
+        { "text": "A clear narrative I can follow", "weight": { "political": 0, "sensational": 1 } },
+        { "text": "An emotional connection to the story", "weight": { "political": 0, "sensational": 2 } },
+        { "text": "Different perspectives presented side by side", "weight": { "political": 0, "sensational": -1 } }
+      ]
+    },
+    {
+      "id": "c2",
+      "question": "PLACEHOLDER — Economic inequality is best addressed by:",
+      "options": [
+        { "text": "Stronger redistribution and social programs", "weight": { "political": -2, "sensational": 0 } },
+        { "text": "A mix of market freedom and safety nets", "weight": { "political": 0, "sensational": 0 } },
+        { "text": "Free markets and individual responsibility", "weight": { "political": 2, "sensational": 0 } },
+        { "text": "I don't have a strong view yet", "weight": { "political": 0, "sensational": 0 } }
+      ]
+    },
+    {
+      "id": "c3",
+      "question": "PLACEHOLDER — Which headline style appeals to you more?",
+      "options": [
+        { "text": "'GDP grows 3.2% in second quarter, lifting markets'", "weight": { "political": 0, "sensational": -2 } },
+        { "text": "'Economy ROARS back as markets celebrate massive win!'", "weight": { "political": 0, "sensational": 2 } },
+        { "text": "'Quarterly GDP report shows 3.2% growth, analysts cautious'", "weight": { "political": 0, "sensational": -1 } },
+        { "text": "'What the latest GDP numbers mean for your wallet'", "weight": { "political": 0, "sensational": 1 } }
+      ]
+    },
+    {
+      "id": "c4",
+      "question": "PLACEHOLDER — On most cultural issues, you'd describe yourself as:",
+      "options": [
+        { "text": "Progressive — change is needed", "weight": { "political": -2, "sensational": 0 } },
+        { "text": "Moderate — case by case", "weight": { "political": 0, "sensational": 0 } },
+        { "text": "Conservative — tradition has value", "weight": { "political": 2, "sensational": 0 } },
+        { "text": "Sceptical of all sides", "weight": { "political": 0, "sensational": -1 } }
+      ]
+    },
+    {
+      "id": "c5",
+      "question": "PLACEHOLDER — How do you usually react to a shocking news headline?",
+      "options": [
+        { "text": "Wait for multiple sources before reacting", "weight": { "political": 0, "sensational": -2 } },
+        { "text": "Share it immediately if it matters", "weight": { "political": 0, "sensational": 2 } },
+        { "text": "Read the article first, then decide", "weight": { "political": 0, "sensational": -1 } },
+        { "text": "Check the source's reputation first", "weight": { "political": 0, "sensational": -1 } }
+      ]
+    }
+  ]
+}

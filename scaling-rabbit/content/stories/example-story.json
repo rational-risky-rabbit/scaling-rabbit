@@ -1,0 +1,37 @@
+{
+  "slug": "example-story",
+  "title": "Example: How Different Outlets Cover the Same Story",
+  "date": "2024-06-01",
+  "category": "Template",
+  "summary": "A sample story showing how the same event is framed differently across news sources. Replace this file with your first real story.",
+  "coverages": [
+    {
+      "source_id": "reuters",
+      "headline": "Central bank raises interest rates by 0.25%",
+      "url": "https://reuters.com/example",
+      "excerpt": "The Federal Reserve raised its benchmark interest rate by a quarter percentage point on Wednesday, citing persistent inflation.",
+      "bias_notes": "Neutral language. Focuses on the action and stated reason only. No emotive framing."
+    },
+    {
+      "source_id": "fox",
+      "headline": "Biden's Fed CRUSHES families with another rate hike",
+      "url": "https://foxnews.com/example",
+      "excerpt": "Americans already struggling with Biden's inflation crisis now face higher mortgage and credit card payments after the Fed raised rates again.",
+      "bias_notes": "Attributes policy to a politician. Uses 'CRUSHES' (sensational verb). Frames as crisis rather than policy decision."
+    },
+    {
+      "source_id": "cnn",
+      "headline": "Fed raises rates again as inflation fight continues — here's what it means for you",
+      "url": "https://cnn.com/example",
+      "excerpt": "The Federal Reserve raised interest rates Wednesday in its ongoing effort to bring down inflation, a move that affects everything from your mortgage to your savings account.",
+      "bias_notes": "Personalises impact ('for you'). Mild but slightly clickbait-oriented framing."
+    },
+    {
+      "source_id": "nyt",
+      "headline": "Fed Raises Rates, Signaling Caution Amid Uncertain Economic Outlook",
+      "url": "https://nytimes.com/example",
+      "excerpt": "Federal Reserve officials raised their benchmark interest rate on Wednesday while signaling a more cautious approach as uncertainty about the economic outlook has increased.",
+      "bias_notes": "Factual and measured. Adds context about future signals. No emotive language."
+    }
+  ]
+}
