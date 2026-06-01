@@ -1,84 +1,110 @@
 {
-  "title": "How well can you spot bias?",
-  "description": "A short test of your media literacy. Every question comes with an explanation — the goal is to learn, not to score. Replace these placeholder questions later.",
+  "title": "The News Habit Survey",
+  "description": "A short survey about how you read and share news. There are no right or wrong answers — just pick what you'd actually do.",
   "questions": [
     {
       "id": "L1",
-      "category": "real_vs_fake",
-      "question": "PLACEHOLDER — Which headline is most likely from a reliable news source?",
+      "category": "habit",
+      "question": "You're scrolling and see a headline that matches something you've believed for a long time. What do you do?",
       "options": [
-        "BREAKING: Scientists CONFIRM secret cure suppressed by Big Pharma!!!",
-        "Study finds promising results for new cancer treatment; further trials needed",
-        "You won't BELIEVE what doctors don't want you to know about this fruit",
-        "Exclusive: Government insider REVEALS hidden agenda"
+        "Share it — it confirms what I already know to be true",
+        "Read the article before sharing",
+        "Check who published it and when",
+        "Look for a second source covering the same thing"
       ],
-      "correct": 1,
-      "explanation": "Reliable headlines use specific, measured language. Words like 'CONFIRM', excessive punctuation (!!!), 'you won't believe', and 'secret' are classic signs of clickbait or misinformation. Option B is specific, honest about limitations, and uses no emotive language."
+      "correct": 3,
+      "explanation": "When a headline confirms existing beliefs, that's exactly when your guard should go up — not down. This is called confirmation bias. The most reliable instinct is to look for independent corroboration, not just read the article from the same source."
     },
     {
       "id": "L2",
-      "category": "bias_detection",
-      "question": "PLACEHOLDER — Two outlets cover the same protest. Outlet A calls it a 'rally', Outlet B calls it a 'mob'. What does this tell you?",
+      "category": "habit",
+      "question": "A friend sends you a voice note saying 'I heard that [public figure] said something really controversial'. What's your next move?",
       "options": [
-        "One outlet was at the event and the other wasn't",
-        "The two outlets have different ownership",
-        "Word choice reflects editorial framing and can signal political bias",
-        "One headline is definitely wrong"
+        "Ask which outlet reported it",
+        "Search for the actual quote or video clip",
+        "Trust my friend — they wouldn't make it up",
+        "Share it with a 'is this true?' caption"
       ],
-      "correct": 2,
-      "explanation": "The same event described with different words ('rally' vs 'mob') reveals editorial framing. Neither may be factually wrong, but the word choice carries emotional weight and often reflects the outlet's political lean. This is called 'framing bias'."
+      "correct": 1,
+      "explanation": "Second-hand claims — even from trusted people — are the most common way misinformation spreads. Your friend genuinely believes it. The only reliable move is finding the primary source: the actual quote, clip, or official statement. Paraphrases mutate with every retelling."
     },
     {
       "id": "L3",
-      "category": "critical_thinking",
-      "question": "PLACEHOLDER — A news article says 'Studies show that X causes Y'. What is the FIRST question you should ask?",
+      "category": "habit",
+      "question": "You read two articles about the same government policy. One says it will help millions. The other says it will hurt millions. What do you conclude?",
       "options": [
-        "Which studies? How many? Were they peer-reviewed?",
-        "Do I agree with the conclusion?",
-        "Is this outlet left-wing or right-wing?",
-        "How many likes did this get on social media?"
+        "One of them is lying",
+        "The truth is probably somewhere in the middle",
+        "They may both be selectively accurate — I need to know who each outlet's audience is",
+        "I go with whichever outlet I usually trust"
       ],
-      "correct": 0,
-      "explanation": "Vague references to 'studies' are a red flag. Always ask: which studies, conducted by whom, peer-reviewed or not, how large was the sample. Single studies rarely 'prove' anything."
+      "correct": 2,
+      "explanation": "Both articles can use real statistics and still mislead — by choosing which facts to highlight and which to omit. 'The truth is in the middle' sounds wise but is actually a lazy shortcut. The better question is: what is each outlet's incentive, and what are they not telling me?"
     },
     {
       "id": "L4",
-      "category": "real_vs_fake",
-      "question": "PLACEHOLDER — You see a shocking video clip going viral. What should you do before sharing?",
+      "category": "habit",
+      "question": "An article ends with 'experts say more research is needed'. How does that make you feel about the story?",
       "options": [
-        "Share it immediately — being first matters",
-        "Share it only if it confirms what you already believe",
-        "Check if the clip is verified by at least two established news outlets and look for the full context",
-        "Check how many followers the person who posted it has"
+        "Frustrated — just tell me the answer",
+        "Suspicious — they're hiding something",
+        "Reassured — that's honest journalism acknowledging uncertainty",
+        "Indifferent — I skip those parts"
       ],
       "correct": 2,
-      "explanation": "Clips can be taken out of context, edited, or fabricated. The best practice is to wait for verification from multiple established sources — the 'verification pause'."
+      "explanation": "Acknowledging uncertainty is a sign of credibility, not weakness. The most dangerous articles are the ones that sound completely certain. Science and policy are genuinely complicated — any outlet that never says 'we don't know yet' is simplifying for engagement, not informing you."
     },
     {
       "id": "L5",
-      "category": "bias_detection",
-      "question": "PLACEHOLDER — A headline reads: 'Economy SOARS under current government'. What bias does this most demonstrate?",
+      "category": "habit",
+      "question": "A breaking news alert uses the words 'MASSIVE', 'SHOCKING' and three exclamation marks. Before reading further, what do you notice?",
       "options": [
-        "Confirmation bias",
-        "Selection bias",
-        "Sensationalism combined with political framing",
-        "Reporting bias"
+        "Nothing unusual — all breaking news looks like this",
+        "It's probably important if they're emphasising it that much",
+        "The language is designed to trigger an emotional reaction before I've read a single fact",
+        "I check if it's from a verified account first"
       ],
       "correct": 2,
-      "explanation": "The word 'SOARS' is sensationalist. Combined with political attribution to 'current government', this is a double signal: emotive language plus political credit."
+      "explanation": "Caps, superlatives, and exclamation marks are emotional triggers — they activate your stress response before your critical thinking. This is deliberate. Once you're emotionally activated, you're less likely to question the content. Noticing the technique is the first step to resisting it."
     },
     {
       "id": "L6",
-      "category": "critical_thinking",
-      "question": "PLACEHOLDER — What is 'false balance' in journalism?",
+      "category": "habit",
+      "question": "You notice that every news story about a particular political party on one channel is negative, and every story on another channel is positive. What does this tell you?",
       "options": [
-        "When a journalist makes up quotes",
-        "When an outlet presents two sides equally even when evidence strongly favours one",
-        "When headlines don't match article content",
-        "When a journalist has a financial conflict of interest"
+        "One channel is right and one is wrong",
+        "Both channels are selectively covering events to fit a narrative",
+        "The party must be controversial",
+        "I should watch both channels equally to get the full picture"
       ],
       "correct": 1,
-      "explanation": "False balance (or 'bothsidesism') happens when outlets present fringe or discredited views alongside scientific consensus as if they're equally valid. Balance should reflect the actual weight of evidence."
+      "explanation": "Consistent one-directional coverage — whether positive or negative — is a strong signal of narrative-driven journalism rather than event-driven journalism. Watching both channels equally doesn't fix this; it just exposes you to two competing narratives. The fix is looking for coverage that includes inconvenient facts for its own side."
+    },
+    {
+      "id": "L7",
+      "category": "habit",
+      "question": "An article cites 'sources close to the matter' without naming them. How much weight do you give this?",
+      "options": [
+        "Full weight — journalists protect sources for good reasons",
+        "Some weight — it's a lead worth following up, not a confirmed fact",
+        "No weight — if they can't name the source it didn't happen",
+        "It depends on whether I like the conclusion"
+      ],
+      "correct": 1,
+      "explanation": "Anonymous sourcing is legitimate journalism — whistleblowers exist. But it should lower your confidence, not eliminate it or confirm it. Treat unnamed sources as a signal to look for corroboration, not as proof. The danger is when readers treat 'sources say' as equivalent to 'it is confirmed'."
+    },
+    {
+      "id": "L8",
+      "category": "habit",
+      "question": "A statistic in a headline says 'Crime up 200% in the city'. What's the first question you ask?",
+      "options": [
+        "Which city?",
+        "200% from what baseline — and over what time period?",
+        "Which party is in charge there?",
+        "That sounds serious, I'll share it as a warning"
+      ],
+      "correct": 1,
+      "explanation": "Percentages without a baseline are almost meaningless. If there were 1 incident last year and 3 this year, that's 200% — but it's also statistically noise. The most common way to mislead with true numbers is to choose a starting point that makes a change look dramatic. Always ask: compared to what, and over how long?"
     }
   ]
 }
