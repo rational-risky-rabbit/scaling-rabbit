@@ -6,57 +6,17 @@
   <title>Net Neutral News</title>
   <meta name="description" content="Understand the news without the bias. Compare coverage. Think critically.">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    .section-heading {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(13,13,13,0.4);
-      padding: 0.5rem 0 0.75rem;
-      border-top: 1px solid rgba(13,13,13,0.1);
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .section-heading:first-child { border-top: none; margin-top: 0; }
-    .story-card-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .story-card-row .sources-count {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      color: rgba(13,13,13,0.35);
-      white-space: nowrap;
-      margin-top: 0.25rem;
-      flex-shrink: 0;
-    }
-    .story-card p.summary {
-      color: rgba(13,13,13,0.65);
-      font-size: 0.975rem;
-      margin-top: 0.375rem;
-    }
-    .date-badge {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      color: rgba(13,13,13,0.35);
-      margin-top: 0.25rem;
-    }
-  </style>
 </head>
 <body>
   <div id="navbar-slot"></div>
 
   <div class="container">
-    <div style="max-width:36rem; margin-bottom:4rem;">
-      <p class="eyebrow">Media Literacy Project</p>
+    <div style="max-width:40rem; margin-bottom:4rem; padding-bottom:3rem; border-bottom:1px solid var(--rule);">
+      <p class="eyebrow eyebrow-accent">Media Literacy Project</p>
       <h1 class="hero">One story.<br>Many versions.</h1>
-      <p style="font-size:1.1rem; color:rgba(13,13,13,0.65); line-height:1.7;">
+      <p class="lede">
         We take a single news story and show you how different outlets cover it —
-        and break down what each outlet's framing reveals. No agenda. Just context.
+        then break down what each outlet's framing reveals about their editorial choices.
       </p>
     </div>
 
@@ -71,36 +31,31 @@
   <script>
     renderSiteChrome('home');
 
-    // Category display order
     const CATEGORY_ORDER = ['Geopolitical', 'Economy', 'Maharashtra', 'Mumbai', 'Template'];
 
     (async function () {
       const listEl = document.getElementById('stories-list');
       try {
         const slugs = await loadJSON('stories/index.json');
-        console.log('Loaded index, slugs:', slugs);
+        console.log('Loaded slugs:', slugs);
 
         if (!slugs.length) {
           listEl.innerHTML = '<p class="empty">No stories yet.</p>';
           return;
         }
 
-        // Load each story individually — one failure won't kill the rest
         const results = await Promise.allSettled(
           slugs.map(s => loadJSON('stories/' + s + '.json'))
         );
 
         const stories = results
           .map((r, i) => {
-            if (r.status === 'rejected') {
-              console.warn('Failed to load story:', slugs[i], r.reason);
-              return null;
-            }
+            if (r.status === 'rejected') { console.warn('Failed:', slugs[i], r.reason); return null; }
             return r.value;
           })
           .filter(Boolean);
 
-        console.log('Loaded stories:', stories.length);
+        console.log('Stories loaded:', stories.length);
 
         if (!stories.length) {
           listEl.innerHTML = '<p class="empty">No stories could be loaded.</p>';
@@ -109,7 +64,6 @@
 
         stories.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        // Group by category
         const grouped = {};
         for (const s of stories) {
           const cat = s.category || 'Other';
@@ -117,30 +71,36 @@
           grouped[cat].push(s);
         }
 
-        // Render in order
         const cats = [
           ...CATEGORY_ORDER.filter(c => grouped[c]),
           ...Object.keys(grouped).filter(c => !CATEGORY_ORDER.includes(c))
         ];
 
         listEl.innerHTML = cats.map(cat => `
-          <div class="section-heading">${escapeHTML(cat)}</div>
+          <div class="section-divider">
+            <span class="section-divider-label">${escapeHTML(cat)}</span>
+            <span class="section-divider-rule"></span>
+          </div>
           ${grouped[cat].map(s => `
             <a class="story-card" href="/news/?slug=${encodeURIComponent(s.slug)}">
-              <div class="story-card-row">
-                <div>
+              <div class="story-card-inner">
+                <div style="flex:1;">
                   <h2>${escapeHTML(s.title)}</h2>
                   <p class="summary">${escapeHTML(s.summary)}</p>
-                  <p class="date-badge">${formatDate(s.date)}</p>
+                  <div class="meta">
+                    <span>${formatDate(s.date)}</span>
+                    <span class="dot">·</span>
+                    <span>${(s.coverages || []).length} sources compared</span>
+                  </div>
                 </div>
-                <span class="sources-count">${(s.coverages || []).length} sources →</span>
+                <span class="source-count">${(s.coverages || []).length} sources →</span>
               </div>
             </a>
           `).join('')}
         `).join('');
 
       } catch(err) {
-        console.error('Story loader error:', err);
+        console.error('Loader error:', err);
         listEl.innerHTML = '<p class="empty">Error: ' + escapeHTML(err.message) + '</p>';
       }
     })();
