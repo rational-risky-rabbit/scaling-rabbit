@@ -1,56 +1,207 @@
 {
-  "title": "Where do you stand?",
-  "description": "Answer a few questions and we'll plot you on the same scale we use to rate news outlets. Replace these placeholder questions later — the scoring engine will work with any number of questions.",
+  "title": "How do you see the world?",
+  "description": "Rate how much you agree or disagree with each statement. There are no right or wrong answers. Answer instinctively — your first reaction is usually the most honest one.",
+  "format": "likert",
+  "axes": {
+    "lib_auth": {
+      "name": "Individual Freedom vs State Authority",
+      "low_label": "Libertarian",
+      "high_label": "Authoritarian"
+    },
+    "econ": {
+      "name": "Economic Control",
+      "low_label": "Laissez-faire",
+      "high_label": "State-directed"
+    },
+    "info": {
+      "name": "Information Processing",
+      "low_label": "Factual / Analytical",
+      "high_label": "Emotional / Instinctive"
+    }
+  },
   "questions": [
+
     {
-      "id": "c1",
-      "question": "PLACEHOLDER — When you read a news story, what matters most to you?",
-      "options": [
-        { "text": "Just the facts, no spin", "weight": { "political": 0, "sensational": -2 } },
-        { "text": "A clear narrative I can follow", "weight": { "political": 0, "sensational": 1 } },
-        { "text": "An emotional connection to the story", "weight": { "political": 0, "sensational": 2 } },
-        { "text": "Different perspectives presented side by side", "weight": { "political": 0, "sensational": -1 } }
-      ]
+      "id": "LA01",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "A strong leader who can act quickly is more important than slow democratic processes."
     },
     {
-      "id": "c2",
-      "question": "PLACEHOLDER — Economic inequality is best addressed by:",
-      "options": [
-        { "text": "Stronger redistribution and social programs", "weight": { "political": -2, "sensational": 0 } },
-        { "text": "A mix of market freedom and safety nets", "weight": { "political": 0, "sensational": 0 } },
-        { "text": "Free markets and individual responsibility", "weight": { "political": 2, "sensational": 0 } },
-        { "text": "I don't have a strong view yet", "weight": { "political": 0, "sensational": 0 } }
-      ]
+      "id": "LA02",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "The government should be able to monitor private communications if it helps prevent crime."
     },
     {
-      "id": "c3",
-      "question": "PLACEHOLDER — Which headline style appeals to you more?",
-      "options": [
-        { "text": "'GDP grows 3.2% in second quarter, lifting markets'", "weight": { "political": 0, "sensational": -2 } },
-        { "text": "'Economy ROARS back as markets celebrate massive win!'", "weight": { "political": 0, "sensational": 2 } },
-        { "text": "'Quarterly GDP report shows 3.2% growth, analysts cautious'", "weight": { "political": 0, "sensational": -1 } },
-        { "text": "'What the latest GDP numbers mean for your wallet'", "weight": { "political": 0, "sensational": 1 } }
-      ]
+      "id": "LA03",
+      "axis": "lib_auth",
+      "direction": -1,
+      "statement": "People should be free to say things that most of society finds offensive."
     },
     {
-      "id": "c4",
-      "question": "PLACEHOLDER — On most cultural issues, you'd describe yourself as:",
-      "options": [
-        { "text": "Progressive — change is needed", "weight": { "political": -2, "sensational": 0 } },
-        { "text": "Moderate — case by case", "weight": { "political": 0, "sensational": 0 } },
-        { "text": "Conservative — tradition has value", "weight": { "political": 2, "sensational": 0 } },
-        { "text": "Sceptical of all sides", "weight": { "political": 0, "sensational": -1 } }
-      ]
+      "id": "LA04",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "National security is more important than individual privacy."
     },
     {
-      "id": "c5",
-      "question": "PLACEHOLDER — How do you usually react to a shocking news headline?",
-      "options": [
-        { "text": "Wait for multiple sources before reacting", "weight": { "political": 0, "sensational": -2 } },
-        { "text": "Share it immediately if it matters", "weight": { "political": 0, "sensational": 2 } },
-        { "text": "Read the article first, then decide", "weight": { "political": 0, "sensational": -1 } },
-        { "text": "Check the source's reputation first", "weight": { "political": 0, "sensational": -1 } }
-      ]
+      "id": "LA05",
+      "axis": "lib_auth",
+      "direction": -1,
+      "statement": "Citizens should always have the right to protest, even if it disrupts daily life."
+    },
+    {
+      "id": "LA06",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "Some information is too dangerous for the general public and should be restricted."
+    },
+    {
+      "id": "LA07",
+      "axis": "lib_auth",
+      "direction": -1,
+      "statement": "No government should have the power to shut down the internet, even temporarily."
+    },
+    {
+      "id": "LA08",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "It is reasonable for the government to require citizens to carry identification at all times."
+    },
+    {
+      "id": "LA09",
+      "axis": "lib_auth",
+      "direction": -1,
+      "statement": "People should be able to choose their own lifestyle without societal or legal judgement."
+    },
+    {
+      "id": "LA10",
+      "axis": "lib_auth",
+      "direction": 1,
+      "statement": "Courts should hand down harsher sentences to deter crime, even for first-time offenders."
+    },
+
+    {
+      "id": "EC01",
+      "axis": "econ",
+      "direction": 1,
+      "statement": "Essential services like water, electricity, and railways should be owned and run by the government."
+    },
+    {
+      "id": "EC02",
+      "axis": "econ",
+      "direction": -1,
+      "statement": "The free market, left alone, generally produces better outcomes than government intervention."
+    },
+    {
+      "id": "EC03",
+      "axis": "econ",
+      "direction": 1,
+      "statement": "The government should set maximum prices on essential goods during a crisis."
+    },
+    {
+      "id": "EC04",
+      "axis": "econ",
+      "direction": -1,
+      "statement": "Reducing taxes and regulations is the best way to create jobs."
+    },
+    {
+      "id": "EC05",
+      "axis": "econ",
+      "direction": 1,
+      "statement": "Universal basic income funded by taxpayers is a good idea for a modern economy."
+    },
+    {
+      "id": "EC06",
+      "axis": "econ",
+      "direction": -1,
+      "statement": "Private hospitals and schools generally provide better quality than government ones."
+    },
+    {
+      "id": "EC07",
+      "axis": "econ",
+      "direction": 1,
+      "statement": "Large corporations should be taxed heavily to fund public welfare."
+    },
+    {
+      "id": "EC08",
+      "axis": "econ",
+      "direction": -1,
+      "statement": "If a government-run company is inefficient, it should be privatised rather than reformed."
+    },
+    {
+      "id": "EC09",
+      "axis": "econ",
+      "direction": 1,
+      "statement": "The wealth gap is primarily a failure of government policy, not individual effort."
+    },
+    {
+      "id": "EC10",
+      "axis": "econ",
+      "direction": -1,
+      "statement": "Entrepreneurs who take risks and build businesses deserve to keep the majority of their profits."
+    },
+
+    {
+      "id": "IF01",
+      "axis": "info",
+      "direction": 1,
+      "statement": "When I read a news story, my emotional reaction usually tells me whether it is true."
+    },
+    {
+      "id": "IF02",
+      "axis": "info",
+      "direction": -1,
+      "statement": "I would change my opinion on an issue if I saw strong enough data contradicting it."
+    },
+    {
+      "id": "IF03",
+      "axis": "info",
+      "direction": 1,
+      "statement": "An article with a personal, emotional story is more convincing than one filled with statistics."
+    },
+    {
+      "id": "IF04",
+      "axis": "info",
+      "direction": -1,
+      "statement": "I regularly read news from sources I disagree with."
+    },
+    {
+      "id": "IF05",
+      "axis": "info",
+      "direction": 1,
+      "statement": "If most people around me believe something, it is probably true."
+    },
+    {
+      "id": "IF06",
+      "axis": "info",
+      "direction": -1,
+      "statement": "Before forming an opinion on a new topic, I try to find at least three independent sources."
+    },
+    {
+      "id": "IF07",
+      "axis": "info",
+      "direction": 1,
+      "statement": "I am more likely to share a news article if the headline makes me feel angry or excited."
+    },
+    {
+      "id": "IF08",
+      "axis": "info",
+      "direction": -1,
+      "statement": "I can usually tell the difference between an opinion column and a factual news report."
+    },
+    {
+      "id": "IF09",
+      "axis": "info",
+      "direction": 1,
+      "statement": "A confident, decisive speaker is usually more trustworthy than someone who qualifies every statement."
+    },
+    {
+      "id": "IF10",
+      "axis": "info",
+      "direction": -1,
+      "statement": "I have changed my mind on an important issue in the last two years because of new evidence."
     }
   ]
 }
