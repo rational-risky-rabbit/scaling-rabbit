@@ -9,10 +9,10 @@
 <body>
   <div id="navbar-slot"></div>
 
-  <div class="container">
+  <div class="container-narrow">
     <a class="back-link" href="/">← All stories</a>
     <div id="story-content">
-      <p class="empty">Loading story…</p>
+      <p class="empty">Loading…</p>
     </div>
   </div>
 
@@ -27,33 +27,28 @@
       const slug = params.get('slug');
       const el = document.getElementById('story-content');
 
-      if (!slug) {
-        el.innerHTML = '<p class="empty">No story specified.</p>';
-        return;
-      }
+      if (!slug) { el.innerHTML = '<p class="empty">No story specified.</p>'; return; }
 
       try {
         const [story, sources] = await Promise.all([
-          loadJSON(`stories/${slug}.json`),
+          loadJSON('stories/' + slug + '.json'),
           loadJSON('sources/sources.json'),
         ]);
         document.title = story.title + ' · Net Neutral News';
 
-        const sourceMap = Object.fromEntries(sources.map((s) => [s.id, s]));
+        const sourceMap = Object.fromEntries(sources.map(s => [s.id, s]));
 
         el.innerHTML = `
           <header class="story-header">
-            <div class="story-meta">
-              <span class="category">${escapeHTML(story.category)}</span>
-              <span class="date">${formatDate(story.date)}</span>
-            </div>
+            <div class="kicker">${escapeHTML(story.category)}</div>
             <h1>${escapeHTML(story.title)}</h1>
-            <p class="story-summary-large">${escapeHTML(story.summary)}</p>
+            <p class="standfirst">${escapeHTML(story.summary)}</p>
+            <div class="meta">${formatDate(story.date)} &nbsp;·&nbsp; ${story.coverages.length} sources compared</div>
           </header>
 
-          <h2 class="section-label">How each outlet covered it</h2>
+          <p class="coverage-section-label">How each outlet covered it</p>
 
-          ${story.coverages.map((c) => {
+          ${story.coverages.map(c => {
             const src = sourceMap[c.source_id];
             if (!src) return '';
             const pct = biasToPercent(src.bias.political);
@@ -66,32 +61,32 @@
                   </div>
                   <div class="bias-indicator">
                     <div class="bias-bar-header">
-                      <span class="lbl">Political Lean</span>
+                      <span class="lbl">Political lean</span>
                       <span class="val">${biasLabel(src.bias.political)}</span>
                     </div>
                     <div class="bias-bar">
-                      <div class="bias-marker" style="left: ${pct}%"></div>
+                      <div class="bias-marker" style="left:${pct}%"></div>
                     </div>
                   </div>
                 </div>
-                <h3 class="coverage-headline">&ldquo;${escapeHTML(c.headline)}&rdquo;</h3>
+                <h3 class="coverage-headline">\u201c${escapeHTML(c.headline)}\u201d</h3>
                 <p class="coverage-excerpt">${escapeHTML(c.excerpt)}</p>
                 <div class="bias-notes">
-                  <div class="bias-notes-label">Editorial Analysis</div>
+                  <div class="bias-notes-label">Editorial analysis</div>
                   <p class="bias-notes-text">${escapeHTML(c.bias_notes)}</p>
                 </div>
-                ${c.url ? `<a class="read-original" href="${escapeHTML(c.url)}" target="_blank" rel="noopener noreferrer">Read original →</a>` : ''}
+                ${c.url ? `<a class="read-original" href="${escapeHTML(c.url)}" target="_blank" rel="noopener noreferrer">Read original article →</a>` : ''}
               </div>
             `;
           }).join('')}
 
           <div class="reflection">
-            <p class="eyebrow" style="color: var(--accent);">Think about it</p>
-            <h3>Which version did you find most trustworthy? <span class="quiet">And — more importantly — why?</span></h3>
+            <p class="kicker">Think about it</p>
+            <h3>Which version did you find most trustworthy? <span class="quiet">And — why?</span></h3>
             <a class="btn" href="/quiz/">Test your media literacy →</a>
           </div>
         `;
-      } catch (err) {
+      } catch(err) {
         console.error(err);
         el.innerHTML = '<p class="empty">Story not found.</p>';
       }
