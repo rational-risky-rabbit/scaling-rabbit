@@ -2,17 +2,17 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────── */
 :root {
-  --ink:         #111111;
-  --ink-2:       #444444;
-  --ink-3:       #888888;
-  --ink-4:       #BBBBBB;
-  --paper:       #FAFAF8;
-  --paper-2:     #F3F3F0;
-  --paper-3:     #E8E8E4;
-  --accent:      #B22222;       /* deep red — classic broadsheet */
-  --accent-2:    #8B1A1A;
-  --rule:        #DDDDD8;
-
+--ink:         #0a0a14;
+--ink-2:       #2d3a5c;
+--ink-3:       #6b7a99;
+--ink-4:       #a8b4cc;
+--paper:       #f5f7fc;
+--paper-2:     #edf0f7;
+--paper-3:     #dde3f0;
+--accent:      #1a56db;
+--accent-2:    #1340a8;
+--rule:        #d0d8ec;
+  
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
   --font-body:    'Lora', 'Georgia', serif;
   --font-ui:      'Inter', system-ui, sans-serif;
@@ -112,7 +112,7 @@ h1.hero {
 }
 .section-divider-label {
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
