@@ -1,0 +1,30 @@
+{
+  "slug": "maharashtra-civic-polls-2026",
+  "title": "Maharashtra Civic Polls: CM Fadnavis Says Elections Will Happen on Time",
+  "date": "2026-06-02",
+  "category": "Maharashtra",
+  "summary": "Chief Minister Devendra Fadnavis has reaffirmed that long-delayed municipal corporation elections across Maharashtra will be held as scheduled, amid sustained pressure from the opposition over the delays.",
+  "coverages": [
+    {
+      "source_id": "ndtv",
+      "headline": "Maharashtra Civic Polls to Be Held on Time, Says CM Devendra Fadnavis",
+      "url": "https://www.newsonair.gov.in/maharashtra-civic-polls-to-be-held-on-time-says-cm-devendra-fadnavis/",
+      "excerpt": "Chief Minister Fadnavis reaffirms commitment to holding long-delayed municipal corporation elections as scheduled, amid political pressure from opposition.",
+      "bias_notes": "Accurate reporting of the CM's statement. Note that the headline simply repeats the government's claim without independently verifying whether elections are actually on track. 'Says CM' is technically attribution, but the story does not include any counter-voice questioning the claim."
+    },
+    {
+      "source_id": "thehindu",
+      "headline": "Maharashtra Civic Polls: Fadnavis Assurance Comes Amid Opposition Demand for Timeline",
+      "url": "https://www.thehindu.com",
+      "excerpt": "CM Fadnavis's reaffirmation that municipal elections will be held on time follows intensified pressure from Congress and Shiv Sena (UBT), who have accused the state government of deliberately delaying polls to avoid accountability.",
+      "bias_notes": "Adds the opposition's framing — that delays are deliberate rather than administrative. Whether that's true is contested, but including it gives readers a fuller picture. Note this framing is more critical of the ruling party, consistent with The Hindu's editorial lean."
+    },
+    {
+      "source_id": "republicworld",
+      "headline": "CM Fadnavis Commits to On-Time Elections — Opposition's Doom Narrative Exposed",
+      "url": "https://www.republicworld.com",
+      "excerpt": "Chief Minister Fadnavis has firmly committed to holding civic polls on schedule, decisively refuting opposition attempts to manufacture a political crisis over the issue.",
+      "bias_notes": "'Doom narrative' and 'manufacture a political crisis' are editorial insertions framing the opposition's position as dishonest. The word 'decisively' is a value judgement. This is the same basic news event as the NDTV story, but now weaponised as a partisan talking point."
+    }
+  ]
+}

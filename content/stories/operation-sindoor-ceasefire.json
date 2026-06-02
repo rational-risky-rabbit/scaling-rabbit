@@ -1,0 +1,30 @@
+{
+  "slug": "operation-sindoor-ceasefire",
+  "title": "Operation Sindoor Ceasefire: Did India Stop Too Soon or at the Right Moment?",
+  "date": "2026-06-02",
+  "category": "Geopolitical",
+  "summary": "A Swiss defence report concluded India's air superiority coerced Pakistan into a ceasefire after Operation Sindoor. The finding has reignited debate over India's strategic signalling and whether the ceasefire serves India's long-term security interests.",
+  "coverages": [
+    {
+      "source_id": "theprint",
+      "headline": "Operation Sindoor Ceasefire Analysis: Knowing When to Stop the Fight",
+      "url": "https://theprint.in/national-interest/operation-sindoor-ceasefire-india-pakistan/2841384/",
+      "excerpt": "A Swiss defence report concluded India's air superiority 'coerced' Pakistan into a ceasefire, reigniting debate over India's strategic signalling and the durability of the current peace.",
+      "bias_notes": "Uses the word 'coerced' in quotes — attributing it to the Swiss report rather than endorsing it. The headline frames it as a strategic question ('knowing when to stop') rather than a victory, which is analytically honest. The Print is generally more policy-analytical than pro-government on defence."
+    },
+    {
+      "source_id": "republicworld",
+      "headline": "India's Air Dominance FORCED Pakistan to Beg for Ceasefire: Swiss Report Confirms",
+      "url": "https://www.republicworld.com",
+      "excerpt": "A landmark Swiss defence assessment has confirmed what India always knew — that Pakistan had no choice but to seek a ceasefire after India's overwhelming air superiority crushed its defences.",
+      "bias_notes": "Caps and emotive verbs ('FORCED', 'Beg', 'crushed') turn a measured foreign report into a victory narrative. 'Confirms what India always knew' is an editorial claim inserted as fact. This is a textbook example of sensationalism amplifying a real story."
+    },
+    {
+      "source_id": "thewire",
+      "headline": "After Operation Sindoor: Is the Ceasefire a Strategic Pause or a Durable Peace?",
+      "url": "https://thewire.in",
+      "excerpt": "Analysts caution that while India achieved tactical air superiority, the underlying tensions driving India-Pakistan conflict remain unresolved — raising questions about the ceasefire's sustainability.",
+      "bias_notes": "Leads with doubt rather than achievement. Uses 'analysts caution' — a framing device that can introduce scepticism without attribution. The Wire consistently frames India's military actions as incomplete or problematic, which is the mirror image of Republic World's triumphalism."
+    }
+  ]
+}

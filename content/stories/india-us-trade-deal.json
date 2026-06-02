@@ -1,0 +1,30 @@
+{
+  "slug": "india-us-trade-deal",
+  "title": "India-US Trade Deal: First Tranche Days Away from Signing",
+  "date": "2026-06-02",
+  "category": "Geopolitical",
+  "summary": "Commerce Minister Piyush Goyal declared all major points settled on the first tranche of a landmark India-US bilateral trade deal. Formal talks continue June 2–4, with India committed to purchasing $500 billion in US goods over five years.",
+  "coverages": [
+    {
+      "source_id": "republicworld",
+      "headline": "India-US Trade Pact to Signal US Tariff Modifications: Piyush Goyal",
+      "url": "https://www.republicworld.com/business/india-us-trade-pact-to-signal-us-tariffs-modifications-commerce-minister-piyush-goyal-2026-06-01-126505",
+      "excerpt": "Commerce Minister Goyal confirms all major points settled; officials from both sides continue talks June 2–4 to finalise the first tranche.",
+      "bias_notes": "Frames the deal as a clear win with no caveats. Uses Goyal's statement directly without seeking opposition or independent economic analysis. Headline emphasises India's agency ('to signal') in a positive framing."
+    },
+    {
+      "source_id": "indianexpress",
+      "headline": "India-US Trade Deal to Reflect Washington's Tariff Changes",
+      "url": "https://www.business-standard.com/economy/news/india-us-trade-deal-to-reflect-washington-tariff-changes-piyush-goyal-126060101464_1.html",
+      "excerpt": "Piyush Goyal says the imminent deal will formally embed US tariff modifications, with India committed to purchasing $500B in US goods over five years.",
+      "bias_notes": "More factual framing — note the headline leads with what India must concede ('reflect Washington's tariff changes') rather than what India gains. A subtle but meaningful difference in emphasis from Republic World's version."
+    },
+    {
+      "source_id": "theprint",
+      "headline": "All Major Points Settled on India-US Trade Deal, Officials to Meet June 2–4",
+      "url": "https://theprint.in",
+      "excerpt": "The first tranche of a historic bilateral deal announced in February by Modi and Trump is now days away from formal signing, covering tariffs, market access, and investment norms.",
+      "bias_notes": "Closest to wire-service neutrality. Attributes the claim to officials without amplifying it. Includes the February origin point — giving readers historical context rather than treating this as a sudden breakthrough."
+    }
+  ]
+}

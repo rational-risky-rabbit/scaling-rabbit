@@ -1,0 +1,30 @@
+{
+  "slug": "rafale-deal-2026",
+  "title": "India Sends Formal Request to France for 114 Rafale Jets",
+  "date": "2026-06-02",
+  "category": "Geopolitical",
+  "summary": "India has formally initiated the procurement process for 114 Rafale fighter jets worth approximately ₹3.25 lakh crore, with 94 to be manufactured domestically. PM Modi's upcoming France visit is expected to advance negotiations.",
+  "coverages": [
+    {
+      "source_id": "ani",
+      "headline": "Modi Govt Sends Letter of Request to France for 114 Rafale Jets — Rs 3.25 Lakh Crore Deal",
+      "url": "https://www.india.com/news/india/modi-government-rafale-dassault-aviation-indian-air-force-france-emmanuel-macron-narendra-modi-indian-navy-rajnath-singh-defence-ministry-air-chief-marshall-ap-singh-8433087/",
+      "excerpt": "India has formally initiated the process to procure 114 Rafale jets, with 94 to be manufactured in India; PM Modi's upcoming France visit expected to advance talks.",
+      "bias_notes": "Attributes the deal directly to the 'Modi Govt' in the headline — a political attribution for what is a defence ministry process. Leads with the rupee figure (₹3.25 lakh crore) as the first detail, which emphasises scale but not strategic rationale."
+    },
+    {
+      "source_id": "thehindu",
+      "headline": "India Issues Request for Proposal for 114 Multi-Role Fighter Aircraft",
+      "url": "https://www.thehindu.com",
+      "excerpt": "The Defence Ministry has issued a formal Letter of Request to Dassault Aviation for 114 Rafale jets under the Make in India framework, with deliveries expected over a decade.",
+      "bias_notes": "Attributes the action to the Defence Ministry — the correct institutional actor — rather than the PM. Uses technical language ('Letter of Request', 'Make in India framework') that adds context. Includes the delivery timeline, which the other outlets omit."
+    },
+    {
+      "source_id": "indianexpress",
+      "headline": "114 Rafales: What India Gets, What It Pays, and What It Has to Build",
+      "url": "https://www.indianexpress.com",
+      "excerpt": "The deal, if finalised, would be one of India's largest defence procurements, with 94 jets to be built domestically — a significant test of India's defence manufacturing ambitions.",
+      "bias_notes": "Takes an explainer approach rather than a news-breaking one. The headline asks three questions that frame the deal as having tradeoffs — a more sceptical and analytical posture than outlets simply reporting the announcement."
+    }
+  ]
+}

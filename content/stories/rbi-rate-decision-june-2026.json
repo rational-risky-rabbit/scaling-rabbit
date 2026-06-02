@@ -1,0 +1,30 @@
+{
+  "slug": "rbi-rate-decision-june-2026",
+  "title": "RBI MPC Meet June 3–5: Will Repo Rate Hold at 5.25%?",
+  "date": "2026-06-02",
+  "category": "Economy",
+  "summary": "The Reserve Bank of India's Monetary Policy Committee meets June 3–5 with markets widely expecting rates to hold at 5.25%. Crude oil prices and sticky inflation are the key factors. The decision is announced June 5.",
+  "coverages": [
+    {
+      "source_id": "reuters",
+      "headline": "RBI Expected to Hold Rates at 5.25% as Inflation Stays Elevated",
+      "url": "https://www.reuters.com",
+      "excerpt": "The Reserve Bank of India is widely expected to keep its benchmark lending rate unchanged at 5.25% when the monetary policy committee concludes its three-day meeting on June 5, with inflation remaining the primary concern.",
+      "bias_notes": "Wire-service neutrality. States the consensus expectation without amplifying it. Uses 'widely expected' — correctly attributing the prediction to market consensus rather than stating it as fact."
+    },
+    {
+      "source_id": "timesofindia",
+      "headline": "RBI Rate Decision June 5: What It Means for Your Home Loan, FD, and EMI",
+      "url": "https://www.newsx.com/business/rbi-mpc-meet-2026-will-repo-rate-stay-at-525-traders-watch-policy-verdict-closely-governor-sanjay-malhotra-228811/",
+      "excerpt": "Markets expect the RBI to hold rates steady at 5.25% amid inflation concerns tied to crude oil prices; announcement due June 5.",
+      "bias_notes": "Personalises a macro policy story ('your home loan', 'your EMI') — a common TOI technique to drive clicks from retail readers. Nothing factually wrong, but the frame shifts focus from the policy decision to its consumer impact before it has even happened."
+    },
+    {
+      "source_id": "thehindu",
+      "headline": "MPC Meet: RBI Faces Inflation-Growth Dilemma as Crude Prices Weigh on Outlook",
+      "url": "https://www.thehindu.com",
+      "excerpt": "The central bank faces competing pressures — sticky core inflation on one side, a slowing consumption growth rate on the other — making this MPC meeting more consequential than the expected hold suggests.",
+      "bias_notes": "Contextualises the decision as a genuine dilemma rather than a foregone conclusion. Points to 'sticky core inflation' and 'slowing consumption' — both real data points — giving readers more analytical depth than outlets that simply report the consensus expectation."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "mumbai-monsoon-2026",
+  "title": "Mumbai Monsoon 2026: Arrival Expected Around June 5",
+  "date": "2026-06-02",
+  "category": "Mumbai",
+  "summary": "The IMD has forecast the southwest monsoon to reach Mumbai around June 5–6. Early signals suggest it may arrive ahead of schedule after hitting Kerala. Moderate to heavy initial showers are expected.",
+  "coverages": [
+    {
+      "source_id": "thehindu",
+      "headline": "Southwest Monsoon Advances; Mumbai Landfall Expected by June 5–6",
+      "url": "https://www.thehindu.com",
+      "excerpt": "The India Meteorological Department has forecast the southwest monsoon's arrival in Mumbai around June 5–6, after the system made landfall in Kerala ahead of schedule.",
+      "bias_notes": "Standard factual reporting. Attributes the forecast correctly to IMD. No sensationalism — does not overstate certainty about arrival timing, which is inherently unpredictable."
+    },
+    {
+      "source_id": "timesofindia",
+      "headline": "Mumbai Monsoon 2026: Is Rain Arriving EARLIER Than Expected This Year?",
+      "url": "https://www.freepressjournal.in/mumbai/mumbai-monsoon-2026-date-imd-forecasts-rains-to-arrive-in-city-around-june-5",
+      "excerpt": "Early signals suggest the monsoon's progression through Maharashtra may be faster than usual this year, potentially hitting Mumbai ahead of the June 5 forecast.",
+      "bias_notes": "The question-mark headline ('Is Rain Arriving EARLIER?') is a classic clickbait format — asking a question the article doesn't fully answer to generate curiosity clicks. The caps on 'EARLIER' amplifies urgency. The same IMD data is used, just packaged to feel more dramatic."
+    },
+    {
+      "source_id": "indianexpress",
+      "headline": "Monsoon Watch: What the IMD Forecast Means for Mumbai's Water Reservoirs",
+      "url": "https://www.indianexpress.com",
+      "excerpt": "Beyond the arrival date, water resource officials are watching monsoon intensity closely — Mumbai's reservoirs are currently at 18% capacity, making this season's rainfall critical for the city's water security through 2027.",
+      "bias_notes": "Adds the reservoir angle — a detail other outlets missed that makes the story more consequential. This is good contextual journalism: same event, more informative frame. Shows that editorial choices about what to include are as important as what to report."
+    }
+  ]
+}
