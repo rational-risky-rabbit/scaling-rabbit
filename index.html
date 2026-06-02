@@ -78,12 +78,35 @@
       const listEl = document.getElementById('stories-list');
       try {
         const slugs = await loadJSON('stories/index.json');
+        console.log('Loaded index, slugs:', slugs);
+
         if (!slugs.length) {
           listEl.innerHTML = '<p class="empty">No stories yet.</p>';
           return;
         }
 
-        const stories = await Promise.all(slugs.map(s => loadJSON('stories/' + s + '.json')));
+        // Load each story individually — one failure won't kill the rest
+        const results = await Promise.allSettled(
+          slugs.map(s => loadJSON('stories/' + s + '.json'))
+        );
+
+        const stories = results
+          .map((r, i) => {
+            if (r.status === 'rejected') {
+              console.warn('Failed to load story:', slugs[i], r.reason);
+              return null;
+            }
+            return r.value;
+          })
+          .filter(Boolean);
+
+        console.log('Loaded stories:', stories.length);
+
+        if (!stories.length) {
+          listEl.innerHTML = '<p class="empty">No stories could be loaded.</p>';
+          return;
+        }
+
         stories.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         // Group by category
@@ -117,8 +140,8 @@
         `).join('');
 
       } catch(err) {
-        console.error(err);
-        listEl.innerHTML = '<p class="empty">Failed to load stories.</p>';
+        console.error('Story loader error:', err);
+        listEl.innerHTML = '<p class="empty">Error: ' + escapeHTML(err.message) + '</p>';
       }
     })();
   </script>
