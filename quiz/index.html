@@ -62,49 +62,84 @@
     }
     .likert-next-row { text-align: center; }
 
-    /* Radar result */
-    .radar-wrapper {
-      max-width: 28rem;
-      margin: 0 auto 2rem;
+    /* Result card */
+    .result-card-wrapper { max-width: 480px; margin: 0 auto 2rem; }
+    .result-card {
+      background: #0D0D0D;
+      border-radius: 1rem;
+      padding: 2rem;
+      color: #F5F0E8;
+      position: relative;
+      overflow: hidden;
     }
-    .radar-wrapper svg { width: 100%; height: auto; }
-    .axis-result {
+    .result-card .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+    }
+    .result-card .brand span { color: #C8392B; }
+    .result-card canvas {
+      display: block;
+      margin: 0 auto 1.5rem;
+    }
+    .result-card .axis-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(13,13,13,0.1);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(245,240,232,0.1);
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
-    .axis-result .axis-name { font-weight: 600; }
-    .axis-result .axis-value { color: rgba(13,13,13,0.6); }
-    .axis-bar-track {
+    .result-card .axis-low { opacity: 0.5; min-width: 5.5rem; }
+    .result-card .axis-high { opacity: 0.5; min-width: 5.5rem; text-align: right; }
+    .result-card .axis-val {
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-align: center;
       flex: 1;
-      height: 6px;
-      background: var(--mist);
+    }
+    .result-card .axis-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(245,240,232,0.15);
       border-radius: 9999px;
-      margin: 0 1rem;
+      margin: 0 0.5rem;
       position: relative;
     }
-    .axis-bar-fill {
+    .result-card .axis-bar-center {
+      position: absolute;
+      left: 50%; top: -2px;
+      width: 1px; height: 8px;
+      background: rgba(245,240,232,0.3);
+    }
+    .result-card .axis-bar-fill {
       height: 100%;
       border-radius: 9999px;
-      background: var(--accent);
       transition: width 0.5s;
     }
-    .axis-bar-center {
-      position: absolute;
-      left: 50%;
-      top: -3px;
-      width: 1px;
-      height: 12px;
-      background: rgba(13,13,13,0.3);
+    .result-card .footer-note {
+      margin-top: 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      opacity: 0.3;
+      text-align: center;
     }
+    .save-actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 640px) {
       .likert-statement { font-size: 1.25rem; }
       .likert-btn { min-width: 3.5rem; padding: 0.5rem 0.5rem; }
       .likert-btn .label { font-size: 0.6rem; }
+      .result-card { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -125,7 +160,7 @@
           <h2>How do you see the world?</h2>
           <p>
             30 statements about governance, economics, and how you process
-            information. We plot your position on three independent axes.
+            information. We plot your position on three independent scales.
           </p>
           <div id="compass-last-result" style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; color: rgba(13,13,13,0.4);"></div>
         </a>
@@ -158,7 +193,6 @@
   <script>
     renderSiteChrome('quiz');
 
-    // Show previous results
     try {
       const lastLit = localStorage.getItem('nnn_literacy_result');
       const lastCmp = localStorage.getItem('nnn_compass_result');
@@ -196,12 +230,11 @@
       document.getElementById('quiz-title').textContent = data.title;
       document.getElementById('quiz-description').textContent = data.description;
 
-      // Shuffle questions to avoid order bias
       const shuffled = [...data.questions].sort(() => Math.random() - 0.5);
 
       const state = {
         index: 0,
-        answers: {},  // id → likert value (-2..+2)
+        answers: {},
         axes: data.axes,
         questions: shuffled,
       };
@@ -226,13 +259,12 @@
       runner.innerHTML = `
         <div class="quiz-progress-meta">
           <span>Statement ${state.index + 1} of ${total}</span>
-          <span class="cat">${escapeHTML(data.axes[q.axis].name)}</span>
         </div>
         <div class="quiz-progress-bar">
           <div class="quiz-progress-fill" style="width:${((state.index + 1) / total) * 100}%"></div>
         </div>
 
-        <p class="likert-statement">&ldquo;${escapeHTML(q.statement)}&rdquo;</p>
+        <p class="likert-statement">\u201c${escapeHTML(q.statement)}\u201d</p>
 
         <div class="likert-scale">
           ${likertOptions.map(opt => `
@@ -244,19 +276,18 @@
         </div>
 
         <div class="likert-anchors">
-          <span>← Disagree</span>
-          <span>Agree →</span>
+          <span>\u2190 Disagree</span>
+          <span>Agree \u2192</span>
         </div>
 
         <div class="likert-next-row">
-          ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn" style="margin-right:0.5rem;">← Back</button>' : ''}
+          ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn" style="margin-right:0.5rem;">\u2190 Back</button>' : ''}
           <button class="btn" id="next-btn" ${existing === undefined ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : ''}>
-            ${state.index + 1 >= total ? 'See results →' : 'Next →'}
+            ${state.index + 1 >= total ? 'See results \u2192' : 'Next \u2192'}
           </button>
         </div>
       `;
 
-      // Wire likert buttons
       runner.querySelectorAll('.likert-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           state.answers[q.id] = parseInt(btn.dataset.value, 10);
@@ -264,7 +295,6 @@
         });
       });
 
-      // Wire prev/next
       document.getElementById('prev-btn')?.addEventListener('click', () => {
         state.index--;
         renderLikert(state, data);
@@ -273,109 +303,263 @@
       const nextBtn = document.getElementById('next-btn');
       if (existing !== undefined) {
         nextBtn.addEventListener('click', () => {
-          if (state.index + 1 >= total) {
-            showCompassResult(state, data);
-          } else {
-            state.index++;
-            renderLikert(state, data);
-          }
+          if (state.index + 1 >= total) showCompassResult(state, data);
+          else { state.index++; renderLikert(state, data); }
         });
       }
     }
+
+    // ─── Compass result with radar chart ──────────────────────────────
 
     function showCompassResult(state, data) {
       quizView.classList.add('hidden');
       resultView.classList.remove('hidden');
 
-      // Calculate axis scores: sum of (answer * direction), normalized to -3..+3
-      const axisTotals  = {};
-      const axisCounts  = {};
-      for (const ax of Object.keys(data.axes)) {
-        axisTotals[ax] = 0;
-        axisCounts[ax] = 0;
-      }
+      const axisTotals = {}, axisCounts = {};
+      for (const ax of Object.keys(data.axes)) { axisTotals[ax] = 0; axisCounts[ax] = 0; }
       for (const q of state.questions) {
-        const answer = state.answers[q.id];
-        if (answer !== undefined) {
-          axisTotals[q.axis] += answer * q.direction;
-          axisCounts[q.axis]++;
-        }
+        const a = state.answers[q.id];
+        if (a !== undefined) { axisTotals[q.axis] += a * q.direction; axisCounts[q.axis]++; }
       }
 
       const scores = {};
       for (const ax of Object.keys(data.axes)) {
-        // Normalize: max possible = count * 2, scale to -3..+3
-        const maxPossible = axisCounts[ax] * 2;
-        scores[ax] = maxPossible > 0 ? (axisTotals[ax] / maxPossible) * 3 : 0;
+        const max = axisCounts[ax] * 2;
+        scores[ax] = max > 0 ? (axisTotals[ax] / max) * 3 : 0;
       }
 
-      // Labels
-      function axisLabel(ax, val) {
+      function axLabel(ax, v) {
         const a = data.axes[ax];
-        if (Math.abs(val) < 0.5) return 'Centrist';
-        if (Math.abs(val) < 1.5) return val > 0 ? 'Mild ' + a.high_label : 'Mild ' + a.low_label;
-        return val > 0 ? 'Strong ' + a.high_label : 'Strong ' + a.low_label;
+        if (Math.abs(v) < 0.5) return 'Centrist';
+        if (Math.abs(v) < 1.5) return 'Leaning ' + (v > 0 ? a.high_label : a.low_label);
+        return 'Strong ' + (v > 0 ? a.high_label : a.low_label);
       }
 
-      const summaryParts = Object.keys(data.axes).map(ax => axisLabel(ax, scores[ax]));
-      const summary = summaryParts.join(' · ');
-
-      // Shareable URL
+      const summary = Object.keys(data.axes).map(ax => axLabel(ax, scores[ax])).join(' \u00b7 ');
       const shareUrl = window.location.origin + '/quiz/?type=compass'
-        + '&la=' + scores.lib_auth.toFixed(2)
         + '&ec=' + scores.econ.toFixed(2)
+        + '&so=' + scores.social.toFixed(2)
         + '&if=' + scores.info.toFixed(2);
 
-      // Save
       try {
         localStorage.setItem('nnn_compass_result', JSON.stringify({
-          summary, scores,
-          date: new Date().toLocaleDateString('en-GB')
+          summary, scores, date: new Date().toLocaleDateString('en-GB')
         }));
       } catch(e) {}
 
-      // Build result HTML
+      const axisKeys = Object.keys(data.axes);
+      const barHTML = axisKeys.map(ax => {
+        const a = data.axes[ax];
+        const v = scores[ax];
+        const fillColor = v >= 0 ? '#C8392B' : '#3b82f6';
+        const fillWidth = (Math.abs(v) / 3) * 50;
+        const fillMargin = v >= 0 ? 50 : 50 - fillWidth;
+        return `
+          <div class="axis-row">
+            <span class="axis-low">${escapeHTML(a.low_label)}</span>
+            <div class="axis-bar-track">
+              <div class="axis-bar-center"></div>
+              <div class="axis-bar-fill" style="width:${fillWidth}%;margin-left:${fillMargin}%;background:${fillColor};"></div>
+            </div>
+            <span class="axis-high">${escapeHTML(a.high_label)}</span>
+          </div>
+          <div style="text-align:center;font-family:'DM Sans',sans-serif;font-size:0.7rem;color:rgba(245,240,232,0.4);margin-bottom:0.5rem;">
+            ${escapeHTML(axLabel(ax, v))} (${v.toFixed(1)})
+          </div>
+        `;
+      }).join('');
+
       resultView.innerHTML = `
         <p class="eyebrow">Your position</p>
-        <div class="quiz-verdict" style="font-size:1.25rem; margin-bottom:2rem;">${escapeHTML(summary)}</div>
 
-        ${Object.keys(data.axes).map(ax => {
-          const a = data.axes[ax];
-          const v = scores[ax];
-          const pct = ((v + 3) / 6) * 100;
-          return `
-            <div class="axis-result">
-              <span class="axis-name" style="min-width:6rem;">${escapeHTML(a.low_label)}</span>
-              <div class="axis-bar-track">
-                <div class="axis-bar-center"></div>
-                <div class="axis-bar-fill" style="
-                  width: ${Math.abs(v) / 3 * 50}%;
-                  margin-left: ${v >= 0 ? '50%' : (50 - Math.abs(v) / 3 * 50) + '%'};
-                  background: ${v >= 0 ? 'var(--accent)' : '#3b82f6'};
-                "></div>
-              </div>
-              <span class="axis-name" style="min-width:6rem; text-align:right;">${escapeHTML(a.high_label)}</span>
-            </div>
-            <div style="text-align:center; font-family:'DM Sans',sans-serif; font-size:0.8rem; color:rgba(13,13,13,0.5); margin-bottom:1.5rem;">
-              ${escapeHTML(axisLabel(ax, v))} (${v.toFixed(1)})
-            </div>
-          `;
-        }).join('')}
-
-        <div class="quiz-result-actions" style="margin-top:2rem;">
-          <button class="btn" onclick="window.location.href='/quiz/?type=compass'">Retake</button>
-          <a class="btn btn-ghost" href="/quiz/?type=literacy">Try the other survey</a>
+        <div class="result-card-wrapper">
+          <div class="result-card" id="result-card">
+            <div class="brand">Net Neutral <span>News</span></div>
+            <canvas id="radar-canvas" width="340" height="300"></canvas>
+            ${barHTML}
+            <div class="footer-note">netneutralnews.in \u00b7 understand the news without the bias</div>
+          </div>
         </div>
-        <div class="share-row">
+
+        <div class="save-actions">
+          <button class="btn" onclick="saveAsImage()">Save as image</button>
+          <button class="btn btn-ghost" onclick="copyShareUrl()">Copy share link</button>
+        </div>
+        <div class="share-row" style="margin-top:1rem;">
           <input type="text" readonly value="${shareUrl}" id="share-url">
-          <button class="btn btn-dark" onclick="copyShareUrl()">Copy link</button>
           <span class="copy-feedback" id="copy-feedback">Copied!</span>
         </div>
+        <div class="save-actions" style="margin-top:1.5rem;">
+          <button class="btn btn-dark" onclick="window.location.href='/quiz/?type=compass'">Retake</button>
+          <a class="btn btn-ghost" href="/quiz/?type=literacy">Try the other survey</a>
+        </div>
       `;
+
+      drawRadar(scores, data.axes);
+    }
+
+    // ─── Radar chart on canvas ────────────────────────────────────────
+
+    function drawRadar(scores, axes) {
+      const canvas = document.getElementById('radar-canvas');
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      const cx = W / 2, cy = H / 2 + 10;
+      const R = 110;
+
+      const axisKeys = Object.keys(axes);
+      const angleOffset = -Math.PI / 2; // start from top
+
+      function axisAngle(i) {
+        return angleOffset + (2 * Math.PI * i) / axisKeys.length;
+      }
+
+      function pointAt(i, radius) {
+        const a = axisAngle(i);
+        return { x: cx + Math.cos(a) * radius, y: cy + Math.sin(a) * radius };
+      }
+
+      // Grid rings
+      for (let ring = 1; ring <= 3; ring++) {
+        const r = (ring / 3) * R;
+        ctx.beginPath();
+        for (let i = 0; i <= axisKeys.length; i++) {
+          const p = pointAt(i % axisKeys.length, r);
+          i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = 'rgba(245,240,232,0.15)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Axis lines
+      for (let i = 0; i < axisKeys.length; i++) {
+        const p = pointAt(i, R);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = 'rgba(245,240,232,0.25)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Center dot
+      ctx.beginPath();
+      ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(245,240,232,0.3)';
+      ctx.fill();
+
+      // User shape
+      const userPoints = axisKeys.map((ax, i) => {
+        // Normalize score (-3..+3) to radius (0..R)
+        // Center = 0 score = R * 0.5 (middle of the ring)
+        // The chart shows absolute distance from center: 0 score = center, ±3 = edge
+        const normalized = (Math.abs(scores[ax]) / 3) * R;
+        return pointAt(i, normalized);
+      });
+
+      // Fill
+      ctx.beginPath();
+      userPoints.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(200, 57, 43, 0.25)';
+      ctx.fill();
+      ctx.strokeStyle = '#C8392B';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // User dots
+      userPoints.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#C8392B';
+        ctx.fill();
+        ctx.strokeStyle = '#0D0D0D';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      // Axis labels
+      ctx.font = '600 11px "DM Sans", sans-serif';
+      ctx.textAlign = 'center';
+
+      const labels = axisKeys.map(ax => {
+        const a = axes[ax];
+        const v = scores[ax];
+        if (v >= 0) return a.high_label;
+        return a.low_label;
+      });
+
+      const labelColors = axisKeys.map(ax => {
+        const v = scores[ax];
+        return v >= 0 ? '#C8392B' : '#3b82f6';
+      });
+
+      for (let i = 0; i < axisKeys.length; i++) {
+        const p = pointAt(i, R + 24);
+        ctx.fillStyle = labelColors[i];
+        ctx.fillText(labels[i], p.x, p.y + 4);
+
+        // Also show the axis name in dim text
+        const p2 = pointAt(i, R + 38);
+        ctx.font = '500 9px "DM Sans", sans-serif';
+        ctx.fillStyle = 'rgba(245,240,232,0.35)';
+        ctx.fillText(axes[axisKeys[i]].name, p2.x, p2.y + 4);
+        ctx.font = '600 11px "DM Sans", sans-serif';
+      }
+    }
+
+    // ─── Save as image ────────────────────────────────────────────────
+
+    function saveAsImage() {
+      const card = document.getElementById('result-card');
+      const cardCanvas = document.createElement('canvas');
+      const scale = 2;
+      const w = card.offsetWidth * scale;
+      const h = card.offsetHeight * scale;
+      cardCanvas.width = w;
+      cardCanvas.height = h;
+      const ctx = cardCanvas.getContext('2d');
+
+      // Draw card background
+      ctx.scale(scale, scale);
+      ctx.fillStyle = '#0D0D0D';
+      ctx.beginPath();
+      ctx.roundRect(0, 0, card.offsetWidth, card.offsetHeight, 16);
+      ctx.fill();
+
+      // Copy the radar canvas
+      const radarCanvas = document.getElementById('radar-canvas');
+      const radarRect = radarCanvas.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const rx = radarRect.left - cardRect.left;
+      const ry = radarRect.top - cardRect.top;
+      ctx.drawImage(radarCanvas, rx, ry, radarCanvas.offsetWidth, radarCanvas.offsetHeight);
+
+      // Add text
+      ctx.fillStyle = 'rgba(245,240,232,0.5)';
+      ctx.font = '900 14px "Playfair Display", serif';
+      ctx.fillText('Net Neutral ', 32, 36);
+      ctx.fillStyle = '#C8392B';
+      ctx.fillText('News', 32 + ctx.measureText('Net Neutral ').width, 36);
+
+      ctx.fillStyle = 'rgba(245,240,232,0.3)';
+      ctx.font = '500 9px "DM Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('netneutralnews.in \u00b7 understand the news without the bias', card.offsetWidth / 2, card.offsetHeight - 16);
+
+      ctx.resetTransform();
+
+      // Trigger download
+      const link = document.createElement('a');
+      link.download = 'my-news-compass.png';
+      link.href = cardCanvas.toDataURL('image/png');
+      link.click();
     }
 
     // ═══════════════════════════════════════════════════════════════════
-    // LITERACY QUIZ (multiple choice, right/wrong)
+    // LITERACY QUIZ (MCQ)
     // ═══════════════════════════════════════════════════════════════════
 
     async function startLiteracyQuiz() {
@@ -405,21 +589,20 @@
       const { verdict, text } =
         pct >= 80 ? {
           verdict: 'Strong Critical Reader',
-          text: "You consistently apply scepticism before accepting or sharing information. You notice framing, question sources, and resist emotional triggers. Keep stress-testing even the sources you trust."
+          text: "You consistently apply scepticism before accepting or sharing information. You notice framing, question sources, and resist emotional triggers."
         } : pct >= 55 ? {
           verdict: 'Selectively Sceptical',
-          text: "You apply critical thinking in some situations but not others — often depending on whether the story aligns with what you already believe. That gap is exactly where misinformation does its work."
+          text: "You apply critical thinking in some situations but not others \u2014 often depending on whether the story aligns with what you already believe."
         } : {
           verdict: 'Instinct-Led Reader',
-          text: "Right now your news habits are driven more by instinct and emotion than by verification. That's normal — it's how we're wired. The awareness that you're doing it is genuinely the first step to changing it."
+          text: "Right now your news habits are driven more by instinct and emotion than by verification. That\u2019s normal \u2014 awareness is the first step to changing it."
         };
 
       const shareUrl = window.location.origin + '/quiz/?type=literacy&score=' + pct;
 
       try {
         localStorage.setItem('nnn_literacy_result', JSON.stringify({
-          pct, verdict,
-          date: new Date().toLocaleDateString('en-GB')
+          pct, verdict, date: new Date().toLocaleDateString('en-GB')
         }));
       } catch(e) {}
 
@@ -441,17 +624,15 @@
     }
 
     // ═══════════════════════════════════════════════════════════════════
-    // GENERIC MCQ RUNNER (for literacy quiz)
+    // MCQ RUNNER
     // ═══════════════════════════════════════════════════════════════════
 
     function runMCQ({ questions, state, onSelect, onFinish }) {
       const runner = document.getElementById('quiz-runner');
-
       function render() {
         const q = questions[state.index];
-        const selectedIdx = state.selections[state.index];
-        const hasAnswered = selectedIdx !== undefined;
-
+        const sel = state.selections[state.index];
+        const done = sel !== undefined;
         runner.innerHTML = `
           <div class="quiz-progress-meta">
             <span>Question ${state.index + 1} of ${questions.length}</span>
@@ -462,40 +643,27 @@
           <h2 class="quiz-question">${escapeHTML(q.question)}</h2>
           <div class="quiz-options">
             ${q.options.map((opt, i) => {
-              let cls = '';
-              if (hasAnswered) {
-                if (i === q.correct)      cls = 'correct';
-                else if (i === selectedIdx) cls = 'wrong';
-                else                        cls = 'dimmed';
-              }
-              return '<button class="quiz-option ' + cls + '" data-index="' + i + '" ' + (hasAnswered ? 'disabled' : '') + '>' + escapeHTML(opt) + '</button>';
+              let c = '';
+              if (done) { c = i === q.correct ? 'correct' : i === sel ? 'wrong' : 'dimmed'; }
+              return '<button class="quiz-option ' + c + '" data-i="' + i + '" ' + (done ? 'disabled' : '') + '>' + escapeHTML(opt) + '</button>';
             }).join('')}
           </div>
-          ${hasAnswered ? `
-            <div class="quiz-explanation">
-              <div class="label">Why</div>
-              <p>${escapeHTML(q.explanation)}</p>
-            </div>
-            <button class="btn" id="next-btn">
-              ${state.index + 1 >= questions.length ? 'See result →' : 'Next →'}
-            </button>
+          ${done ? `
+            <div class="quiz-explanation"><div class="label">Why</div><p>${escapeHTML(q.explanation)}</p></div>
+            <button class="btn" id="next-btn">${state.index + 1 >= questions.length ? 'See result \u2192' : 'Next \u2192'}</button>
           ` : ''}
         `;
-
-        runner.querySelectorAll('.quiz-option').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const i = parseInt(btn.dataset.index, 10);
-            state.selections[state.index] = i;
-            onSelect(q, i);
+        runner.querySelectorAll('.quiz-option').forEach(b => {
+          b.addEventListener('click', () => {
+            state.selections[state.index] = parseInt(b.dataset.i, 10);
+            onSelect(q, state.selections[state.index]);
             render();
           });
         });
-
         document.getElementById('next-btn')?.addEventListener('click', () => {
           state.index + 1 >= questions.length ? onFinish() : (state.index++, render());
         });
       }
-
       render();
     }
 

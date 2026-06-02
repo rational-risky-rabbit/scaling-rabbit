@@ -3,85 +3,23 @@
   "description": "Rate how much you agree or disagree with each statement. There are no right or wrong answers. Answer instinctively — your first reaction is usually the most honest one.",
   "format": "likert",
   "axes": {
-    "lib_auth": {
-      "name": "Individual Freedom vs State Authority",
+    "econ": {
+      "name": "Economic View",
+      "low_label": "Individual Ownership",
+      "high_label": "State Ownership"
+    },
+    "social": {
+      "name": "Social View",
       "low_label": "Libertarian",
       "high_label": "Authoritarian"
     },
-    "econ": {
-      "name": "Economic Control",
-      "low_label": "Laissez-faire",
-      "high_label": "State-directed"
-    },
     "info": {
-      "name": "Information Processing",
-      "low_label": "Factual / Analytical",
-      "high_label": "Emotional / Instinctive"
+      "name": "Information Sensitivity",
+      "low_label": "Factual",
+      "high_label": "Sensational"
     }
   },
   "questions": [
-
-    {
-      "id": "LA01",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "A strong leader who can act quickly is more important than slow democratic processes."
-    },
-    {
-      "id": "LA02",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "The government should be able to monitor private communications if it helps prevent crime."
-    },
-    {
-      "id": "LA03",
-      "axis": "lib_auth",
-      "direction": -1,
-      "statement": "People should be free to say things that most of society finds offensive."
-    },
-    {
-      "id": "LA04",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "National security is more important than individual privacy."
-    },
-    {
-      "id": "LA05",
-      "axis": "lib_auth",
-      "direction": -1,
-      "statement": "Citizens should always have the right to protest, even if it disrupts daily life."
-    },
-    {
-      "id": "LA06",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "Some information is too dangerous for the general public and should be restricted."
-    },
-    {
-      "id": "LA07",
-      "axis": "lib_auth",
-      "direction": -1,
-      "statement": "No government should have the power to shut down the internet, even temporarily."
-    },
-    {
-      "id": "LA08",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "It is reasonable for the government to require citizens to carry identification at all times."
-    },
-    {
-      "id": "LA09",
-      "axis": "lib_auth",
-      "direction": -1,
-      "statement": "People should be able to choose their own lifestyle without societal or legal judgement."
-    },
-    {
-      "id": "LA10",
-      "axis": "lib_auth",
-      "direction": 1,
-      "statement": "Courts should hand down harsher sentences to deter crime, even for first-time offenders."
-    },
-
     {
       "id": "EC01",
       "axis": "econ",
@@ -142,7 +80,66 @@
       "direction": -1,
       "statement": "Entrepreneurs who take risks and build businesses deserve to keep the majority of their profits."
     },
-
+    {
+      "id": "SO01",
+      "axis": "social",
+      "direction": 1,
+      "statement": "A strong leader who can act quickly is more important than slow democratic processes."
+    },
+    {
+      "id": "SO02",
+      "axis": "social",
+      "direction": 1,
+      "statement": "The government should be able to monitor private communications if it helps prevent crime."
+    },
+    {
+      "id": "SO03",
+      "axis": "social",
+      "direction": -1,
+      "statement": "People should be free to say things that most of society finds offensive."
+    },
+    {
+      "id": "SO04",
+      "axis": "social",
+      "direction": 1,
+      "statement": "National security is more important than individual privacy."
+    },
+    {
+      "id": "SO05",
+      "axis": "social",
+      "direction": -1,
+      "statement": "Citizens should always have the right to protest, even if it disrupts daily life."
+    },
+    {
+      "id": "SO06",
+      "axis": "social",
+      "direction": 1,
+      "statement": "Some information is too dangerous for the general public and should be restricted."
+    },
+    {
+      "id": "SO07",
+      "axis": "social",
+      "direction": -1,
+      "statement": "No government should have the power to shut down the internet, even temporarily."
+    },
+    {
+      "id": "SO08",
+      "axis": "social",
+      "direction": 1,
+      "statement": "It is reasonable for the government to require citizens to carry identification at all times."
+    },
+    {
+      "id": "SO09",
+      "axis": "social",
+      "direction": -1,
+      "statement": "People should be able to choose their own lifestyle without societal or legal judgement."
+    },
+    {
+      "id": "SO10",
+      "axis": "social",
+      "direction": 1,
+      "statement": "Courts should hand down harsher sentences to deter crime, even for first-time offenders."
+    },
     {
       "id": "IF01",
       "axis": "info",
