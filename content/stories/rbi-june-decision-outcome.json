@@ -1,0 +1,37 @@
+{
+  "slug": "rbi-june-decision-outcome",
+  "title": "RBI Holds Rates at 5.25%, Cuts Growth Forecast, Raises Inflation Target",
+  "date": "2026-06-05",
+  "category": "Economy",
+  "summary": "The RBI's June MPC decision held the repo rate steady at 5.25% but cut its FY27 GDP forecast from 6.9% to 6.6% and raised its inflation projection to 5.1%. The central bank cited the West Asia conflict's energy shock and monsoon uncertainty. Markets closed marginally lower.",
+  "coverages": [
+    {
+      "source_id": "businessstandard",
+      "headline": "RBI MPC Keeps Repo Rate Unchanged at 5.25%; Cuts GDP Forecast to 6.6%, Raises Inflation to 5.1%",
+      "url": "https://www.business-standard.com/finance/news/rbi-mpc-june-inflation-gdp-growth-forecast-repo-rate-sanjay-malhotra-126060500276_1.html",
+      "excerpt": "In its June policy review, the RBI held rates steady with a neutral stance, but trimmed its FY27 growth forecast from 6.9% to 6.6% citing West Asia conflict and monsoon uncertainties, while lifting its inflation target to 5.1%.",
+      "bias_notes": "The most data-complete headline of the lot — it gives three specific numbers (5.25%, 6.6%, 5.1%) in the headline rather than vague characterisations. Business Standard's financial coverage consistently prioritises figures over framing. The real story here is not the rate hold but the simultaneous growth downgrade and inflation upgrade — a stagflationary signal that other outlets underplay."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "RBI MPC June 2026 Strikes Caution with Growth Cut, Inflation Risk",
+      "url": "https://www.business-standard.com/markets/news/rbi-mpc-june-2026-strikes-caution-with-growth-cut-inflation-risk-sumeet-bagadia-126060500505_1.html",
+      "excerpt": "Market analysts say the RBI's cautious, data-dependent stance reflects the central bank's recognition that high global energy prices and supply-chain disruptions from the Iran war are structural, not transient, risks.",
+      "bias_notes": "The word 'structural' in analyst commentary is significant — it implies the inflation and growth headwinds won't resolve on their own. This is a named-analyst piece (Sumeet Bagadia), which makes it more accountable than unnamed 'market experts.' Framing is cautious rather than alarming, which is appropriate for financial analysis but may understate urgency for general readers."
+    },
+    {
+      "source_id": "businesstoday",
+      "headline": "India-US Trade Deal First Tranche Likely by Mid-July: Piyush Goyal",
+      "url": "https://www.businesstoday.in/india/story/india-us-trade-deal-first-tranche-likely-by-mid-july-piyush-goyal-535202-2026-06-05",
+      "excerpt": "With 99% of the bilateral deal in place per the US Ambassador, India's Commerce Minister signals final resolution of technical and legal sticking points is imminent, unlocking preferential market access.",
+      "bias_notes": "Juxtaposing this trade deal story against the RBI's growth downgrade on the same day is instructive: the government is projecting optimism on trade while the central bank is quietly signalling deteriorating macro conditions. BusinessToday covers both, but in separate articles — readers who only see the trade deal story get a very different picture of the economic moment than those who read the RBI piece."
+    },
+    {
+      "source_id": "newsx",
+      "headline": "Sensex Slips 74 Points; RBI Outlook Weighs on Sentiment",
+      "url": "https://www.india.com/business/rbi-mpc-meeting-2026-repo-rate-remains-unchanged-at-5-25-monetary-policy-committee-maintains-neutral-stance-gdp-outlook-8436917/",
+      "excerpt": "India's benchmark indices closed marginally lower on Friday as investors processed the RBI's revised downward growth forecast and increased inflation projections.",
+      "bias_notes": "Frames the market reaction as 'marginal' — 74 points on the Sensex is relatively minor. The story leads with the market move rather than the policy content, which is common in financial news but means casual readers focus on the number (74 points) rather than what drove it (a simultaneous growth cut and inflation raise). Stock market framing depoliticises what is a significant central bank signal."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "special-session-demand-june2026",
+  "title": "Opposition Demands Special Parliament Session on Pahalgam and Operation Sindoor",
+  "date": "2026-06-06",
+  "category": "National",
+  "summary": "16 I.N.D.I.A. bloc parties have written to PM Modi demanding an urgent special parliamentary session to debate the Pahalgam attack and Operation Sindoor. The government has rejected the demand, saying all issues can be addressed at the scheduled Monsoon Session starting July 21.",
+  "coverages": [
+    {
+      "source_id": "thewire",
+      "headline": "INDIA Bloc Pushes for Special Parliament Session on Pahalgam and Operation Sindoor",
+      "url": "https://m.thewire.in/article/government/india-bloc-pushes-for-special-session-of-parliament-on-pahalgam-and-operation-sindoor/amp",
+      "excerpt": "16 opposition parties have written to PM Modi demanding an urgent special parliamentary session to discuss the Pahalgam attack and Operation Sindoor, ahead of the July 21 Monsoon Session.",
+      "bias_notes": "The Wire leads with the opposition's demand and frames it as legitimate and urgent. No government counter-perspective appears in the headline or opening paragraphs — consistent with The Wire's editorial pattern of foregrounding opposition and accountability narratives. Factually accurate on the demand itself."
+    },
+    {
+      "source_id": "deccanherald",
+      "headline": "16 I.N.D.I.A. Leaders Write to PM Demanding Special Parliament Session on Pahalgam, Operation Sindoor",
+      "url": "https://www.deccanherald.com/india/16-india-leaders-write-to-pm-demanding-special-parliament-session-on-pahalgam-attacks-operation-sindoor-3569238",
+      "excerpt": "Congress leaders Kharge and Rahul Gandhi, TMC, and others have submitted separate letters to the PM and Parliamentary Affairs Minister, pressing for debate on national security.",
+      "bias_notes": "Names specific leaders (Kharge, Rahul Gandhi, TMC), which is more precise than outlet coverage that just says 'opposition.' Noting that separate letters were sent to both the PM and Parliamentary Affairs Minister is a procedural detail that signals the opposition is following formal parliamentary procedure — context most outlets omit."
+    },
+    {
+      "source_id": "newsonair",
+      "headline": "Monsoon Session of Parliament to Run July 21–August 12",
+      "url": "https://ddnews.gov.in/en/monsoon-session-of-parliament-to-run-from-july-21-to-august-12-kiren-rijiju/",
+      "excerpt": "Minister Kiren Rijiju confirmed the Monsoon Session dates; the government says all issues including Operation Sindoor can be addressed then, rejecting calls for a special session.",
+      "bias_notes": "Government broadcaster frames the story entirely around the scheduled session dates — the opposition demand is treated as a non-event. 'All issues can be addressed then' is the government's position presented without the opposition's counter-argument that a special session is warranted precisely because July 21 is six weeks away. The same facts, framed as a non-story."
+    }
+  ]
+}

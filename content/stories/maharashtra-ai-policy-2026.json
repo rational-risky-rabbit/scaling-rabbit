@@ -1,0 +1,23 @@
+{
+  "slug": "maharashtra-ai-policy-2026",
+  "title": "Maharashtra Launches AI Policy 2026 and Wins MLC Seats Unopposed",
+  "date": "2026-06-06",
+  "category": "Maharashtra",
+  "summary": "The Fadnavis government unveiled an Artificial Intelligence Policy 2026 aimed at attracting tech investment. Separately, six Mahayuti candidates won Maharashtra Legislative Council seats unopposed, with Deputy CM Shinde predicting a clean sweep of all 17 alliance candidates in the upcoming biennial polls.",
+  "coverages": [
+    {
+      "source_id": "newsonair",
+      "headline": "Maharashtra Government Announces AI Policy 2026 to Boost Investment and Jobs",
+      "url": "https://www.newsonair.gov.in/maharashtra-government-announces-artificial-intelligence-policy-2026-to-boost-investment-and-jobs/",
+      "excerpt": "The Fadnavis government has unveiled a new Artificial Intelligence Policy 2026, aimed at attracting technology investment and generating skilled employment across the state.",
+      "bias_notes": "Government broadcaster covers government policy announcement — a structural alignment between the source and the story. 'Aimed at' is appropriately hedged language since the policy's actual outcomes are unknown. What's absent: any independent technology expert assessment of whether the policy is ambitious, realistic, or distinguishable from similar policies announced by other states."
+    },
+    {
+      "source_id": "hindustantimes",
+      "headline": "Mahayuti Wins Thane-Palghar MLC Seat Unopposed; Shinde Calls It 'Beginning of Clean Sweep'",
+      "url": "https://english.punjabkesari.com/india/thane-palghar-leads-the-way-for-mahayutis-unopposed-victory-in-state-council-polls-dcm-eknath-shinde/",
+      "excerpt": "Six Mahayuti candidates have been elected unopposed to the Maharashtra Legislative Council; Deputy CM Eknath Shinde says all 17 alliance candidates will win in the upcoming biennial council polls.",
+      "bias_notes": "Winning a seat 'unopposed' is often less a sign of political strength than of an opposition too weak or too divided to contest. The headline frames it as a triumph; the political context — why no opposition candidate stood — is not explored. 'Clean sweep' is Shinde's own language, quoted without examination of whether the biennial polls will actually deliver that result."
+    }
+  ]
+}

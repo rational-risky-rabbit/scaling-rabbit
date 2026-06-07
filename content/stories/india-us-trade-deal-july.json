@@ -1,0 +1,44 @@
+{
+  "slug": "india-us-trade-deal-july",
+  "title": "India-US Trade Deal First Tranche Now Expected by Mid-July",
+  "date": "2026-06-05",
+  "category": "Geopolitical",
+  "summary": "Commerce Minister Piyush Goyal now says the first tranche of the India-US bilateral trade deal will be signed by mid-July, slightly later than the June timeline previously indicated. The US Ambassador says 99% of details are finalised. However, a new USTR forced-labour investigation has proposed a 12.5% tariff on Indian goods, complicating the picture.",
+  "coverages": [
+    {
+      "source_id": "businesstoday",
+      "headline": "India-US Trade Deal First Tranche Likely by Mid-July: Piyush Goyal",
+      "url": "https://www.businesstoday.in/india/story/india-us-trade-deal-first-tranche-likely-by-mid-july-piyush-goyal-535202-2026-06-05",
+      "excerpt": "With 99% of the bilateral deal in place per the US Ambassador, India's Commerce Minister signals final resolution of technical and legal sticking points is imminent, unlocking preferential market access.",
+      "bias_notes": "The '99% finalised' figure is the US Ambassador's claim, not independently verified. Using a diplomat's optimistic estimate as near-fact in a headline is common in trade deal coverage but overstates certainty. The 'sticking points' are not named — readers don't know what the remaining 1% involves, which could be the most contentious element."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "US, India Target July for Interim Trade Pact as Tariff Talks Continue",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-05/india-us-may-execute-interim-trade-pact-by-july-minister-says",
+      "excerpt": "Commerce Minister Piyush Goyal says the first tranche of the India-US trade deal should be signed by mid-July, even as USTR proposed a 12.5% tariff on India in a new forced-labor investigation.",
+      "bias_notes": "The critical detail other outlets miss: the USTR has simultaneously proposed a 12.5% tariff on India under a forced-labour investigation. This puts the 'deal is nearly done' narrative in sharp relief — a new tariff threat is emerging even as the existing tariff negotiation nears completion. Bloomberg is the only source in this briefing to include this complication."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "Implications of the US-India Trade Announcements",
+      "url": "https://www.stimson.org/2026/implications-of-us-india-trade-announcements/",
+      "excerpt": "The February 2026 deal reduced US reciprocal tariffs on India to 18% from ~50%, but the relationship remains complicated by Trump's Pakistan overtures and stalled mediation credit dispute.",
+      "bias_notes": "The Stimson Center analysis (a US foreign policy think tank) situates the trade deal inside a broader geopolitical context that Indian domestic outlets ignore: Trump's relationship with Pakistan, the Operation Sindoor ceasefire credit dispute, and the Iran war's effect on India's strategic autonomy. Trade deals do not exist outside geopolitics, but most trade coverage treats them as if they do."
+    },
+    {
+      "source_id": "thediplomat",
+      "headline": "India's Chabahar Port Crisis: How US Sanctions and the Iran War Are Testing New Delhi's Strategic Autonomy",
+      "url": "https://moderndiplomacy.eu/2026/05/29/indias-chabahar-port-crisis-how-us-sanctions-and-the-iran-war-are-testing-new-delhis-strategic-autonomy/",
+      "excerpt": "India's decade-long Chabahar Port investment faces collapse: zero budgetary allocation in 2026, an expired US sanctions waiver, and an active Iran war have India quietly exploring transfer of its stake to an Iranian partner.",
+      "bias_notes": "This story is almost entirely absent from Indian domestic news coverage — India potentially losing its Chabahar investment while simultaneously finalising a trade deal with the US creates an obvious tension (pressure from Washington to abandon Iran relationships). The absence of this story from Indian domestic outlets is itself a form of editorial selection bias."
+    },
+    {
+      "source_id": "thediplomat",
+      "headline": "How Pakistan Became the Iran War's Unlikely Peace Negotiator",
+      "url": "https://www.cfr.org/articles/how-pakistan-became-the-iran-wars-unlikely-peace-negotiator",
+      "excerpt": "The Iran war ceasefire — brokered by Pakistan, not India — has reversed regional diplomatic standings. India, which has ties with all parties, was notably absent from the peacemaking table.",
+      "bias_notes": "The Council on Foreign Relations piece directly challenges the Indian government's narrative of post-Sindoor diplomatic strength. Pakistan brokering the US-Iran ceasefire — while India was absent — undermines the 'new India as regional power' framing prevalent in Indian domestic coverage. CFR's Western-analytical perspective should be read alongside Indian official positions, not instead of them."
+    }
+  ]
+}

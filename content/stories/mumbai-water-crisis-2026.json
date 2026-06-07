@@ -1,0 +1,37 @@
+{
+  "slug": "mumbai-water-crisis-2026",
+  "title": "Mumbai Has 45 Days of Water Left as BMC Faces Monsoon Unpreparedness",
+  "date": "2026-06-06",
+  "category": "Mumbai",
+  "summary": "Mumbai's seven reservoir lakes hold only ~15% capacity, leaving the city with approximately 45 days of water supply. The city is already under a 10% water cut. Simultaneously, the BMC has completed only 32.4% of pre-monsoon drain cleaning, raising fears of severe flooding when the rains arrive.",
+  "coverages": [
+    {
+      "source_id": "newsx",
+      "headline": "Mumbai Has Only 45 Days of Water Left as BMC Braces for Weak Monsoon",
+      "url": "https://www.news9live.com/city/mumbai/mumbai-has-only-45-days-of-water-left-as-bmc-braces-for-weak-monsoon-2976749",
+      "excerpt": "The seven lakes supplying Mumbai hold only ~15% capacity at approximately 2.21 lakh million litres; the city is already under a 10% water cut and a below-average monsoon forecast heightens the crisis.",
+      "bias_notes": "'45 days of water left' is alarm-inducing framing — technically accurate but the 45-day figure assumes zero replenishment, while the monsoon (and reservoir refilling) is due in days. The framing choice amplifies urgency in a way that is not wrong but isn't the full picture. The specific figure of 2.21 lakh million litres is useful concrete data."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "As Monsoon Approaches, BMC Under Fire Over Incomplete Desilting and Sewer Cleaning",
+      "url": "https://www.outlookindia.com/national/as-monsoon-approaches-bmc-under-fire-over-incomplete-desilting-and-sewer-cleaning",
+      "excerpt": "BMC has completed only 32.4% of pre-monsoon drain cleaning despite a ₹2.93 crore allocation, raising alarm about severe waterlogging across the city.",
+      "bias_notes": "Leads with accountability journalism — a specific completion percentage (32.4%) against a specific budget (₹2.93 crore) creates a measurable claim that readers can evaluate. 'Under fire' frames the BMC as embattled, which editorialises slightly, but the underlying data point is strong. This is the kind of civic accountability reporting that is most valuable to Mumbai residents."
+    },
+    {
+      "source_id": "freepressjournal",
+      "headline": "Kalyan-Dombivli Faces 12-Hour Water Cut as Supply Disruptions Continue",
+      "url": "https://www.freepressjournal.in/mumbai/kalyan-dombivli-to-face-12-hour-water-cut-on-june-2-as-kdmc-announces-supply-disruption-these-areas-will-be-affected",
+      "excerpt": "KDMC imposed a 12-hour water supply cut across Kalyan and Dombivli, compounding the ongoing city-wide water stress as reservoir levels remain critically low ahead of monsoon.",
+      "bias_notes": "Free Press Journal's local Mumbai focus is useful here — this is granular, area-specific information for residents. The 12-hour cut in Kalyan-Dombivli is a practical story for those affected. However, the article presents the cut as a standalone event rather than connecting it to the broader reservoir crisis and below-normal monsoon forecast."
+    },
+    {
+      "source_id": "hindustantimes",
+      "headline": "BMC Cracks Down on Fire Safety Violations Following Delhi Hotel Blaze",
+      "url": "https://www.mumbailive.com/en/civic/bmc-ends-120-day-fire-safety-grace-period-for-hotels-restaurants-and-bars-after-delhi-blaze-93089",
+      "excerpt": "BMC has ended its 120-day fire safety grace period for hotels, restaurants, and bars — establishments now face shut-down notices if they fail to comply within 30 days.",
+      "bias_notes": "The news peg here is the Delhi hotel blaze — a fire in another city prompts regulatory action in Mumbai. This is reactive governance, and the article reports it without asking why establishments were given a grace period in the first place, or how many are currently non-compliant. The link between a Delhi incident and Mumbai crackdown deserves more scrutiny than it gets."
+    }
+  ]
+}
