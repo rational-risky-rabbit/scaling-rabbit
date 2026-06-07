@@ -1,110 +1,124 @@
 {
-  "title": "The News Habit Survey",
-  "description": "A short survey about how you read and share news. There are no right or wrong answers — just pick what you'd actually do.",
-  "questions": [
-    {
-      "id": "L1",
-      "category": "habit",
-      "question": "You're scrolling and see a headline that matches something you've believed for a long time. What do you do?",
-      "options": [
-        "Share it — it confirms what I already know to be true",
-        "Read the article before sharing",
-        "Check who published it and when",
-        "Look for a second source covering the same thing"
-      ],
-      "correct": 3,
-      "explanation": "When a headline confirms existing beliefs, that's exactly when your guard should go up — not down. This is called confirmation bias. The most reliable instinct is to look for independent corroboration, not just read the article from the same source."
+  "title": "What kind of news reader are you?",
+  "description": "Rate how much you agree or disagree with each statement. Answer instinctively — your first reaction is the most honest one. We'll show you your reader archetype at the end.",
+  "format": "likert",
+  "axes": {
+    "verify": {
+      "name": "Verification",
+      "low_label": "Verifier",
+      "high_label": "Truster"
     },
-    {
-      "id": "L2",
-      "category": "habit",
-      "question": "A friend sends you a voice note saying 'I heard that [public figure] said something really controversial'. What's your next move?",
-      "options": [
-        "Ask which outlet reported it",
-        "Search for the actual quote or video clip",
-        "Trust my friend — they wouldn't make it up",
-        "Share it with a 'is this true?' caption"
-      ],
-      "correct": 1,
-      "explanation": "Second-hand claims — even from trusted people — are the most common way misinformation spreads. Your friend genuinely believes it. The only reliable move is finding the primary source: the actual quote, clip, or official statement. Paraphrases mutate with every retelling."
+    "emotion": {
+      "name": "Emotional response",
+      "low_label": "Cool-headed",
+      "high_label": "Fired-up"
     },
-    {
-      "id": "L3",
-      "category": "habit",
-      "question": "You read two articles about the same government policy. One says it will help millions. The other says it will hurt millions. What do you conclude?",
-      "options": [
-        "One of them is lying",
-        "The truth is probably somewhere in the middle",
-        "They may both be selectively accurate — I need to know who each outlet's audience is",
-        "I go with whichever outlet I usually trust"
-      ],
-      "correct": 2,
-      "explanation": "Both articles can use real statistics and still mislead — by choosing which facts to highlight and which to omit. 'The truth is in the middle' sounds wise but is actually a lazy shortcut. The better question is: what is each outlet's incentive, and what are they not telling me?"
-    },
-    {
-      "id": "L4",
-      "category": "habit",
-      "question": "An article ends with 'experts say more research is needed'. How does that make you feel about the story?",
-      "options": [
-        "Frustrated — just tell me the answer",
-        "Suspicious — they're hiding something",
-        "Reassured — that's honest journalism acknowledging uncertainty",
-        "Indifferent — I skip those parts"
-      ],
-      "correct": 2,
-      "explanation": "Acknowledging uncertainty is a sign of credibility, not weakness. The most dangerous articles are the ones that sound completely certain. Science and policy are genuinely complicated — any outlet that never says 'we don't know yet' is simplifying for engagement, not informing you."
-    },
-    {
-      "id": "L5",
-      "category": "habit",
-      "question": "A breaking news alert uses the words 'MASSIVE', 'SHOCKING' and three exclamation marks. Before reading further, what do you notice?",
-      "options": [
-        "Nothing unusual — all breaking news looks like this",
-        "It's probably important if they're emphasising it that much",
-        "The language is designed to trigger an emotional reaction before I've read a single fact",
-        "I check if it's from a verified account first"
-      ],
-      "correct": 2,
-      "explanation": "Caps, superlatives, and exclamation marks are emotional triggers — they activate your stress response before your critical thinking. This is deliberate. Once you're emotionally activated, you're less likely to question the content. Noticing the technique is the first step to resisting it."
-    },
-    {
-      "id": "L6",
-      "category": "habit",
-      "question": "You notice that every news story about a particular political party on one channel is negative, and every story on another channel is positive. What does this tell you?",
-      "options": [
-        "One channel is right and one is wrong",
-        "Both channels are selectively covering events to fit a narrative",
-        "The party must be controversial",
-        "I should watch both channels equally to get the full picture"
-      ],
-      "correct": 1,
-      "explanation": "Consistent one-directional coverage — whether positive or negative — is a strong signal of narrative-driven journalism rather than event-driven journalism. Watching both channels equally doesn't fix this; it just exposes you to two competing narratives. The fix is looking for coverage that includes inconvenient facts for its own side."
-    },
-    {
-      "id": "L7",
-      "category": "habit",
-      "question": "An article cites 'sources close to the matter' without naming them. How much weight do you give this?",
-      "options": [
-        "Full weight — journalists protect sources for good reasons",
-        "Some weight — it's a lead worth following up, not a confirmed fact",
-        "No weight — if they can't name the source it didn't happen",
-        "It depends on whether I like the conclusion"
-      ],
-      "correct": 1,
-      "explanation": "Anonymous sourcing is legitimate journalism — whistleblowers exist. But it should lower your confidence, not eliminate it or confirm it. Treat unnamed sources as a signal to look for corroboration, not as proof. The danger is when readers treat 'sources say' as equivalent to 'it is confirmed'."
-    },
-    {
-      "id": "L8",
-      "category": "habit",
-      "question": "A statistic in a headline says 'Crime up 200% in the city'. What's the first question you ask?",
-      "options": [
-        "Which city?",
-        "200% from what baseline — and over what time period?",
-        "Which party is in charge there?",
-        "That sounds serious, I'll share it as a warning"
-      ],
-      "correct": 1,
-      "explanation": "Percentages without a baseline are almost meaningless. If there were 1 incident last year and 3 this year, that's 200% — but it's also statistically noise. The most common way to mislead with true numbers is to choose a starting point that makes a change look dramatic. Always ask: compared to what, and over how long?"
+    "diet": {
+      "name": "Information diet",
+      "low_label": "Broad reader",
+      "high_label": "Narrow reader"
     }
+  },
+  "archetypes": [
+    {
+      "code": "owl",
+      "pattern": "VCB",
+      "emoji": "🦉",
+      "name": "The Owl",
+      "tagline": "Wise, watchful, and slow to judge.",
+      "description": "You verify before believing, stay calm in the face of dramatic headlines, and read across the spectrum. You're the kind of reader misinformation has a hard time fooling. The risk: getting so cautious that you disengage entirely, or assuming everyone less rigorous than you is foolish."
+    },
+    {
+      "code": "sentinel",
+      "pattern": "VCN",
+      "emoji": "🛡",
+      "name": "The Sentinel",
+      "tagline": "Deeply informed in your lane, quiet outside it.",
+      "description": "You're a careful, calm thinker — but within a narrow set of sources or topics. When something falls outside your usual reading, you're either silent or surprisingly easy to mislead. The risk: confident takes on subjects you haven't actually researched."
+    },
+    {
+      "code": "scholar",
+      "pattern": "VFB",
+      "emoji": "📚",
+      "name": "The Scholar",
+      "tagline": "Reads widely, cares deeply, double-checks everything.",
+      "description": "You take in news from many directions and verify the claims that matter to you — but you're emotionally invested. Your strength is rigour; your risk is that emotional weight can pull your fact-checking off-balance. Watch for: investigating harder when facts align with your feelings."
+    },
+    {
+      "code": "crusader",
+      "pattern": "VFN",
+      "emoji": "🔥",
+      "name": "The Crusader",
+      "tagline": "Passionate researcher, narrow battlefield.",
+      "description": "You dig deeply, verify thoroughly, and care fiercely — but within a single cause or worldview. Within your domain you're formidable. Outside it, you may dismiss whole categories of sources without examining them. The risk: treating opposing arguments as unworthy of fact-checking."
+    },
+    {
+      "code": "diplomat",
+      "pattern": "TCB",
+      "emoji": "🕊",
+      "name": "The Diplomat",
+      "tagline": "Open to everything, cautious of nothing.",
+      "description": "You read widely and stay calm — admirable traits — but you take what you read more or less at face value. You're charitable to all sides, which means misinformation from any direction can slip past you. The risk: assuming that balance equals accuracy."
+    },
+    {
+      "code": "loyalist",
+      "pattern": "TCN",
+      "emoji": "🏛",
+      "name": "The Loyalist",
+      "tagline": "Trusts the trusted, stays in the lane.",
+      "description": "You're calm, consistent, and faithful to your usual sources. That trust feels well-placed because the sources reinforce each other — but you rarely test it. The risk: you'd believe almost anything your familiar outlets told you, without ever needing to verify it."
+    },
+    {
+      "code": "megaphone",
+      "pattern": "TFB",
+      "emoji": "📣",
+      "name": "The Megaphone",
+      "tagline": "Widely read, fast to feel, faster to share.",
+      "description": "You consume news from everywhere and react strongly to what moves you. Your breadth protects you from echo chambers, but your speed of response means you often amplify things before they're verified. The risk: the difference between caring about something and being right about it."
+    },
+    {
+      "code": "cyclone",
+      "pattern": "TFN",
+      "emoji": "🌪",
+      "name": "The Cyclone",
+      "tagline": "Easily moved, narrowly fed, quick to spread.",
+      "description": "You trust your sources, feel news intensely, and stay within a familiar circle. This is the profile most easily targeted by misinformation — not because you're foolish, but because every layer of defence is down. The good news: each of these is a skill you can build. Watch for: any story that makes you immediately want to share it."
+    }
+  ],
+  "questions": [
+    { "id": "V01", "axis": "verify", "direction": -1, "statement": "Before believing a surprising statistic, I usually look up the original source." },
+    { "id": "V02", "axis": "verify", "direction":  1, "statement": "If a story matches what I already believe, I'm less likely to question it." },
+    { "id": "V03", "axis": "verify", "direction": -1, "statement": "I check whether news articles cite primary documents or just quote other articles." },
+    { "id": "V04", "axis": "verify", "direction":  1, "statement": "When experts disagree, I tend to go with whoever sounds most confident." },
+    { "id": "V05", "axis": "verify", "direction": -1, "statement": "I've fact-checked a claim from someone I usually agree with." },
+    { "id": "V06", "axis": "verify", "direction":  1, "statement": "If multiple friends share the same story, that's usually enough to convince me." },
+    { "id": "V07", "axis": "verify", "direction": -1, "statement": "I notice when articles use 'sources say' without actually naming the source." },
+    { "id": "V08", "axis": "verify", "direction":  1, "statement": "I assume professional journalists have already done the verification I would do." },
+    { "id": "V09", "axis": "verify", "direction": -1, "statement": "I've changed my mind on something after looking into it more carefully." },
+    { "id": "V10", "axis": "verify", "direction":  1, "statement": "If a video clip is circulating widely, it's probably real." },
+    { "id": "V11", "axis": "verify", "direction": -1, "statement": "Before sharing a claim, I try to find at least one independent source for it." },
+
+    { "id": "E01", "axis": "emotion", "direction":  1, "statement": "A headline that makes me angry usually deserves my immediate attention." },
+    { "id": "E02", "axis": "emotion", "direction": -1, "statement": "I try to read past my first emotional reaction before forming an opinion." },
+    { "id": "E03", "axis": "emotion", "direction":  1, "statement": "Stories about injustice make me want to share them right away." },
+    { "id": "E04", "axis": "emotion", "direction": -1, "statement": "I'm more sceptical of stories that arouse strong emotions in me." },
+    { "id": "E05", "axis": "emotion", "direction":  1, "statement": "If a headline uses capital letters or exclamation marks, it's probably important." },
+    { "id": "E06", "axis": "emotion", "direction": -1, "statement": "Dramatic language in news headlines makes me less likely to trust the article." },
+    { "id": "E07", "axis": "emotion", "direction":  1, "statement": "When I'm upset about a story, the details matter less than the message." },
+    { "id": "E08", "axis": "emotion", "direction": -1, "statement": "Boring news is often more accurate than exciting news." },
+    { "id": "E09", "axis": "emotion", "direction":  1, "statement": "The headlines I remember most are the ones that shocked or moved me." },
+    { "id": "E10", "axis": "emotion", "direction": -1, "statement": "I can usually tell when a story is being framed to provoke a reaction." },
+    { "id": "E11", "axis": "emotion", "direction":  1, "statement": "Stories that align with my values feel obviously true." },
+
+    { "id": "D01", "axis": "diet", "direction": -1, "statement": "I regularly read news from sources I usually disagree with." },
+    { "id": "D02", "axis": "diet", "direction":  1, "statement": "Most of the news I consume comes from one or two platforms." },
+    { "id": "D03", "axis": "diet", "direction": -1, "statement": "I follow people online who frequently challenge my views." },
+    { "id": "D04", "axis": "diet", "direction":  1, "statement": "News sources that frustrate me are not worth my time." },
+    { "id": "D05", "axis": "diet", "direction": -1, "statement": "I've actively sought out a perspective opposite to mine on a current issue." },
+    { "id": "D06", "axis": "diet", "direction":  1, "statement": "My close friends and I generally agree about politics and current events." },
+    { "id": "D07", "axis": "diet", "direction": -1, "statement": "When I encounter a viewpoint that bothers me, I try to understand it before dismissing it." },
+    { "id": "D08", "axis": "diet", "direction":  1, "statement": "Most opinions I encounter online feel familiar to me." },
+    { "id": "D09", "axis": "diet", "direction": -1, "statement": "I think it's important to read journalism I find uncomfortable." },
+    { "id": "D10", "axis": "diet", "direction":  1, "statement": "Some news outlets are just not worth giving any attention to." }
   ]
 }
