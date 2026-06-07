@@ -1,0 +1,37 @@
+{
+  "slug": "chabahar-crisis-2026",
+  "title": "India's Chabahar Investment Faces Collapse as Iran War Reshapes the Region",
+  "date": "2026-06-07",
+  "category": "Geopolitical",
+  "summary": "India's decade-long $500 million investment in Iran's Chabahar port — its only non-Pakistan route to Central Asia — is at serious risk. The Union Budget 2026 allocated zero funds to the project, the US sanctions waiver has expired, and the ongoing Iran-US-Israel war has shut the Strait of Hormuz, affecting 90% of India's LPG imports. With China's Gwadar port 170km away, analysts warn the strategic vacuum will be filled by Beijing.",
+  "coverages": [
+    {
+      "source_id": "aljazeera",
+      "headline": "Is India's Chabahar dream in Iran dead?",
+      "url": "https://www.aljazeera.com/features/2026/4/29/is-indias-chabahar-dream-in-iran-dead",
+      "excerpt": "As the 2026 Iran war reshapes the region, India's $500M Chabahar investment faces abandonment, with the strategic vacuum likely to be filled by China.",
+      "bias_notes": "Al Jazeera frames Chabahar's collapse as a strategic failure, with China as the beneficiary — a framing that aligns with its consistent editorial focus on US-aligned powers losing ground in the Global South. The analysis is largely sound but the certainty of the 'China fills the gap' conclusion is stated as more inevitable than the evidence fully supports."
+    },
+    {
+      "source_id": "thediplomat",
+      "headline": "India's Chabahar Port Crisis: How US Sanctions and the Iran War Are Testing New Delhi's Strategic Autonomy",
+      "url": "https://india.shafaqna.com/EN/indias-chabahar-port-crisis-how-us-sanctions-and-the-iran-war-are-testing-new-delhis-strategic-autonomy/",
+      "excerpt": "With the Union Budget 2026 allocating zero funds to Chabahar, the US sanctions waiver expired, and Iran at war, India's sole non-Pakistan route to Central Asia is at serious risk of being lost to China via Gwadar.",
+      "bias_notes": "The zero budget allocation detail is the most damning piece of evidence in this story — it suggests the Indian government has already quietly written off Chabahar without publicly acknowledging it. This kind of bureaucratic signal (absence of budget line) is harder to spin than a policy statement and harder to find than a press release. Most Indian domestic outlets have not reported this."
+    },
+    {
+      "source_id": "aljazeera",
+      "headline": "Iran war live: Israel kills Lebanon general, Pakistan urges end to war",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/6/7/iran-war-live-israel-kills-lebanon-general-pakistan-urges-end-to-war",
+      "excerpt": "The Iran-US-Israel conflict continues to escalate. Pakistan's mediator role is drawing geopolitical attention — and domestic criticism in India — as Rahul Gandhi called Modi's foreign policy a 'failure.'",
+      "bias_notes": "The live-blog format captures the real-time diplomatic situation but makes it hard to separate verified facts from developing reports. Pakistan's mediator role is reported as established fact here — contrast this with how Indian domestic outlets either ignore Pakistan's diplomatic gains or actively contest them. The Rahul Gandhi quote is included without the government's counter-response."
+    },
+    {
+      "source_id": "cfr",
+      "headline": "How Pakistan Became the Iran War's Unlikely Peace Negotiator",
+      "url": "https://www.cfr.org/articles/how-pakistan-became-the-iran-wars-unlikely-peace-negotiator",
+      "excerpt": "The Iran war ceasefire brokered by Pakistan — not India — has reversed regional diplomatic standings. India, which has ties with all parties, was notably absent from the peacemaking table.",
+      "bias_notes": "CFR's framing reflects mainstream US foreign policy establishment thinking — that India's absence from the Iran war diplomacy is a missed strategic opportunity rather than deliberate neutrality. India might argue its restraint is intentional. CFR doesn't engage with that possibility. Read alongside Indian government statements, this tension is the most interesting analytical gap in the story."
+    }
+  ]
+}

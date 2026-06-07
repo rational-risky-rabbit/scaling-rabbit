@@ -1,0 +1,37 @@
+{
+  "slug": "mumbai-monsoon-flooding-2026",
+  "title": "First Pre-Monsoon Shower Floods Andheri, Exposes BMC's Unresolved Infrastructure Failures",
+  "date": "2026-06-07",
+  "category": "Mumbai",
+  "summary": "Versova recorded 73mm of rainfall in a single hour on June 3, flooding the Andheri subway and causing widespread traffic chaos. The incident has reignited criticism of the BMC's monsoon preparedness, with IIT Bombay's proposed subway flood solution still on paper and desilting of drains significantly incomplete.",
+  "coverages": [
+    {
+      "source_id": "freepressjournal",
+      "headline": "Mumbai's First Intense Pre-Monsoon Shower Triggers Waterlogging, Traffic Chaos",
+      "url": "https://www.freepressjournal.in/mumbai/mumbais-first-intense-pre-monsoon-shower-triggers-waterlogging-traffic-chaos-opposition-questions-bmc-readiness",
+      "excerpt": "Versova recorded 73mm of rain in an hour on June 3, causing the Andheri subway to flood and sparking opposition demands over BMC's monsoon readiness failures.",
+      "bias_notes": "The 73mm per hour figure is the key data point — it contextualises whether this was extraordinary rainfall or normal pre-monsoon intensity. Without knowing what the infrastructure is designed to handle, readers cannot judge BMC's culpability. Free Press Journal doesn't provide this context. 'Opposition demands' frames the accountability angle as political rather than technical."
+    },
+    {
+      "source_id": "freepressjournal",
+      "headline": "Andheri Subway Floods Again Within Hours of Rain, Exposing Mumbai's Unresolved Monsoon Crisis",
+      "url": "https://www.freepressjournal.in/mumbai/andheri-subway-floods-again-within-hours-of-rain-exposing-mumbais-unresolved-monsoon-crisis",
+      "excerpt": "A recurring flashpoint, the Andheri subway went under within hours of the first pre-monsoon shower, with IIT Bombay's proposed solutions still on paper and no work order placed.",
+      "bias_notes": "The IIT Bombay detail is the most damning element — a solution exists on paper, no work order has been placed. This is specific, verifiable, and accountability-focused. 'Again' in the headline signals recurrence and implies systemic failure rather than a one-off event. This is the strongest civic journalism piece of the Mumbai coverage in today's briefing."
+    },
+    {
+      "source_id": "hindustantimes",
+      "headline": "Maharashtra Budget 2026–27: Mumbai to Get Major Infrastructure Boom",
+      "url": "https://www.mumbailive.com/en/politics/maharashtra-budget-2026-cm-fadnavis-announces-wadala-to-gateway-metro-airport-link-and-versova-bhayander-coastal-road-project-in-mumbai-91935",
+      "excerpt": "Fadnavis announced Metro Line 8 (airport link), Versova–Bhayander Coastal Road, and signal-free Sewri route as part of a plan to double Mumbai Metro Region GDP to $300 billion.",
+      "bias_notes": "Read alongside the Andheri subway flooding story, this infrastructure announcement creates a telling juxtaposition: the government announces ambitious new projects while existing infrastructure — the Andheri subway — floods at the first shower. Long-range metro and coastal road announcements generate positive coverage; drainage failures generate criticism. Both are infrastructure stories, but they are never told together."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "BMC Under Fire Over Incomplete Desilting and Sewer Cleaning Ahead of Monsoon",
+      "url": "https://www.outlookindia.com/national/as-monsoon-approaches-bmc-under-fire-over-incomplete-desilting-and-sewer-cleaning",
+      "excerpt": "BMC has completed only 32.4% of pre-monsoon drain cleaning despite a ₹2.93 crore allocation, raising alarm about severe waterlogging across the city.",
+      "bias_notes": "32.4% completion with the monsoon already advancing into Maharashtra is the most alarming specific figure in today's Mumbai coverage. Combined with the Andheri flooding, it suggests the city is not ready. The ₹2.93 crore budget figure allows readers to assess scale — though without knowing how that compares to previous years or the actual requirement, the number alone is incomplete context."
+    }
+  ]
+}

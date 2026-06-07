@@ -1,0 +1,30 @@
+{
+  "slug": "maratha-obc-schemes-2026",
+  "title": "Maharashtra Extends OBC-Level Education Benefits to Maratha Community",
+  "date": "2026-06-07",
+  "category": "Maharashtra",
+  "summary": "The Fadnavis government approved eight welfare and educational concession schemes for the Maratha community on par with OBC benefits — a significant policy move intended to resolve the long-running Maratha reservation dispute without formally reclassifying the community as OBC.",
+  "coverages": [
+    {
+      "source_id": "indiatvnews",
+      "headline": "Maharashtra govt extends OBC-like education benefits to Maratha community, announces 8 schemes",
+      "url": "https://www.indiatvnews.com/maharashtra/maharashtra-govt-led-by-devendra-fadnavis-extends-obc-like-education-benefits-to-maratha-community-announces-8-schemes-check-in-details-2026-06-05-1043795",
+      "excerpt": "CM Devendra Fadnavis-led government approved eight welfare and educational concession schemes for the Maratha community on par with OBC benefits — a major policy move to resolve the long-running reservation dispute.",
+      "bias_notes": "India TV News describes this as a 'major policy move' — an editorial characterisation that the government would endorse but Maratha activists demanding full OBC reservation might contest. 'On par with OBC benefits' sidesteps the legally and politically contested question of whether the Maratha community deserves formal OBC classification. The scheme's practical scope and budget allocation are not specified."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "BMC Under Fire Over Incomplete Desilting Ahead of Monsoon",
+      "url": "https://www.outlookindia.com/national/as-monsoon-approaches-bmc-under-fire-over-incomplete-desilting-and-sewer-cleaning",
+      "excerpt": "As the southwest monsoon advances into Maharashtra, criticism mounts over delayed pre-monsoon drain cleaning, with Mithi River desilting at only 77.75% completion.",
+      "bias_notes": "Outlook leads with the accountability angle — a specific completion percentage (77.75%) for the Mithi River, one of Mumbai's most flood-prone waterways. 'Under fire' is mild editorial language. This is the kind of story where specific numbers matter: 77.75% might sound close to complete, but incomplete Mithi desilting has directly caused major flood events in past monsoons. The article correctly foregrounds this risk."
+    },
+    {
+      "source_id": "newsonair",
+      "headline": "Monsoon advances into parts of Maharashtra; heavy rainfall forecast through June 13",
+      "url": "https://www.india.com/news/india/monsoon-update-07-june-2026-imd-weather-update-rain-thunderstorm-cyclone-heatwave-red-alert-kerala-maharashtra-delhi-bihar-uttar-pradesh-noida-gurugram-odisha-8438924/",
+      "excerpt": "Monsoon has advanced into parts of Maharashtra as of June 6, with heavy rainfall forecast through June 13 across the state. IMD has sounded a red alert for Kerala.",
+      "bias_notes": "Government broadcaster covers the monsoon advance factually. The red alert for Kerala — implying extremely heavy rain — is mentioned but not contextualised against the BMC's unfinished desilting work. Monsoon weather and civic infrastructure readiness are two stories that belong together but are almost always covered separately."
+    }
+  ]
+}

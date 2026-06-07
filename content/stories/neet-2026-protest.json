@@ -1,0 +1,37 @@
+{
+  "slug": "neet-2026-protest",
+  "title": "Gen Z 'Cockroach Party' Protests NEET Paper Leak at Jantar Mantar",
+  "date": "2026-06-07",
+  "category": "National",
+  "summary": "Hundreds gathered at Jantar Mantar on Saturday under the satirical Cockroach Janta Party banner, demanding Education Minister Dharmendra Pradhan's resignation over the NEET 2026 paper leak. A key accused has had his custody extended till June 15. The re-exam is set for June 21.",
+  "coverages": [
+    {
+      "source_id": "aljazeera",
+      "headline": "'I'm a cockroach': Gen Z protest movement lands in Indian capital",
+      "url": "https://www.aljazeera.com/features/2026/6/6/im-a-cockroach-gen-z-protest-movement-lands-in-indian-capital",
+      "excerpt": "Hundreds gathered at Jantar Mantar on Saturday under the banner of the satirical Cockroach Janta Party, demanding Education Minister Dharmendra Pradhan's resignation over the NEET 2026 paper leak.",
+      "bias_notes": "Al Jazeera leads with the protest movement's cultural energy — the Gen Z framing, the satirical name, the protest aesthetics. This is a feature angle rather than a news angle. What it underplays: the specific policy failure (exam integrity), the CBI investigation, and the re-exam timeline. Strong on colour, lighter on accountability detail."
+    },
+    {
+      "source_id": "tribuneindia",
+      "headline": "Cockroach Janta Party protest at Jantar Mantar: Founder gives Centre 7-day ultimatum",
+      "url": "https://www.tribuneindia.com/live-blog/india/cockroach-janta-party-protest-live-founder-abhijeet-dipke-lands-at-delhi-airport-says-we-have-to-lead-this-movement-with-love-and-peace/",
+      "excerpt": "Founder Abhijeet Dipke led the protest calling for accountability over exam integrity failures, giving the Centre a 7-day ultimatum to remove Pradhan.",
+      "bias_notes": "Tribune's live-blog format captures the event's momentum but the 7-day ultimatum framing elevates the protesters' demand without asking whether it is realistic or whether the government has indicated any willingness to respond. Covers the demand without covering the policy response."
+    },
+    {
+      "source_id": "deccanherald",
+      "headline": "NEET-UG 2026 Paper Leak: Judicial Custody of Accused Extended Till June 15",
+      "url": "https://www.deccanchronicle.com/amp/nation/crime/neet-ug-2026-paper-leak-judicial-custody-of-accused-shubham-khairnar-extended-till-june-15-1961718",
+      "excerpt": "A key accused in the NEET paper leak has had his judicial custody extended, as CBI investigation links the Maharashtra-based coaching racket to both 2025 and 2026 leaks.",
+      "bias_notes": "The only outlet in this briefing to connect the 2026 leak to the 2025 leak through a continuous coaching racket — a detail that contextualises this as a systemic failure rather than a one-off incident. Leads with the judicial process rather than the protest spectacle, which is more useful for understanding the legal accountability dimension."
+    },
+    {
+      "source_id": "newsonair",
+      "headline": "NTA cracks down on fake NEET re-exam leak claims; re-exam set for June 21",
+      "url": "https://www.india.com/education/nta-cracks-down-on-fake-neet-ug-2026-paper-leak-claims-ahead-of-re-exam-on-june-21-asks-parents-students-to-stay-focused-8438751/",
+      "excerpt": "Ahead of the June 21 re-exam, NTA dismissed viral claims of another leak, warning of legal action. The minister confirmed plans to shift NEET to computer-based format from 2027.",
+      "bias_notes": "The NTA's own denial of further leak claims is reported at face value without independent verification — a pattern common in coverage of institutional statements. The computer-based format announcement from 2027 is the most substantive policy development in this story and gets the least attention. Buries the structural reform inside the denial story."
+    }
+  ]
+}
