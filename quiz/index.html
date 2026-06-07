@@ -6,12 +6,13 @@
   <title>Test Yourself · Net Neutral News</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
+    /* ─── Likert ───────────────────────────────────────────── */
     .likert-statement {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(1.25rem, 3vw, 1.625rem);
       line-height: 1.3;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       text-align: center;
       max-width: 36rem;
       margin-left: auto;
@@ -21,7 +22,7 @@
       display: flex;
       justify-content: center;
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       flex-wrap: wrap;
     }
     .likert-btn {
@@ -29,117 +30,143 @@
       flex-direction: column;
       align-items: center;
       gap: 0.375rem;
-      padding: 0.75rem 1rem;
-      border: 2px solid rgba(13,13,13,0.1);
-      border-radius: 0.5rem;
-      background: rgba(255,255,255,0.4);
+      padding: 0.75rem 0.875rem;
+      border: 1px solid var(--rule);
+      background: var(--paper-2);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s;
       min-width: 5.5rem;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       color: var(--ink);
     }
-    .likert-btn:hover { border-color: rgba(13,13,13,0.4); background: rgba(255,255,255,0.8); }
-    .likert-btn.selected { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+    .likert-btn:hover { border-color: var(--ink-3); background: var(--paper-3); }
+    .likert-btn.selected { border-color: var(--accent); background: var(--accent); color: #fff; }
     .likert-btn .dot {
-      width: 1.25rem; height: 1.25rem;
-      border-radius: 9999px;
+      width: 1rem; height: 1rem;
+      border-radius: 50%;
       border: 2px solid currentColor;
       transition: all 0.15s;
     }
-    .likert-btn.selected .dot { background: var(--paper); }
-    .likert-btn .label { font-size: 0.7rem; font-weight: 600; text-align: center; }
+    .likert-btn.selected .dot { background: #fff; border-color: #fff; }
+    .likert-btn .label { font-size: 0.6875rem; font-weight: 500; text-align: center; line-height: 1.2; }
     .likert-anchors {
       display: flex;
       justify-content: space-between;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      color: rgba(13,13,13,0.4);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      color: var(--ink-3);
       margin-bottom: 2.5rem;
       max-width: 30rem;
       margin-left: auto;
       margin-right: auto;
     }
-    .likert-next-row { text-align: center; }
+    .likert-next-row { text-align: center; display: flex; gap: 0.5rem; justify-content: center; }
 
-    /* Result card */
-    .result-card-wrapper { max-width: 480px; margin: 0 auto 2rem; }
-    .result-card {
+    /* ─── Mode card eyebrow dark-safe ──────────────────────── */
+    .mode-card .eyebrow { color: var(--ink-3); }
+    .mode-card .last-result { margin-top: 1rem; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--ink-3); }
+
+    /* ─── Result card (on-screen preview) ──────────────────── */
+    .result-preview {
       background: #0D0D0D;
-      border-radius: 1rem;
+      border-radius: 0.75rem;
       padding: 2rem;
-      color: #F5F0E8;
-      position: relative;
-      overflow: hidden;
+      max-width: 440px;
+      margin: 0 auto 2rem;
     }
-    .result-card .brand {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
-      opacity: 0.5;
-    }
-    .result-card .brand span { color: #C8392B; }
-    .result-card canvas {
-      display: block;
-      margin: 0 auto 1.5rem;
-    }
-    .result-card .axis-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.1);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-    }
-    .result-card .axis-low { opacity: 0.5; min-width: 5.5rem; }
-    .result-card .axis-high { opacity: 0.5; min-width: 5.5rem; text-align: right; }
-    .result-card .axis-val {
+    .result-preview .rp-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
-      font-size: 0.75rem;
-      text-align: center;
-      flex: 1;
+      font-size: 1rem;
+      color: rgba(232,228,220,0.5);
+      margin-bottom: 1.5rem;
     }
-    .result-card .axis-bar-track {
+    .result-preview .rp-brand span { color: #4d8ef0; }
+    .result-preview .rp-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #E8E4DC;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .result-preview canvas { display: block; margin: 0 auto 1.5rem; }
+    .rp-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .rp-bar-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      color: rgba(232,228,220,0.5);
+      width: 6rem;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .rp-bar-label.right-label { text-align: left; }
+    .rp-bar-track {
       flex: 1;
-      height: 4px;
-      background: rgba(245,240,232,0.15);
-      border-radius: 9999px;
-      margin: 0 0.5rem;
+      height: 5px;
+      background: rgba(232,228,220,0.1);
+      border-radius: 3px;
       position: relative;
     }
-    .result-card .axis-bar-center {
+    .rp-bar-center {
       position: absolute;
-      left: 50%; top: -2px;
-      width: 1px; height: 8px;
-      background: rgba(245,240,232,0.3);
+      left: 50%; top: -3px;
+      width: 1px; height: 11px;
+      background: rgba(232,228,220,0.2);
     }
-    .result-card .axis-bar-fill {
+    .rp-bar-fill {
       height: 100%;
-      border-radius: 9999px;
+      border-radius: 3px;
       transition: width 0.5s;
     }
-    .result-card .footer-note {
-      margin-top: 1.25rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.65rem;
-      opacity: 0.3;
+    .rp-bar-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.625rem;
+      color: rgba(232,228,220,0.35);
       text-align: center;
+      margin-bottom: 0.875rem;
+    }
+    .rp-footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      color: rgba(232,228,220,0.2);
+      text-align: center;
+      margin-top: 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .save-actions {
-      display: flex;
-      gap: 0.5rem;
+      display: flex; gap: 0.75rem;
       justify-content: center;
       margin-top: 1.5rem;
       flex-wrap: wrap;
     }
+    .share-url-row {
+      margin-top: 1rem;
+      display: flex; gap: 0.5rem; align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+    }
+    .share-url-row input {
+      flex: 1; padding: 0.25rem 0.5rem;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--ink);
+      outline: none;
+    }
 
-    @media (max-width: 640px) {
-      .likert-statement { font-size: 1.25rem; }
-      .likert-btn { min-width: 3.5rem; padding: 0.5rem 0.5rem; }
+    @media (max-width: 580px) {
+      .likert-btn { min-width: 3.5rem; padding: 0.5rem; }
       .likert-btn .label { font-size: 0.6rem; }
-      .result-card { padding: 1.25rem; }
+      .rp-bar-label { width: 4rem; font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -147,43 +174,37 @@
   <div id="navbar-slot"></div>
 
   <div class="container-narrow">
+    <!-- Chooser -->
     <div id="chooser-view">
-      <p class="eyebrow">Test Yourself</p>
+      <p class="eyebrow eyebrow-accent">Test Yourself</p>
       <h1 class="hero">Two ways to think about news.</h1>
-      <p class="lede">
-        Both take under five minutes. Both come with explanations — the goal is to
-        understand, not to score.
-      </p>
-      <div class="mode-chooser">
+      <p class="lede">Both take under five minutes. The goal is to understand, not to score.</p>
+      <div class="mode-chooser" style="margin-top:3rem;">
         <a class="mode-card" href="?type=compass">
-          <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Survey One</p>
+          <p class="eyebrow">Survey One</p>
           <h2>How do you see the world?</h2>
-          <p>
-            30 statements about governance, economics, and how you process
-            information. We plot your position on three independent scales.
-          </p>
-          <div id="compass-last-result" style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; color: rgba(13,13,13,0.4);"></div>
+          <p>30 statements about governance, economics, and how you process information. We plot your position on three independent scales.</p>
+          <div class="last-result" id="compass-last-result"></div>
         </a>
         <a class="mode-card" href="?type=literacy">
-          <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Survey Two</p>
+          <p class="eyebrow">Survey Two</p>
           <h2>The News Habit Survey</h2>
-          <p>
-            A short survey about how you read and react to news day-to-day.
-            No right or wrong answers — just pick what you'd actually do.
-          </p>
-          <div id="literacy-last-result" style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; color: rgba(13,13,13,0.4);"></div>
+          <p>A short survey about how you read and react to news. No right or wrong answers — just pick what you'd actually do.</p>
+          <div class="last-result" id="literacy-last-result"></div>
         </a>
       </div>
     </div>
 
+    <!-- Quiz runner -->
     <div id="quiz-view" class="hidden">
       <a class="back-link" href="/quiz/">← Choose a different survey</a>
-      <p class="eyebrow" id="quiz-eyebrow"></p>
-      <h1 id="quiz-title" class="hero" style="font-size: 2.25rem;"></h1>
-      <p class="lede" id="quiz-description"></p>
+      <p class="eyebrow eyebrow-accent" id="quiz-eyebrow"></p>
+      <h1 id="quiz-title" class="hero" style="font-size:2.25rem;"></h1>
+      <p class="lede" id="quiz-description" style="margin-bottom:3rem;"></p>
       <div id="quiz-runner"></div>
     </div>
 
+    <!-- Result -->
     <div id="result-view" class="hidden quiz-result"></div>
   </div>
 
@@ -193,18 +214,19 @@
   <script>
     renderSiteChrome('quiz');
 
+    // ─── Previous results ──────────────────────────────────────────────
     try {
       const lastLit = localStorage.getItem('nnn_literacy_result');
       const lastCmp = localStorage.getItem('nnn_compass_result');
       if (lastLit) {
         const d = JSON.parse(lastLit);
         document.getElementById('literacy-last-result').textContent =
-          'Last result: ' + d.pct + '% \u00b7 ' + d.verdict + ' (' + d.date + ')';
+          'Last: ' + d.pct + '% · ' + d.verdict + ' (' + d.date + ')';
       }
       if (lastCmp) {
         const d = JSON.parse(lastCmp);
         document.getElementById('compass-last-result').textContent =
-          'Last result: ' + d.summary + ' (' + d.date + ')';
+          'Last: ' + d.summary + ' (' + d.date + ')';
       }
     } catch(e) {}
 
@@ -218,27 +240,23 @@
     else if (quizType === 'literacy') startLiteracyQuiz();
 
     // ═══════════════════════════════════════════════════════════════════
-    // COMPASS QUIZ (Likert, 3 axes)
+    // COMPASS QUIZ
     // ═══════════════════════════════════════════════════════════════════
 
     async function startCompassQuiz() {
       chooserView.classList.add('hidden');
       quizView.classList.remove('hidden');
-
       const data = await loadJSON('quiz/compass.json');
-      document.getElementById('quiz-eyebrow').textContent = 'Survey One \u00b7 30 statements';
+      document.getElementById('quiz-eyebrow').textContent = 'Survey One · 30 statements';
       document.getElementById('quiz-title').textContent = data.title;
       document.getElementById('quiz-description').textContent = data.description;
-
-      const shuffled = [...data.questions].sort(() => Math.random() - 0.5);
 
       const state = {
         index: 0,
         answers: {},
         axes: data.axes,
-        questions: shuffled,
+        questions: [...data.questions].sort(() => Math.random() - 0.5),
       };
-
       renderLikert(state, data);
     }
 
@@ -248,85 +266,69 @@
       const existing = state.answers[q.id];
       const total = state.questions.length;
 
-      const likertOptions = [
-        { value: -2, label: 'Strongly Disagree' },
+      const opts = [
+        { value: -2, label: 'Strongly\nDisagree' },
         { value: -1, label: 'Disagree' },
         { value:  0, label: 'Neutral' },
         { value:  1, label: 'Agree' },
-        { value:  2, label: 'Strongly Agree' },
+        { value:  2, label: 'Strongly\nAgree' },
       ];
 
       runner.innerHTML = `
         <div class="quiz-progress-meta">
           <span>Statement ${state.index + 1} of ${total}</span>
+          <span>${Math.round(((state.index + 1) / total) * 100)}%</span>
         </div>
         <div class="quiz-progress-bar">
-          <div class="quiz-progress-fill" style="width:${((state.index + 1) / total) * 100}%"></div>
+          <div class="quiz-progress-fill" style="width:${((state.index+1)/total)*100}%"></div>
         </div>
-
-        <p class="likert-statement">\u201c${escapeHTML(q.statement)}\u201d</p>
-
+        <p class="likert-statement">"${escapeHTML(q.statement)}"</p>
         <div class="likert-scale">
-          ${likertOptions.map(opt => `
-            <button class="likert-btn ${existing === opt.value ? 'selected' : ''}" data-value="${opt.value}">
+          ${opts.map(o => `
+            <button class="likert-btn ${existing === o.value ? 'selected' : ''}" data-v="${o.value}">
               <div class="dot"></div>
-              <div class="label">${opt.label}</div>
-            </button>
-          `).join('')}
+              <div class="label">${o.label.replace('\n','<br>')}</div>
+            </button>`).join('')}
         </div>
-
-        <div class="likert-anchors">
-          <span>\u2190 Disagree</span>
-          <span>Agree \u2192</span>
-        </div>
-
+        <div class="likert-anchors"><span>← Disagree</span><span>Agree →</span></div>
         <div class="likert-next-row">
-          ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn" style="margin-right:0.5rem;">\u2190 Back</button>' : ''}
-          <button class="btn" id="next-btn" ${existing === undefined ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : ''}>
-            ${state.index + 1 >= total ? 'See results \u2192' : 'Next \u2192'}
+          ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn">← Back</button>' : ''}
+          <button class="btn" id="next-btn" ${existing === undefined ? 'disabled style="opacity:0.35;cursor:not-allowed;"' : ''}>
+            ${state.index + 1 >= total ? 'See results →' : 'Next →'}
           </button>
-        </div>
-      `;
+        </div>`;
 
       runner.querySelectorAll('.likert-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          state.answers[q.id] = parseInt(btn.dataset.value, 10);
+          state.answers[q.id] = parseInt(btn.dataset.v);
           renderLikert(state, data);
         });
       });
-
-      document.getElementById('prev-btn')?.addEventListener('click', () => {
-        state.index--;
-        renderLikert(state, data);
-      });
-
-      const nextBtn = document.getElementById('next-btn');
+      document.getElementById('prev-btn')?.addEventListener('click', () => { state.index--; renderLikert(state, data); });
+      const nb = document.getElementById('next-btn');
       if (existing !== undefined) {
-        nextBtn.addEventListener('click', () => {
+        nb.addEventListener('click', () => {
           if (state.index + 1 >= total) showCompassResult(state, data);
           else { state.index++; renderLikert(state, data); }
         });
       }
     }
 
-    // ─── Compass result with radar chart ──────────────────────────────
-
     function showCompassResult(state, data) {
       quizView.classList.add('hidden');
       resultView.classList.remove('hidden');
 
-      const axisTotals = {}, axisCounts = {};
-      for (const ax of Object.keys(data.axes)) { axisTotals[ax] = 0; axisCounts[ax] = 0; }
-      for (const q of state.questions) {
+      // Score each axis
+      const totals = {}, counts = {};
+      Object.keys(data.axes).forEach(ax => { totals[ax] = 0; counts[ax] = 0; });
+      state.questions.forEach(q => {
         const a = state.answers[q.id];
-        if (a !== undefined) { axisTotals[q.axis] += a * q.direction; axisCounts[q.axis]++; }
-      }
-
+        if (a !== undefined) { totals[q.axis] += a * q.direction; counts[q.axis]++; }
+      });
       const scores = {};
-      for (const ax of Object.keys(data.axes)) {
-        const max = axisCounts[ax] * 2;
-        scores[ax] = max > 0 ? (axisTotals[ax] / max) * 3 : 0;
-      }
+      Object.keys(data.axes).forEach(ax => {
+        scores[ax] = counts[ax] > 0 ? (totals[ax] / (counts[ax] * 2)) * 3 : 0;
+      });
 
       function axLabel(ax, v) {
         const a = data.axes[ax];
@@ -335,8 +337,8 @@
         return 'Strong ' + (v > 0 ? a.high_label : a.low_label);
       }
 
-      const summary = Object.keys(data.axes).map(ax => axLabel(ax, scores[ax])).join(' \u00b7 ');
-      const shareUrl = window.location.origin + '/quiz/?type=compass'
+      const summary = Object.keys(data.axes).map(ax => axLabel(ax, scores[ax])).join(' · ');
+      const shareUrl = location.origin + '/quiz/?type=compass'
         + '&ec=' + scores.econ.toFixed(2)
         + '&so=' + scores.social.toFixed(2)
         + '&if=' + scores.info.toFixed(2);
@@ -347,133 +349,121 @@
         }));
       } catch(e) {}
 
+      // Build bar rows HTML
       const axisKeys = Object.keys(data.axes);
-      const barHTML = axisKeys.map(ax => {
+      const barsHTML = axisKeys.map(ax => {
         const a = data.axes[ax];
         const v = scores[ax];
-        const fillColor = v >= 0 ? '#C8392B' : '#3b82f6';
-        const fillWidth = (Math.abs(v) / 3) * 50;
-        const fillMargin = v >= 0 ? 50 : 50 - fillWidth;
+        const fillPct = (Math.abs(v) / 3) * 50;
+        const marginLeft = v >= 0 ? 50 : 50 - fillPct;
+        const fillColor = v >= 0 ? '#4d8ef0' : '#e05252';
         return `
-          <div class="axis-row">
-            <span class="axis-low">${escapeHTML(a.low_label)}</span>
-            <div class="axis-bar-track">
-              <div class="axis-bar-center"></div>
-              <div class="axis-bar-fill" style="width:${fillWidth}%;margin-left:${fillMargin}%;background:${fillColor};"></div>
+          <div class="rp-bar-row">
+            <span class="rp-bar-label">${escapeHTML(a.low_label)}</span>
+            <div class="rp-bar-track">
+              <div class="rp-bar-center"></div>
+              <div class="rp-bar-fill" style="width:${fillPct}%;margin-left:${marginLeft}%;background:${fillColor};"></div>
             </div>
-            <span class="axis-high">${escapeHTML(a.high_label)}</span>
+            <span class="rp-bar-label right-label">${escapeHTML(a.high_label)}</span>
           </div>
-          <div style="text-align:center;font-family:'DM Sans',sans-serif;font-size:0.7rem;color:rgba(245,240,232,0.4);margin-bottom:0.5rem;">
-            ${escapeHTML(axLabel(ax, v))} (${v.toFixed(1)})
-          </div>
-        `;
+          <div class="rp-bar-value">${escapeHTML(axLabel(ax, v))} (${v.toFixed(1)})</div>`;
       }).join('');
 
       resultView.innerHTML = `
-        <p class="eyebrow">Your position</p>
+        <p class="eyebrow eyebrow-accent" style="margin-bottom:0.5rem;">Your position</p>
+        <div class="quiz-verdict" style="margin-bottom:2rem;">${escapeHTML(summary)}</div>
 
-        <div class="result-card-wrapper">
-          <div class="result-card" id="result-card">
-            <div class="brand">Net Neutral <span>News</span></div>
-            <canvas id="radar-canvas" width="340" height="300"></canvas>
-            ${barHTML}
-            <div class="footer-note">netneutralnews.in \u00b7 understand the news without the bias</div>
-          </div>
+        <div class="result-preview" id="result-preview">
+          <div class="rp-brand">Net Neutral <span>News</span></div>
+          <div class="rp-title">My News Compass</div>
+          <canvas id="radar-canvas" width="320" height="280"></canvas>
+          ${barsHTML}
+          <div class="rp-footer">netneutralnews.in · understand the news without the bias</div>
         </div>
 
         <div class="save-actions">
-          <button class="btn" onclick="saveAsImage()">Save as image</button>
+          <button class="btn" id="save-img-btn">↓ Save as image</button>
           <button class="btn btn-ghost" onclick="copyShareUrl()">Copy share link</button>
         </div>
-        <div class="share-row" style="margin-top:1rem;">
-          <input type="text" readonly value="${shareUrl}" id="share-url">
+        <div class="share-url-row">
+          <input type="text" readonly id="share-url" value="${shareUrl}">
           <span class="copy-feedback" id="copy-feedback">Copied!</span>
         </div>
         <div class="save-actions" style="margin-top:1.5rem;">
-          <button class="btn btn-dark" onclick="window.location.href='/quiz/?type=compass'">Retake</button>
+          <button class="btn btn-dark" onclick="location.href='/quiz/?type=compass'">Retake</button>
           <a class="btn btn-ghost" href="/quiz/?type=literacy">Try the other survey</a>
-        </div>
-      `;
+        </div>`;
 
-      drawRadar(scores, data.axes);
+      // Draw on-screen radar (small, decorative)
+      drawRadar('radar-canvas', scores, data.axes, 320, 280, 95);
+
+      // Wire save button
+      document.getElementById('save-img-btn').addEventListener('click', () => {
+        saveCompassImage(scores, data.axes, summary);
+      });
     }
 
-    // ─── Radar chart on canvas ────────────────────────────────────────
+    // ─── Radar drawing (reusable) ──────────────────────────────────────
 
-    function drawRadar(scores, axes) {
-      const canvas = document.getElementById('radar-canvas');
+    function drawRadar(canvasId, scores, axes, W, H, R) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width  = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width  = W + 'px';
+      canvas.style.height = H + 'px';
       const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-      const cx = W / 2, cy = H / 2 + 10;
-      const R = 110;
+      ctx.scale(dpr, dpr);
 
+      const cx = W / 2, cy = H / 2 + 8;
       const axisKeys = Object.keys(axes);
-      const angleOffset = -Math.PI / 2; // start from top
+      const ao = -Math.PI / 2;
 
-      function axisAngle(i) {
-        return angleOffset + (2 * Math.PI * i) / axisKeys.length;
-      }
-
-      function pointAt(i, radius) {
-        const a = axisAngle(i);
-        return { x: cx + Math.cos(a) * radius, y: cy + Math.sin(a) * radius };
-      }
+      function angle(i) { return ao + (2 * Math.PI * i) / axisKeys.length; }
+      function pt(i, r) { return { x: cx + Math.cos(angle(i)) * r, y: cy + Math.sin(angle(i)) * r }; }
 
       // Grid rings
       for (let ring = 1; ring <= 3; ring++) {
         const r = (ring / 3) * R;
         ctx.beginPath();
-        for (let i = 0; i <= axisKeys.length; i++) {
-          const p = pointAt(i % axisKeys.length, r);
+        axisKeys.forEach((_, i) => {
+          const p = pt(i % axisKeys.length, r);
           i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
-        }
+        });
         ctx.closePath();
-        ctx.strokeStyle = 'rgba(245,240,232,0.15)';
+        ctx.strokeStyle = 'rgba(232,228,220,0.12)';
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      // Axis lines
-      for (let i = 0; i < axisKeys.length; i++) {
-        const p = pointAt(i, R);
+      // Axis spokes
+      axisKeys.forEach((_, i) => {
+        const p = pt(i, R);
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.lineTo(p.x, p.y);
-        ctx.strokeStyle = 'rgba(245,240,232,0.25)';
+        ctx.strokeStyle = 'rgba(232,228,220,0.2)';
         ctx.lineWidth = 1;
         ctx.stroke();
-      }
-
-      // Center dot
-      ctx.beginPath();
-      ctx.arc(cx, cy, 3, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(245,240,232,0.3)';
-      ctx.fill();
-
-      // User shape
-      const userPoints = axisKeys.map((ax, i) => {
-        // Normalize score (-3..+3) to radius (0..R)
-        // Center = 0 score = R * 0.5 (middle of the ring)
-        // The chart shows absolute distance from center: 0 score = center, ±3 = edge
-        const normalized = (Math.abs(scores[ax]) / 3) * R;
-        return pointAt(i, normalized);
       });
 
-      // Fill
+      // User shape
+      const userPts = axisKeys.map((ax, i) => pt(i, (Math.abs(scores[ax]) / 3) * R));
       ctx.beginPath();
-      userPoints.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+      userPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
       ctx.closePath();
-      ctx.fillStyle = 'rgba(200, 57, 43, 0.25)';
+      ctx.fillStyle = 'rgba(77,142,240,0.2)';
       ctx.fill();
-      ctx.strokeStyle = '#C8392B';
+      ctx.strokeStyle = '#4d8ef0';
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // User dots
-      userPoints.forEach(p => {
+      // Dots at vertices
+      userPts.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-        ctx.fillStyle = '#C8392B';
+        ctx.fillStyle = '#4d8ef0';
         ctx.fill();
         ctx.strokeStyle = '#0D0D0D';
         ctx.lineWidth = 2;
@@ -481,124 +471,273 @@
       });
 
       // Axis labels
-      ctx.font = '600 11px "DM Sans", sans-serif';
       ctx.textAlign = 'center';
-
-      const labels = axisKeys.map(ax => {
-        const a = axes[ax];
+      axisKeys.forEach((ax, i) => {
         const v = scores[ax];
-        if (v >= 0) return a.high_label;
-        return a.low_label;
+        const label = v >= 0 ? axes[ax].high_label : axes[ax].low_label;
+        const color = v >= 0 ? '#4d8ef0' : '#e05252';
+        const lp = pt(i, R + 22);
+        ctx.font = `600 ${Math.round(W * 0.034)}px Inter, sans-serif`;
+        ctx.fillStyle = color;
+        ctx.fillText(label, lp.x, lp.y + 4);
+
+        const np = pt(i, R + 36);
+        ctx.font = `400 ${Math.round(W * 0.026)}px Inter, sans-serif`;
+        ctx.fillStyle = 'rgba(232,228,220,0.3)';
+        ctx.fillText(axes[ax].name, np.x, np.y + 4);
       });
-
-      const labelColors = axisKeys.map(ax => {
-        const v = scores[ax];
-        return v >= 0 ? '#C8392B' : '#3b82f6';
-      });
-
-      for (let i = 0; i < axisKeys.length; i++) {
-        const p = pointAt(i, R + 24);
-        ctx.fillStyle = labelColors[i];
-        ctx.fillText(labels[i], p.x, p.y + 4);
-
-        // Also show the axis name in dim text
-        const p2 = pointAt(i, R + 38);
-        ctx.font = '500 9px "DM Sans", sans-serif';
-        ctx.fillStyle = 'rgba(245,240,232,0.35)';
-        ctx.fillText(axes[axisKeys[i]].name, p2.x, p2.y + 4);
-        ctx.font = '600 11px "DM Sans", sans-serif';
-      }
     }
 
-    // ─── Save as image ────────────────────────────────────────────────
+    // ─── High-res image export ─────────────────────────────────────────
 
-    function saveAsImage() {
-      const card = document.getElementById('result-card');
-      const cardCanvas = document.createElement('canvas');
-      const scale = 2;
-      const w = card.offsetWidth * scale;
-      const h = card.offsetHeight * scale;
-      cardCanvas.width = w;
-      cardCanvas.height = h;
-      const ctx = cardCanvas.getContext('2d');
+    function saveCompassImage(scores, axes, summary) {
+      const btn = document.getElementById('save-img-btn');
+      btn.textContent = 'Generating…';
+      btn.disabled = true;
 
-      // Draw card background
-      ctx.scale(scale, scale);
-      ctx.fillStyle = '#0D0D0D';
-      ctx.beginPath();
-      ctx.roundRect(0, 0, card.offsetWidth, card.offsetHeight, 16);
-      ctx.fill();
+      // Slight delay so fonts have time to be available
+      setTimeout(() => {
+        const W = 1080, H = 1350;
+        const c = document.createElement('canvas');
+        c.width = W; c.height = H;
+        const ctx = c.getContext('2d');
 
-      // Copy the radar canvas
-      const radarCanvas = document.getElementById('radar-canvas');
-      const radarRect = radarCanvas.getBoundingClientRect();
-      const cardRect = card.getBoundingClientRect();
-      const rx = radarRect.left - cardRect.left;
-      const ry = radarRect.top - cardRect.top;
-      ctx.drawImage(radarCanvas, rx, ry, radarCanvas.offsetWidth, radarCanvas.offsetHeight);
+        const PAD = 72;
+        const ACCENT = '#4d8ef0';
+        const DIM = 'rgba(232,228,220,0.4)';
+        const DIMMER = 'rgba(232,228,220,0.2)';
+        const TEXT = '#E8E4DC';
 
-      // Add text
-      ctx.fillStyle = 'rgba(245,240,232,0.5)';
-      ctx.font = '900 14px "Playfair Display", serif';
-      ctx.fillText('Net Neutral ', 32, 36);
-      ctx.fillStyle = '#C8392B';
-      ctx.fillText('News', 32 + ctx.measureText('Net Neutral ').width, 36);
+        // Background
+        ctx.fillStyle = '#0D0D0D';
+        ctx.fillRect(0, 0, W, H);
 
-      ctx.fillStyle = 'rgba(245,240,232,0.3)';
-      ctx.font = '500 9px "DM Sans", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('netneutralnews.in \u00b7 understand the news without the bias', card.offsetWidth / 2, card.offsetHeight - 16);
+        // Subtle top gradient
+        const grad = ctx.createLinearGradient(0, 0, 0, 400);
+        grad.addColorStop(0, 'rgba(77,142,240,0.06)');
+        grad.addColorStop(1, 'rgba(77,142,240,0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
 
-      ctx.resetTransform();
+        // Branding
+        ctx.font = '700 28px Georgia, serif';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = 'rgba(232,228,220,0.4)';
+        ctx.fillText('Net Neutral ', PAD, 80);
+        const bw = ctx.measureText('Net Neutral ').width;
+        ctx.fillStyle = ACCENT;
+        ctx.fillText('News', PAD + bw, 80);
 
-      // Trigger download
-      const link = document.createElement('a');
-      link.download = 'my-news-compass.png';
-      link.href = cardCanvas.toDataURL('image/png');
-      link.click();
+        // Divider line
+        ctx.strokeStyle = 'rgba(232,228,220,0.1)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(PAD, 100);
+        ctx.lineTo(W - PAD, 100);
+        ctx.stroke();
+
+        // Title
+        ctx.font = '600 52px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = TEXT;
+        ctx.fillText('My News Compass', W / 2, 175);
+
+        // Summary line
+        ctx.font = '400 26px Georgia, serif';
+        ctx.fillStyle = DIM;
+        // Word-wrap summary if too long
+        const maxW = W - PAD * 2;
+        wrapText(ctx, summary, W / 2, 225, maxW, 36);
+
+        // ─── Radar chart ───────────────────────────────────────
+        const RX = W / 2, RY = 620, R = 260;
+        const axisKeys = Object.keys(axes);
+        const ao = -Math.PI / 2;
+        function angle(i) { return ao + (2 * Math.PI * i) / axisKeys.length; }
+        function pt(i, r) { return { x: RX + Math.cos(angle(i)) * r, y: RY + Math.sin(angle(i)) * r }; }
+
+        // Grid rings
+        for (let ring = 1; ring <= 3; ring++) {
+          const r = (ring / 3) * R;
+          ctx.beginPath();
+          axisKeys.forEach((_, i) => {
+            const p = pt(i % axisKeys.length, r);
+            i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+          });
+          ctx.closePath();
+          ctx.strokeStyle = ring === 3 ? 'rgba(232,228,220,0.2)' : 'rgba(232,228,220,0.1)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+
+        // Spokes
+        axisKeys.forEach((_, i) => {
+          const p = pt(i, R);
+          ctx.beginPath();
+          ctx.moveTo(RX, RY);
+          ctx.lineTo(p.x, p.y);
+          ctx.strokeStyle = 'rgba(232,228,220,0.15)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+
+        // User shape
+        const userPts = axisKeys.map((ax, i) => pt(i, (Math.abs(scores[ax]) / 3) * R));
+        ctx.beginPath();
+        userPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(77,142,240,0.18)';
+        ctx.fill();
+        ctx.strokeStyle = ACCENT;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Vertex dots
+        userPts.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
+          ctx.fillStyle = ACCENT;
+          ctx.fill();
+          ctx.strokeStyle = '#0D0D0D';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        });
+
+        // Axis labels on radar
+        axisKeys.forEach((ax, i) => {
+          const v = scores[ax];
+          const label = v >= 0 ? axes[ax].high_label : axes[ax].low_label;
+          const color = v >= 0 ? ACCENT : '#e05252';
+          const lp = pt(i, R + 54);
+          ctx.font = '600 26px Inter, Arial, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = color;
+          ctx.fillText(label, lp.x, lp.y + 5);
+
+          const np = pt(i, R + 82);
+          ctx.font = '400 20px Inter, Arial, sans-serif';
+          ctx.fillStyle = 'rgba(232,228,220,0.3)';
+          ctx.fillText(axes[ax].name, np.x, np.y + 5);
+        });
+
+        // ─── Axis bars ─────────────────────────────────────────
+        const BAR_TOP = 960;
+        const BAR_H = 8;
+        const BAR_GAP = 80;
+        const LABEL_W = 180;
+        const BAR_W = W - PAD * 2 - LABEL_W * 2;
+
+        axisKeys.forEach((ax, idx) => {
+          const a = axes[ax];
+          const v = scores[ax];
+          const y = BAR_TOP + idx * BAR_GAP;
+
+          // Low label
+          ctx.font = '400 22px Inter, Arial, sans-serif';
+          ctx.textAlign = 'right';
+          ctx.fillStyle = v < 0 ? ACCENT : DIM;
+          ctx.fillText(a.low_label, PAD + LABEL_W - 16, y + BAR_H / 2 + 8);
+
+          // Track
+          const bx = PAD + LABEL_W;
+          ctx.fillStyle = 'rgba(232,228,220,0.08)';
+          ctx.beginPath();
+          ctx.roundRect(bx, y, BAR_W, BAR_H, 4);
+          ctx.fill();
+
+          // Center tick
+          ctx.fillStyle = 'rgba(232,228,220,0.2)';
+          ctx.fillRect(bx + BAR_W / 2 - 1, y - 4, 2, BAR_H + 8);
+
+          // Fill
+          const fillW = (Math.abs(v) / 3) * (BAR_W / 2);
+          const fillX = v >= 0 ? bx + BAR_W / 2 : bx + BAR_W / 2 - fillW;
+          const fillColor = v >= 0 ? ACCENT : '#e05252';
+          ctx.fillStyle = fillColor;
+          ctx.beginPath();
+          ctx.roundRect(fillX, y, fillW, BAR_H, 3);
+          ctx.fill();
+
+          // High label
+          ctx.textAlign = 'left';
+          ctx.fillStyle = v >= 0 ? ACCENT : DIM;
+          ctx.fillText(a.high_label, PAD + LABEL_W + BAR_W + 16, y + BAR_H / 2 + 8);
+
+          // Value label
+          ctx.textAlign = 'center';
+          ctx.fillStyle = 'rgba(232,228,220,0.25)';
+          ctx.font = '400 18px Inter, Arial, sans-serif';
+          const valLabel = (v >= 0 ? 'Leaning ' + a.high_label : 'Leaning ' + a.low_label)
+            + (Math.abs(v) < 0.5 ? ' (Centrist)' : ' (' + v.toFixed(1) + ')');
+          ctx.fillText(valLabel, W / 2, y + BAR_H + 24);
+        });
+
+        // Footer
+        ctx.strokeStyle = 'rgba(232,228,220,0.08)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(PAD, H - 80);
+        ctx.lineTo(W - PAD, H - 80);
+        ctx.stroke();
+
+        ctx.font = '400 20px Inter, Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(232,228,220,0.18)';
+        ctx.fillText('NETNEUTRALNEWS.IN · UNDERSTAND THE NEWS WITHOUT THE BIAS', W / 2, H - 44);
+
+        // Download
+        const link = document.createElement('a');
+        link.download = 'my-news-compass.png';
+        link.href = c.toDataURL('image/png');
+        link.click();
+
+        btn.textContent = '↓ Save as image';
+        btn.disabled = false;
+      }, 100);
+    }
+
+    // ─── Text wrap helper ──────────────────────────────────────────────
+    function wrapText(ctx, text, x, y, maxW, lineH) {
+      const words = text.split(' ');
+      let line = '';
+      let ly = y;
+      words.forEach((word, i) => {
+        const test = line + (line ? ' ' : '') + word;
+        if (ctx.measureText(test).width > maxW && line) {
+          ctx.fillText(line, x, ly);
+          line = word;
+          ly += lineH;
+        } else { line = test; }
+      });
+      ctx.fillText(line, x, ly);
     }
 
     // ═══════════════════════════════════════════════════════════════════
-    // LITERACY QUIZ (MCQ)
+    // LITERACY QUIZ
     // ═══════════════════════════════════════════════════════════════════
 
     async function startLiteracyQuiz() {
       chooserView.classList.add('hidden');
       quizView.classList.remove('hidden');
-
       const data = await loadJSON('quiz/literacy.json');
       document.getElementById('quiz-eyebrow').textContent = 'Survey Two';
       document.getElementById('quiz-title').textContent = data.title;
       document.getElementById('quiz-description').textContent = data.description;
-
       const state = { index: 0, selections: [], score: 0 };
-
-      runMCQ({
-        questions: data.questions,
-        state,
+      runMCQ({ questions: data.questions, state,
         onSelect: (q, i) => { if (i === q.correct) state.score++; },
-        onFinish: () => showLiteracyResult(state, data.questions.length),
-      });
+        onFinish: () => showLiteracyResult(state, data.questions.length) });
     }
 
     function showLiteracyResult(state, total) {
       quizView.classList.add('hidden');
       resultView.classList.remove('hidden');
-
       const pct = Math.round((state.score / total) * 100);
-      const { verdict, text } =
-        pct >= 80 ? {
-          verdict: 'Strong Critical Reader',
-          text: "You consistently apply scepticism before accepting or sharing information. You notice framing, question sources, and resist emotional triggers."
-        } : pct >= 55 ? {
-          verdict: 'Selectively Sceptical',
-          text: "You apply critical thinking in some situations but not others \u2014 often depending on whether the story aligns with what you already believe."
-        } : {
-          verdict: 'Instinct-Led Reader',
-          text: "Right now your news habits are driven more by instinct and emotion than by verification. That\u2019s normal \u2014 awareness is the first step to changing it."
-        };
-
-      const shareUrl = window.location.origin + '/quiz/?type=literacy&score=' + pct;
+      const { verdict, text } = pct >= 80
+        ? { verdict: 'Strong Critical Reader', text: "You consistently apply scepticism before accepting or sharing information. Keep stress-testing even the sources you trust." }
+        : pct >= 55
+        ? { verdict: 'Selectively Sceptical', text: "You apply critical thinking sometimes — often depending on whether the story matches what you already believe. That gap is where misinformation works." }
+        : { verdict: 'Instinct-Led Reader', text: "Your news habits are driven more by instinct than verification. That's normal — awareness is the first step to changing it." };
 
       try {
         localStorage.setItem('nnn_literacy_result', JSON.stringify({
@@ -606,27 +745,24 @@
         }));
       } catch(e) {}
 
+      const shareUrl = location.origin + '/quiz/?type=literacy&score=' + pct;
       resultView.innerHTML = `
-        <p class="eyebrow">Your result</p>
+        <p class="eyebrow eyebrow-accent">Your result</p>
         <div class="quiz-score">${pct}%</div>
         <div class="quiz-verdict">${escapeHTML(verdict)}</div>
         <p class="quiz-result-text">${escapeHTML(text)}</p>
         <div class="quiz-result-actions">
-          <button class="btn" onclick="window.location.href='/quiz/?type=literacy'">Retake</button>
+          <button class="btn" onclick="location.href='/quiz/?type=literacy'">Retake</button>
           <a class="btn btn-ghost" href="/quiz/?type=compass">Try the other survey</a>
         </div>
-        <div class="share-row">
-          <input type="text" readonly value="${shareUrl}" id="share-url">
+        <div class="share-url-row" style="margin-top:1.5rem;">
+          <input type="text" readonly id="share-url" value="${shareUrl}">
           <button class="btn btn-dark" onclick="copyShareUrl()">Copy link</button>
           <span class="copy-feedback" id="copy-feedback">Copied!</span>
-        </div>
-      `;
+        </div>`;
     }
 
-    // ═══════════════════════════════════════════════════════════════════
-    // MCQ RUNNER
-    // ═══════════════════════════════════════════════════════════════════
-
+    // ─── MCQ runner ────────────────────────────────────────────────────
     function runMCQ({ questions, state, onSelect, onFinish }) {
       const runner = document.getElementById('quiz-runner');
       function render() {
@@ -638,41 +774,36 @@
             <span>Question ${state.index + 1} of ${questions.length}</span>
           </div>
           <div class="quiz-progress-bar">
-            <div class="quiz-progress-fill" style="width:${((state.index + 1) / questions.length) * 100}%"></div>
+            <div class="quiz-progress-fill" style="width:${((state.index+1)/questions.length)*100}%"></div>
           </div>
           <h2 class="quiz-question">${escapeHTML(q.question)}</h2>
           <div class="quiz-options">
-            ${q.options.map((opt, i) => {
-              let c = '';
-              if (done) { c = i === q.correct ? 'correct' : i === sel ? 'wrong' : 'dimmed'; }
-              return '<button class="quiz-option ' + c + '" data-i="' + i + '" ' + (done ? 'disabled' : '') + '>' + escapeHTML(opt) + '</button>';
+            ${q.options.map((o,i) => {
+              let c = done ? (i===q.correct ? 'correct' : i===sel ? 'wrong' : 'dimmed') : '';
+              return `<button class="quiz-option ${c}" data-i="${i}" ${done?'disabled':''}>${escapeHTML(o)}</button>`;
             }).join('')}
           </div>
           ${done ? `
-            <div class="quiz-explanation"><div class="label">Why</div><p>${escapeHTML(q.explanation)}</p></div>
-            <button class="btn" id="next-btn">${state.index + 1 >= questions.length ? 'See result \u2192' : 'Next \u2192'}</button>
-          ` : ''}
-        `;
+            <div class="quiz-explanation">
+              <div class="label">Why</div>
+              <p>${escapeHTML(q.explanation)}</p>
+            </div>
+            <button class="btn" id="nxt">${state.index+1>=questions.length?'See result →':'Next →'}</button>` : ''}`;
         runner.querySelectorAll('.quiz-option').forEach(b => {
           b.addEventListener('click', () => {
-            state.selections[state.index] = parseInt(b.dataset.i, 10);
+            state.selections[state.index] = parseInt(b.dataset.i);
             onSelect(q, state.selections[state.index]);
             render();
           });
         });
-        document.getElementById('next-btn')?.addEventListener('click', () => {
-          state.index + 1 >= questions.length ? onFinish() : (state.index++, render());
+        document.getElementById('nxt')?.addEventListener('click', () => {
+          state.index+1>=questions.length ? onFinish() : (state.index++, render());
         });
       }
       render();
     }
 
-    // ═══════════════════════════════════════════════════════════════════
-    // HELPERS
-    // ═══════════════════════════════════════════════════════════════════
-
-    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
-
+    // ─── Helpers ───────────────────────────────────────────────────────
     function copyShareUrl() {
       const input = document.getElementById('share-url');
       input.select();

@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Scale · Net Neutral News</title>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    /* All compass text uses CSS vars — dark mode safe */
+    .axis-card .eyebrow { color: var(--ink-3); }
+    .axis-card p        { color: var(--ink-2); }
+    .method-note .eyebrow { color: var(--ink-3); }
+    .left-col  { color: #4a90e2; }
+    .right-col { color: #c0392b; }
+  </style>
 </head>
 <body>
   <div id="navbar-slot"></div>
 
   <div class="container">
-    <p class="eyebrow">The Scale</p>
+    <p class="eyebrow eyebrow-accent">The Scale</p>
     <h1 class="hero">How we measure bias.</h1>
     <p class="lede">
       Inspired by the Political Compass, our scale plots news outlets on two axes
@@ -21,20 +29,20 @@
 
     <div class="compass-axes-grid">
       <div class="axis-card">
-        <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Horizontal Axis</p>
+        <p class="eyebrow">Horizontal Axis</p>
         <h3>Political Lean</h3>
-        <p style="color: rgba(13,13,13,0.7)">
-          From <strong style="color: #1d4ed8">far-left</strong> to
-          <strong style="color: #991b1b">far-right</strong>. Based on framing of
+        <p>
+          From <strong class="left-col">far-left</strong> to
+          <strong class="right-col">far-right</strong>. Based on framing of
           economic, social, and policy stories — not just who the outlet endorses.
         </p>
       </div>
       <div class="axis-card">
-        <p class="eyebrow" style="color: rgba(13,13,13,0.5)">Vertical Axis</p>
+        <p class="eyebrow">Vertical Axis</p>
         <h3>Factual vs Sensational</h3>
-        <p style="color: rgba(13,13,13,0.7)">
-          From <strong>dry & factual</strong> (top) to
-          <strong style="color: var(--accent)">emotive & sensational</strong> (bottom).
+        <p>
+          From <strong>dry &amp; factual</strong> (top) to
+          <strong style="color: var(--accent)">emotive &amp; sensational</strong> (bottom).
           Measures charged language, clickbait headlines, and opinion-as-news.
         </p>
       </div>
@@ -56,7 +64,7 @@
     </div>
 
     <div class="method-note">
-      <p class="eyebrow" style="color: rgba(13,13,13,0.6)">Methodology Note</p>
+      <p class="eyebrow">Methodology Note</p>
       <p>
         These positions are editorial judgements based on consistent patterns across
         many stories, not single events. The scale is a starting point for discussion,
@@ -79,11 +87,8 @@
       try {
         const sources = await loadJSON('sources/sources.json');
 
-        // Plot each source
         sources.forEach((s) => {
           const x = biasToPercent(s.bias.political);
-          // factual high = top of chart = low percent.
-          // We store "sensational" so map: y = biasToPercent(sensational)
           const y = biasToPercent(s.bias.sensational);
 
           const dot = document.createElement('div');
@@ -108,7 +113,6 @@
           plot.appendChild(dot);
         });
 
-        // If user came here via a shared link with ?x=...&y=..., plot them too
         const params = new URLSearchParams(window.location.search);
         const ux = parseFloat(params.get('x'));
         const uy = parseFloat(params.get('y'));
@@ -117,17 +121,13 @@
           dot.className = 'compass-dot user-dot';
           dot.style.left = `${biasToPercent(ux)}%`;
           dot.style.top  = `${biasToPercent(uy)}%`;
-          dot.innerHTML = `
-            <div class="point"></div>
-            <div class="dot-label">You</div>
-          `;
+          dot.innerHTML = `<div class="point"></div><div class="dot-label">You</div>`;
           plot.appendChild(dot);
-
           info.classList.remove('empty');
           info.innerHTML = `
             <div class="name">Your position</div>
             <div class="desc">
-              Political: ${biasLabel(ux)} (${ux.toFixed(1)}) ·
+              Political: ${biasLabel(ux)} (${ux.toFixed(1)}) &nbsp;·&nbsp;
               ${uy >= 0 ? 'Sensational' : 'Factual'} (${Math.abs(uy).toFixed(1)})
             </div>
           `;
