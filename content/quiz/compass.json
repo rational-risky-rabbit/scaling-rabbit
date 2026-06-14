@@ -19,6 +19,80 @@
       "high_label": "Sensational"
     }
   },
+  "archetypes": [
+    {
+      "code": "architect",
+      "pattern": "ILF",
+      "name": "The Architect",
+      "tagline": "Rational, independent, and freedom-oriented.",
+      "description": "You believe in free markets and strong civil liberties, guided strictly by data rather than emotion. You trust systems that empower individuals and are highly skeptical of top-down authority or dramatic, emotionally manipulative rhetoric.",
+      "image_url": "/assets/img/architect.webp",
+      "ai_prompt": "A cinematic, stylized portrait of a sharp, modern architect standing in front of glowing holographic blueprints, calm and analytical expression, neo-noir lighting, high detail, digital art."
+    },
+    {
+      "code": "maverick",
+      "pattern": "ILE",
+      "name": "The Maverick",
+      "tagline": "Fiercely independent and passionately outspoken.",
+      "description": "You champion personal freedom and individual enterprise with fiery conviction. You distrust the state deeply and prefer passionate, narrative-driven arguments that highlight the struggle of the individual against the system.",
+      "image_url": "/assets/img/maverick.webp",
+      "ai_prompt": "A rugged, charismatic rebel standing on a high vantage point overlooking a modern city, wind blowing through hair, passionate and defiant expression, cinematic lighting, digital painting."
+    },
+    {
+      "code": "executive",
+      "pattern": "IAF",
+      "name": "The Executive",
+      "tagline": "Orderly, market-driven, and strictly pragmatic.",
+      "description": "You value strong authority to maintain societal order while relying on the free market to drive economic efficiency. You process the world through hard numbers and results, dismissing both bleeding-heart emotional appeals and societal chaos.",
+      "image_url": "/assets/img/executive.webp",
+      "ai_prompt": "A sharp-suited, authoritative leader standing in a high-tech, dimly lit boardroom overlooking a metropolis at night, calculating and stoic expression, hyper-realistic, 8k resolution."
+    },
+    {
+      "code": "traditionalist",
+      "pattern": "IAE",
+      "name": "The Traditionalist",
+      "tagline": "Protective of order, driven by strong core values.",
+      "description": "You believe in firm leadership, personal responsibility, and the preservation of societal norms. You react strongly to perceived moral decay and are highly receptive to passionate journalism that highlights the breakdown of law and order.",
+      "image_url": "/assets/img/traditionalist.webp",
+      "ai_prompt": "A stern, noble figure in a classical, monumental setting, holding an ancient ledger, resolute and protective expression, dramatic chiaroscuro lighting, regal atmosphere."
+    },
+    {
+      "code": "reformer",
+      "pattern": "SLF",
+      "name": "The Reformer",
+      "tagline": "Data-driven, egalitarian, and open-minded.",
+      "description": "You support systemic, collective solutions to economic problems while fiercely defending personal civil liberties. You are highly analytical, preferring peer-reviewed studies and structural policy proposals over emotional sob stories.",
+      "image_url": "/assets/img/reformer.webp",
+      "ai_prompt": "A thoughtful, modern scholar in an eco-friendly, futuristic community library, examining a glowing data tablet, serene and intelligent, soft natural lighting."
+    },
+    {
+      "code": "activist",
+      "pattern": "SLE",
+      "name": "The Activist",
+      "tagline": "Empathetic, egalitarian, and driven by justice.",
+      "description": "You feel the pains of inequality deeply and advocate passionately for collective uplift and civil rights. You are moved by human stories and believe that journalism should inspire people to challenge unjust systems and authorities.",
+      "image_url": "/assets/img/activist.webp",
+      "ai_prompt": "A passionate, youthful leader speaking into a megaphone amidst a vibrant backdrop of street art, dynamic angle, highly emotive, vibrant colors, cinematic."
+    },
+    {
+      "code": "technocrat",
+      "pattern": "SAF",
+      "name": "The Technocrat",
+      "tagline": "Systematic, authoritative, and focused on the greater good.",
+      "description": "You believe that complex societies require expert central planning and strong governance to function fairly. You are immune to sensationalism, preferring society to be managed like a well-oiled machine based on empirical data.",
+      "image_url": "/assets/img/technocrat.webp",
+      "ai_prompt": "A highly focused scientist or planner in a sterile, advanced control room, manipulating a glowing 3D city grid, cold blue lighting, hyper-detailed, futuristic."
+    },
+    {
+      "code": "vanguard",
+      "pattern": "SAE",
+      "name": "The Vanguard",
+      "tagline": "Fiercely protective of the collective and driven by unity.",
+      "description": "You believe in a strong, centralized state to protect the vulnerable and maintain order. You are highly receptive to emotional, moral appeals that rally society together against common threats or systemic injustices.",
+      "image_url": "/assets/img/vanguard.webp",
+      "ai_prompt": "A resolute, heroic guardian figure holding a symbolic shield, rallying a massive crowd in a grand public square, dramatic golden hour lighting, epic and sweeping composition."
+    }
+  ],
   "questions": [
     { "id": "EC01", "axis": "econ", "direction": 1, "statement": "If a pharmaceutical company develops a breakthrough drug, the government should have the moral right to override the patent to ensure affordable access." },
     { "id": "EC02", "axis": "econ", "direction": -1, "statement": "It is more fair for a struggling corporation to go bankrupt than for taxpayer money to be used to save its employees' jobs." },
@@ -30,7 +104,6 @@
     { "id": "EC08", "axis": "econ", "direction": -1, "statement": "A society where everyone is equally poor is worse than a society with extreme wealth alongside moderate poverty." },
     { "id": "EC09", "axis": "econ", "direction": 1, "statement": "It is fundamentally unjust that someone can inherit vast generational wealth without having worked for it." },
     { "id": "EC10", "axis": "econ", "direction": -1, "statement": "Environmental regulations should be relaxed if they threaten to destroy a significant number of working-class jobs." },
-
     { "id": "SO01", "axis": "social", "direction": 1, "statement": "Schools should prioritize teaching students how to fit into society and follow established norms rather than encouraging them to question authority." },
     { "id": "SO02", "axis": "social", "direction": 1, "statement": "In times of severe national crisis, the media should temporarily delay publishing stories that might severely lower public morale." },
     { "id": "SO03", "axis": "social", "direction": -1, "statement": "A person’s decision to consume harmful substances in the privacy of their own home is entirely their own business." },
@@ -41,7 +114,6 @@
     { "id": "SO08", "axis": "social", "direction": 1, "statement": "Respect for elders and authority figures is a crucial value that is fading in modern society." },
     { "id": "SO09", "axis": "social", "direction": -1, "statement": "Victimless crimes, such as gambling or sex work, should be completely decriminalized." },
     { "id": "SO10", "axis": "social", "direction": 1, "statement": "The military or police are often better equipped to handle a chaotic crisis than elected politicians." },
-
     { "id": "IF01", "axis": "info", "direction": 1, "statement": "A single, well-documented story of a family's struggle tells you more about the economy than a spreadsheet of unemployment statistics." },
     { "id": "IF02", "axis": "info", "direction": -1, "statement": "I frequently find myself looking for the methodology section when an article quotes a new scientific study." },
     { "id": "IF03", "axis": "info", "direction": 1, "statement": "The best journalism appeals to the heart first and the mind second." },
@@ -53,3 +125,4 @@
     { "id": "IF09", "axis": "info", "direction": 1, "statement": "When two people debate, the one who speaks with more passion and conviction is usually the one telling the truth." },
     { "id": "IF10", "axis": "info", "direction": -1, "statement": "I would rather read a dry, boring account of an event than a highly stylized, dramatic retelling." }
   ]
+}
