@@ -30,10 +30,8 @@ function initDarkMode() {
   const btn = document.getElementById('dark-toggle');
   if (!btn) return;
 
-  // Apply saved or system preference
   const saved = localStorage.getItem('nnn_dark');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isDark = saved !== null ? saved === '1' : true; // dark by default
+  const isDark = saved !== null ? saved === '1' : true;
 
   if (isDark) enableDark(false);
 
