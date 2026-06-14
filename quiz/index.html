@@ -68,25 +68,36 @@
 
     /* ─── Result card (on-screen preview) ──────────────────── */
     .result-preview {
-      background: #0D0D0D;
-      border-radius: 0.75rem;
+      background:
+        linear-gradient(#0d0d16, #0d0d16) padding-box,
+        linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4) border-box;
+      border: 1.5px solid transparent;
+      border-radius: 24px;
       padding: 2rem;
       max-width: 440px;
       margin: 0 auto 2rem;
+      box-shadow: 0 24px 64px -24px rgba(108, 92, 231, 0.45);
     }
     .result-preview .rp-brand {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
       font-weight: 700;
-      font-size: 1rem;
-      color: rgba(232,228,220,0.5);
+      font-size: 0.95rem;
+      color: rgba(242,242,247,0.45);
       margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    .result-preview .rp-brand span { color: #4d8ef0; }
+    .result-preview .rp-brand span {
+      background: linear-gradient(100deg, #7c3aed, #3b82f6, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
     .result-preview .rp-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 600;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 700;
       font-size: 1.5rem;
-      color: #E8E4DC;
+      letter-spacing: -0.02em;
+      color: #f2f2f7;
       text-align: center;
       margin-bottom: 1.5rem;
     }
