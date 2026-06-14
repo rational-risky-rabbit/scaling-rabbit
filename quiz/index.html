@@ -216,7 +216,6 @@
   <div id="navbar-slot"></div>
 
   <div class="container-narrow">
-    <!-- Chooser -->
     <div id="chooser-view">
       <p class="eyebrow eyebrow-accent">Test Yourself</p>
       <h1 class="hero">Two ways to think about news.</h1>
@@ -237,7 +236,6 @@
       </div>
     </div>
 
-    <!-- Quiz runner -->
     <div id="quiz-view" class="hidden">
       <a class="back-link" href="/quiz/">← Choose a different survey</a>
       <p class="eyebrow eyebrow-accent" id="quiz-eyebrow"></p>
@@ -246,7 +244,6 @@
       <div id="quiz-runner"></div>
     </div>
 
-    <!-- Data Gate (Demographics) -->
     <div id="data-view" class="hidden" style="text-align: center;">
       <p class="eyebrow eyebrow-accent">One last thing...</p>
       <h1 class="hero" style="font-size:2.25rem;">Help us map the news</h1>
@@ -295,7 +292,6 @@
       </form>
     </div>
 
-    <!-- Result -->
     <div id="result-view" class="hidden quiz-result"></div>
   </div>
 
@@ -433,6 +429,125 @@
       }
     }
 
+    function showCompassResult(state, data) {
+      quizView.classList.add('hidden');
+      resultView.classList.remove('hidden');
+
+      const totals = {}, counts = {};
+      Object.keys(data.axes).forEach(ax => { totals[ax] = 0; counts[ax] = 0; });
+      state.questions.forEach(q => {
+        const a = state.answers[q.id];
+        if (a !== undefined) { totals[q.axis] += a * q.direction; counts[q.axis]++; }
+      });
+      const scores = {};
+      Object.keys(data.axes).forEach(ax => {
+        scores[ax] = counts[ax] > 0 ? (totals[ax] / (counts[ax] * 2)) * 3 : 0;
+      });
+
+      const pattern =
+        (scores.econ   < 0 ? 'I' : 'S') +
+        (scores.social < 0 ? 'L' : 'A') +
+        (scores.info   < 0 ? 'F' : 'E');
+      const archetype = (data.archetypes || []).find(a => a.pattern === pattern) || data.archetypes[0];
+
+      function axLabel(ax, v) {
+        const a = data.axes[ax];
+        if (Math.abs(v) < 0.5) return 'Centrist';
+        if (Math.abs(v) < 1.5) return 'Leaning ' + (v > 0 ? a.high_label : a.low_label);
+        return 'Strong ' + (v > 0 ? a.high_label : a.low_label);
+      }
+
+      const summary = archetype
+        ? archetype.archetype + ' — ' + archetype.name
+        : Object.keys(data.axes).map(ax => axLabel(ax, scores[ax])).join(' · ');
+
+      const shareUrl = location.origin + '/quiz/?type=compass'
+        + '&ec=' + scores.econ.toFixed(2)
+        + '&so=' + scores.social.toFixed(2)
+        + '&if=' + scores.info.toFixed(2);
+
+      try {
+        localStorage.setItem('nnn_compass_result', JSON.stringify({
+          summary, scores, date: new Date().toLocaleDateString('en-GB')
+        }));
+      } catch(e) {}
+
+      const axisKeys = Object.keys(data.axes);
+      const barsHTML = axisKeys.map(ax => {
+        const a = data.axes[ax];
+        const v = scores[ax];
+        const fillPct = (Math.abs(v) / 3) * 50;
+        const marginLeft = v >= 0 ? 50 : 50 - fillPct;
+        return `
+          <div class="rp-bar-row">
+            <span class="rp-bar-label" style="${v < 0 ? 'color:#8b7cf7;' : ''}">${escapeHTML(a.low_label)}</span>
+            <div class="rp-bar-track">
+              <div class="rp-bar-center"></div>
+              <div class="rp-bar-fill" style="width:${fillPct}%;margin-left:${marginLeft}%;background:#8b7cf7;"></div>
+            </div>
+            <span class="rp-bar-label right-label" style="${v >= 0 ? 'color:#8b7cf7;' : ''}">${escapeHTML(a.high_label)}</span>
+          </div>
+          <div class="rp-bar-value">${escapeHTML(axLabel(ax, v))} · <strong style="color:#8b7cf7;">${v.toFixed(2)}</strong> / 3.00</div>`;
+      }).join('');
+
+      const portraitHTML = archetype && archetype.portrait ? `
+        <div style="
+          width: 110px;
+          height: 138px;
+          flex-shrink: 0;
+          border-radius: 10px;
+          overflow: hidden;
+          border: 1.5px solid rgba(139,124,247,0.35);
+          background: #f5f0e8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">
+          <img
+            src="${escapeHTML(archetype.portrait)}"
+            alt="${escapeHTML(archetype.name)}"
+            width="110"
+            height="138"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+            onerror="this.parentElement.innerHTML='<span style=\\'font-size:2rem;\\'>👤</span>'"
+          />
+        </div>` : '';
+
+      resultView.innerHTML = `
+        <p class="eyebrow eyebrow-accent" style="margin-bottom:0.5rem;text-align:center;">Your worldview archetype</p>
+
+        <div class="result-preview" id="result-preview" style="max-width:480px;">
+          <div class="rp-brand">Net Neutral <span>News</span></div>
+
+          ${archetype ? `
+          <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;">
+            ${portraitHTML}
+            <div style="flex:1;min-width:0;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(139,124,247,0.7);margin-bottom:0.35rem;">${escapeHTML(archetype.archetype)}</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#f2f2f7;line-height:1.2;margin-bottom:0.2rem;">${escapeHTML(archetype.name)}</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:rgba(242,242,247,0.3);margin-bottom:0.7rem;">${escapeHTML(archetype.years)}</div>
+              <div style="font-family:'Inter',sans-serif;font-style:italic;font-size:0.78rem;color:rgba(242,242,247,0.55);line-height:1.45;">"${escapeHTML(archetype.tagline)}"</div>
+            </div>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(242,242,247,0.75);line-height:1.72;margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid rgba(139,124,247,0.18);">${escapeHTML(archetype.description)}</div>
+          ` : ''}
+
+          ${barsHTML}
+          <div class="rp-footer">netneutralnews.in · understand the news without the bias</div>
+        </div>
+
+        <div class="save-actions">
+          <button class="btn btn-ghost" onclick="copyShareUrl()">Copy share link</button>
+        </div>
+        <div class="share-url-row">
+          <input type="text" readonly id="share-url" value="${shareUrl}">
+          <span class="copy-feedback" id="copy-feedback">Copied!</span>
+        </div>
+        <div class="save-actions" style="margin-top:1.5rem;">
+          <button class="btn btn-dark" onclick="location.href='/quiz/?type=compass'">Retake</button>
+          <a class="btn btn-ghost" href="/quiz/?type=literacy">Try the reader survey</a>
+        </div>`;
+    }
     function showCompassResult(state, data, demographics) {
       resultView.classList.remove('hidden');
 
@@ -791,7 +906,7 @@
     function showLiteracyResult(state, data, demographics) {
       resultView.classList.remove('hidden');
 
-      // Score each axis (-3..+3 range)[cite: 3]
+      // Score each axis (-3..+3 range)
       const totals = {}, counts = {};
       Object.keys(data.axes).forEach(ax => { totals[ax] = 0; counts[ax] = 0; });
       state.questions.forEach(q => {
