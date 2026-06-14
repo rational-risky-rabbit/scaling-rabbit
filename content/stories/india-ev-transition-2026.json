@@ -1,0 +1,16 @@
+{
+  "slug": "india-ev-transition-2028",
+  "title": "Is India Ready for Mandatory EVs by 2028? The China Battery Problem",
+  "date": "2026-06-09",
+  "category": "National",
+  "summary": "A proposed mandatory shift to electric vehicles by 2028 is drawing scrutiny over India's near-total dependence on Chinese lithium batteries and rare-earth supply chains. With the Iran war already disrupting energy imports, analysts warn that rushing the EV transition without domestic battery manufacturing creates a new and potentially worse strategic dependency.",
+  "coverages": [
+    {
+      "source_id": "indianexpress",
+      "headline": "Is India ready for a mandatory shift to electric vehicles by 2028?",
+      "url": "https://indianexpress.com/article/opinion/columns/india-ev-shift-china-batteries-rare-earth-pollition-electric-vehicles-2028-10729432/",
+      "excerpt": "India's readiness for a proposed mandatory EV transition by 2028 is in question, with dependence on Chinese batteries and rare-earth supply chain risks presenting a structural challenge.",
+      "bias_notes": "The Indian Express op-ed raises the China dependency angle — a question that cuts across party lines but is uncomfortable for a government simultaneously pursuing Make in India and trying to reduce strategic exposure to China. The 2028 date is government-proposed; the piece treats it as a fixed deadline without examining whether it originated in industrial lobbying or policy research."
+    }
+  ]
+}

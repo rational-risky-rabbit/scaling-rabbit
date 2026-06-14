@@ -1,0 +1,44 @@
+{
+  "slug": "iran-ceasefire-june2026",
+  "title": "100 Days In: Iran-US Ceasefire Holds Precariously as India Watches from the Sidelines",
+  "date": "2026-06-09",
+  "category": "Geopolitical",
+  "summary": "A fragile Pakistan-brokered ceasefire between the US and Iran is holding, but only just — Israel continues operations in Lebanon, Iran has warned it will resume strikes, and Trump and Netanyahu are visibly at odds. For India, the war's fallout is direct: LPG prices have crossed a new threshold following a ₹29/cylinder hike, markets gyrate on every ceasefire update, and India's absence from the mediation table is the defining diplomatic setback of Modi's third term.",
+  "coverages": [
+    {
+      "source_id": "indianexpress",
+      "headline": "Victory or peace? 100 days into Iran-US conflict, it's clear West Asia can't have both",
+      "url": "https://indianexpress.com/article/opinion/columns/100-days-iran-us-conflict-west-asia-trump-netanyahu-10729728/",
+      "excerpt": "With the ceasefire barely holding, Israel seeks victory while the US seeks an exit — pulling in opposite directions and keeping West Asia on a knife's edge.",
+      "bias_notes": "The Indian Express frames the Iran war as a structural impasse rather than an American policy success — consistent with its editorial lean toward scepticism of US foreign policy objectives. The piece correctly identifies the Trump-Netanyahu divergence as the key fault line but does not give adequate weight to the genuine humanitarian pressures driving the US toward a deal."
+    },
+    {
+      "source_id": "indianexpress",
+      "headline": "Israel-Iran trade strikes again: 3 major takeaways, from Trump-Bibi ties to new red lines",
+      "url": "https://indianexpress.com/article/explained/explained-global/israel-iran-trade-strikes-again-3-major-takeaways-10730160/",
+      "excerpt": "Netanyahu pressing ahead in Lebanon even as Trump publicly wants a deal exposes a widening rift between the two allies, with Iran warning it will resume strikes if Israeli operations continue.",
+      "bias_notes": "An explainer format that gives structured context to a fast-moving story. The three-takeaway framing imposes artificial neatness on a situation with more moving parts. The India angle is entirely absent — odd for an Indian publication given LPG prices and FPI flows are directly affected."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "Trump-Netanyahu differences surface as Israel-Iran tensions flare again",
+      "url": "https://www.business-standard.com/world-news/trump-netanyahu-differences-surface-as-israel-iran-tensions-flare-again-126060900068_1.html",
+      "excerpt": "The fractured ceasefire has made Trump and Netanyahu's diverging war aims impossible to ignore, with Iran warning it will resume strikes if Israeli operations in Lebanon continue.",
+      "bias_notes": "Business Standard's international coverage reads closer to a wire-service digest than an analytical piece — a strength for factual accuracy, a weakness for readers wanting to understand why this matters for India's economy or foreign policy. The connection between Israel-Iran tensions and Indian crude import costs is left entirely to the reader."
+    },
+    {
+      "source_id": "thehindu",
+      "headline": "The Oman CEPA: a new gateway for India's exports",
+      "url": "https://www.thehindu.com/opinion/op-ed/the-oman-cepa-a-new-gateway-for-indias-exports/article71077748.ece",
+      "excerpt": "With Gulf trade routes under pressure from the Iran war, the India-Oman CEPA is being positioned as a crucial alternative corridor to shore up India's export ambitions.",
+      "bias_notes": "The Hindu op-ed treats the Oman CEPA as a proactive strategic pivot — a generous read. Critics might note India is reacting to a disruption it failed to anticipate rather than executing a long-planned alternative. The piece does not engage with the CEPA's specific terms or which sectors actually benefit."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "Sensex gains 395 pts, Nifty ends at 23,242 on Trump's 'peace talks' remark",
+      "url": "https://www.business-standard.com/markets/capital-market-news/sensex-settles-395-pts-higher-nifty-ends-above-23-200-level-126060900783_1.html",
+      "excerpt": "Indian markets snapped a two-day losing streak as the fragile Iran-Israel ceasefire eased risk aversion; banking and PSU bank stocks led the recovery.",
+      "bias_notes": "A single Trump remark moving Indian markets by 395 points encapsulates exactly how tethered India's financial markets are to a war it had no role in shaping or ending. The headline's single-cause attribution — 'peace talks remark' — overstates certainty. Markets also moved on global cues; the framing is a simplification."
+    }
+  ]
+}

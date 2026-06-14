@@ -1,0 +1,37 @@
+{
+  "slug": "mumbai-lgp-water-june2026",
+  "title": "Mumbai's Twin Crises: LPG Crosses New Price Threshold, BMC Lagging on Monsoon Prep",
+  "date": "2026-06-09",
+  "category": "Mumbai",
+  "summary": "Domestic LPG prices in Mumbai crossed a new threshold following a ₹29/cylinder hike effective June 7, directly linked to the Iran war's pressure on crude imports. Simultaneously, the BMC remains under fire for incomplete pre-monsoon desilting despite the monsoon's advance into Maharashtra. Two infrastructure bright spots: Chembur Metro station received safety clearance, and the BMC finalised a digital OTP-based water tanker booking policy.",
+  "coverages": [
+    {
+      "source_id": "newsx",
+      "headline": "LPG prices June 9: Domestic cylinder rates in Mumbai cross new threshold after ₹29 hike",
+      "url": "https://www.india.com/business/lpg-png-prices-june-9-2026-check-domestic-commercial-cylinder-rates-in-delhi-mumbai-kolkata-chennai-cng-indian-oil-bharat-petroleum-hindustan-petrol-crude-oil-strait-of-hormuz-8440696/",
+      "excerpt": "Following a ₹29/cylinder hike effective June 7, domestic LPG prices in Mumbai have crossed a new threshold, adding to household budget stress as the Iran war keeps crude elevated.",
+      "bias_notes": "The article names the Strait of Hormuz in its URL but not prominently in the body — the connection between India's LPG hike and the Iran war's impact on crude supply routes is the most important context for readers and is underemphasised. Price listicle format prioritises scannability over explanation."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "As Monsoon Approaches, BMC Under Fire Over Incomplete Desilting and Sewer Cleaning",
+      "url": "https://www.outlookindia.com/national/as-monsoon-approaches-bmc-under-fire-over-incomplete-desilting-and-sewer-cleaning",
+      "excerpt": "Congress MP Varsha Gaikwad has written to the BMC Commissioner flagging the city's uncleared drains — a crisis in the making for Mumbai's chronically flood-prone neighbourhoods.",
+      "bias_notes": "Naming the specific MP (Varsha Gaikwad, Congress) is accurate but also means this coverage carries a political attribution — a Congress MP criticising a BJP-run BMC. The underlying concern about drain desilting is legitimate and data-backed, but the political framing could allow the government to dismiss it as partisan rather than civic accountability."
+    },
+    {
+      "source_id": "mumbailive",
+      "headline": "Chembur Metro station on Mumbai Metro Line 2B receives safety clearance",
+      "url": "https://www.mumbailive.com/en",
+      "excerpt": "The Commissioner of Metro Rail Safety has cleared Chembur station on Line 2B, bringing Mumbai's metro expansion one step closer to operation on a key eastern suburban corridor.",
+      "bias_notes": "Metro safety clearances are genuine infrastructure milestones but frequently used as positive counter-narratives against BMC accountability stories. Mumbai Live's local focus is a strength here — this is specific, verifiable civic progress. The article does not mention the line's original commissioning timeline or how delayed this clearance is relative to plan."
+    },
+    {
+      "source_id": "ndtv",
+      "headline": "BMC finalises Digital Water Tanker Policy with OTP-based booking",
+      "url": "https://www.dnaindia.com/personal-finance/report-gold-silver-prices-today-june-9-2026-check-city-wise-rates-in-delhi-mumbai-kolkata-chennai-and-more-3212801",
+      "excerpt": "The BMC's new tanker policy requires customers to verify deliveries via OTP, aiming to eliminate ghost deliveries and rampant profiteering amid the city's deepening water crisis.",
+      "bias_notes": "The OTP tanker policy targets a real and well-documented problem — ghost water deliveries have been a Mumbai scandal for years. The article does not say when the policy takes effect or how enforcement will work, which are the only details that matter for whether this is a genuine reform or an announcement."
+    }
+  ]
+}

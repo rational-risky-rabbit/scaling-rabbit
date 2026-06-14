@@ -1,0 +1,30 @@
+{
+  "slug": "india-bond-market-reform-2026",
+  "title": "India Exempts Foreign Investors from G-Sec Taxes in Major Bond Market Reform",
+  "date": "2026-06-09",
+  "category": "Economy",
+  "summary": "The central government has used an ordinance to make FPI interest income and capital gains from government securities entirely tax-free, retroactively from April 1, 2026. Combined with the RBI's expanded Fully Accessible Route for G-Secs, analysts are comparing this to India's 2013 capital account liberalisation. SBI Research simultaneously reported India's FY26 GDP at 7.7% with Q4 accelerating to 7.8%.",
+  "coverages": [
+    {
+      "source_id": "businesstoday",
+      "headline": "Centre exempts foreign investors from taxes on G-Sec investments via Ordinance",
+      "url": "https://www.businesstoday.in/latest/economy/story/centre-exempts-foreign-investors-from-taxes-on-g-sec-investments-via-ordinance-what-it-means-for-indias-bond-market-535054-2026-06-05",
+      "excerpt": "The government's income-tax ordinance makes FPI interest income and capital gains from G-Secs entirely tax-free retroactively from April 1, 2026 — a bold structural reform for India's debt market.",
+      "bias_notes": "BusinessToday uses 'bold structural reform' — editorial language that endorses the policy without scrutiny. The retroactive nature from April 1 is buried; it is actually the most consequential detail since it applies to existing holders. The article does not ask who bears the fiscal cost or what it means for domestic retail investors who still pay tax on the same instruments."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "RBI's move to expand FAR likely to boost FPI flows in debt market",
+      "url": "https://www.business-standard.com/amp/finance/news/rbi-announces-measures-to-attract-foreign-capital-inflows-126060500324_1.html",
+      "excerpt": "RBI's expanded Fully Accessible Route for G-Secs combined with the Finance Ministry's new tax exemptions on FPI bond income is drawing comparisons to India's 2013 capital account liberalisation.",
+      "bias_notes": "The 2013 comparison is analytically sharp — it correctly situates this as a structural shift rather than a tactical measure. Business Standard's coverage here is the most technically informed. It does not ask whether large FPI inflows into G-Secs could create rupee volatility risk if those flows reverse — the same risk that made 2013 memorable in the first place."
+    },
+    {
+      "source_id": "bloomberg",
+      "headline": "Citadel Securities expands India trading and engineering teams",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-09/citadel-securities-expands-india-trading-and-engineering-teams",
+      "excerpt": "Ken Griffin's market-making giant is doubling down on India, hiring traders and engineers as it bets on one of the world's fastest-growing financial markets.",
+      "bias_notes": "Citadel expanding in India is a concrete signal that institutional capital sees India's financial reform trajectory as durable. Bloomberg's framing is positive. What it omits: Citadel's India expansion also serves as a cost arbitrage play — engineers here cost a fraction of New York rates. The 'bet on India' framing is real but not the whole story."
+    }
+  ]
+}S
