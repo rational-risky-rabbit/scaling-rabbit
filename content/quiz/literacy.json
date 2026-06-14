@@ -97,7 +97,6 @@
     { "id": "V09", "axis": "verify", "direction": -1, "statement": "I often look up who funds the think tanks or research groups cited in news articles." },
     { "id": "V10", "axis": "verify", "direction": 1, "statement": "If a video is circulating widely on a platform I trust, it is usually safe to assume it has not been deepfaked or altered." },
     { "id": "V11", "axis": "verify", "direction": -1, "statement": "I have actively deleted or retracted a post I made after realizing the information in it was outdated or incorrect." },
-
     { "id": "E01", "axis": "emotion", "direction": 1, "statement": "The most valuable journalism is the kind that inspires people to take immediate action against injustice." },
     { "id": "E02", "axis": "emotion", "direction": -1, "statement": "I find myself irritated when a journalist uses highly descriptive, passionate language to report on a political event." },
     { "id": "E03", "axis": "emotion", "direction": 1, "statement": "If a news story doesn't make me feel something—whether anger, hope, or sadness—it probably isn't covering an issue that matters." },
@@ -109,7 +108,6 @@
     { "id": "E09", "axis": "emotion", "direction": 1, "statement": "The best political commentators are the ones who aren't afraid to show their disgust at bad policies." },
     { "id": "E10", "axis": "emotion", "direction": -1, "statement": "I often view attempts to make me feel empathy for a subject as a manipulation tactic by the author." },
     { "id": "E11", "axis": "emotion", "direction": 1, "statement": "Apathy is a bigger problem in news consumption today than overreaction." },
-
     { "id": "D01", "axis": "diet", "direction": -1, "statement": "My browser history or podcast feed routinely contains completely contradictory perspectives on the exact same political event." },
     { "id": "D02", "axis": "diet", "direction": 1, "statement": "With so much misinformation out there, it is much safer to stick to two or three highly respected publications." },
     { "id": "D03", "axis": "diet", "direction": -1, "statement": "I sometimes purposefully seek out the opinions of commentators who actively annoy me." },
@@ -121,3 +119,4 @@
     { "id": "D09", "axis": "diet", "direction": -1, "statement": "When reading an opinion piece I agree with, I actively try to think of the strongest counterargument the other side would make." },
     { "id": "D10", "axis": "diet", "direction": 1, "statement": "Life is too short to spend time understanding the perspectives of people who are clearly on the wrong side of history." }
   ]
+}
