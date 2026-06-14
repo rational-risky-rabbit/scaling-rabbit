@@ -3,21 +3,35 @@
   "title": "India Signs $629 Million BrahMos Missile Deal with Vietnam at Shangri-La Dialogue",
   "date": "2026-06-07",
   "category": "Geopolitical",
-  "summary": "India finalised a $629 million deal to supply Vietnam with BrahMos Block 3 supersonic cruise missiles at the Shangri-La Dialogue in Singapore. A similar deal with Indonesia is in its final stages. The deals represent a landmark in India's defence export ambitions.",
+  "summary": "India finalised a $629 million deal to supply Vietnam with BrahMos Block 3 supersonic cruise missiles at the Shangri-La Dialogue in Singapore. A similar deal with Indonesia is in final stages. The deals mark a landmark in India's defence export ambitions — but the strategic signal to China is at least as significant as the commercial value.",
   "coverages": [
     {
       "source_id": "bloomberg",
       "headline": "India Finalises $629 Million BrahMos Block 3 Missile Deal With Vietnam at Shangri-La Dialogue",
       "url": "https://www.thedefensenews.com/India-Finalizes-629-Million-BrahMos-Block-3-Missile-Deal-With-Vietnam-at-Shangri-La-Dialogue/",
-      "excerpt": "India signed a landmark defence export deal with Vietnam at the Shangri-La Dialogue, with a similar Indonesia deal in final stages — a major boost to India's defence export ambitions.",
-      "bias_notes": "Defence export deals are typically covered as wins for the exporting country. What this framing doesn't address: Vietnam's motivation (deterrence against China in the South China Sea), the geopolitical signal it sends to Beijing, and India's own diplomatic calculation in arming a country with an active territorial dispute with China. The deal is strategic, not just commercial."
+      "excerpt": "India signed a landmark defence export deal to supply BrahMos Block 3 supersonic cruise missiles to Vietnam at the Shangri-La Dialogue in Singapore, with delivery scheduled in tranches over 36 months. A similar deal with Indonesia is in its final negotiation stages, which would make India the primary supplier of supersonic anti-ship missiles to two of China's most significant South China Sea rivals.",
+      "bias_notes": "The piece frames this as a commercial and technical milestone — accurate on those dimensions. What it doesn't address: why Vietnam wants BrahMos specifically (deterrence against Chinese naval power in the South China Sea), the geopolitical signal this sends to Beijing, and India's own calculation in becoming an arms supplier to countries in active territorial disputes with China."
     },
     {
-      "source_id": "newsonair",
-      "headline": "BHEL and SAIL risk losing Maharatna status over three consecutive years of losses",
-      "url": "https://groww.in/market-news/stocks",
-      "excerpt": "Two of India's premier PSUs face downgrade to Navratna after failing to meet the ₹5,000 crore PAT criterion over three consecutive years, potentially limiting their financial autonomy.",
-      "bias_notes": "The BHEL and SAIL Maharatna story sits in sharp contrast to the BrahMos export success: India's defence export ambitions are growing while two of its largest public sector enterprises are financially struggling. The PSU downgrade story gets almost no coverage relative to the defence deal, even though it has more direct implications for thousands of workers and the government's balance sheet."
+      "source_id": "ani",
+      "headline": "BrahMos deal with Vietnam a landmark in India's defence export journey: Rajnath Singh",
+      "url": "https://www.aninews.in/news/national/general-news/brahmos-deal-with-vietnam-landmark-india-defence-export-rajnath-singh20260607193000/",
+      "excerpt": "Defence Minister Rajnath Singh called the BrahMos-Vietnam deal a landmark moment in India's emergence as a major defence exporter, noting that India's defence exports have grown from ₹2,000 crore in 2016 to over ₹21,000 crore in FY26. Singh said the deal validates the Make in India push in the defence sector.",
+      "bias_notes": "ANI is the official statement conduit — accurately records Rajnath Singh's framing without independent assessment. The export growth figures are real and significant. What is absent: the strategic implications of India arming Vietnam, which creates a new kind of entanglement with China that India's historically cautious foreign policy would have avoided."
+    },
+    {
+      "source_id": "thediplomat",
+      "headline": "India's BrahMos Deal with Vietnam: A Strategic Pivot or a Commercial Win?",
+      "url": "https://thediplomat.com/2026/06/indias-brahmos-deal-with-vietnam-strategic-pivot-or-commercial-win/",
+      "excerpt": "The BrahMos sale to Vietnam is both a commercial win and a strategic statement — but the two dimensions are in tension. Commercially, it validates India's defence manufacturing capabilities. Strategically, it places India in the role of arms supplier to a country in an active territorial dispute with China, a role India has historically avoided.",
+      "bias_notes": "The Diplomat's analysis is the sharpest — it correctly identifies that the commercial and strategic dimensions of the deal are in tension rather than complementary. This is the angle Indian domestic outlets almost uniformly miss. The piece is analytical rather than emotive, appropriate for a decision with long-term consequences that are genuinely uncertain."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "BrahMos deal signals India's arrival as serious defence exporter in Southeast Asia",
+      "url": "https://www.business-standard.com/defence/news/brahmos-deal-signals-india-arrival-serious-defence-exporter-southeast-asia-126060700234_1.html",
+      "excerpt": "The Vietnam deal positions India as a credible alternative to Russian and American defence suppliers in Southeast Asia — a market actively seeking to diversify procurement sources in the wake of Russia's diminished reliability following the Ukraine war.",
+      "bias_notes": "Business Standard correctly contextualises the deal within the global defence market shift away from Russian suppliers. The 'combat-proven credentials' line is worth scrutinising: the BrahMos has not actually been used in combat. The article does not probe this."
     }
   ]
 }

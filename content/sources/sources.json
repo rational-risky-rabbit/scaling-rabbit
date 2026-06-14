@@ -233,4 +233,16 @@
     },
     "description": "Chandigarh-based broadsheet with national coverage. Generally factual, mild liberal lean, strong on parliamentary and political reporting."
   }
+  {
+    "id": "punjabkesari",
+    "name": "Punjab Kesari",
+    "bias": { "political": 0.5, "sensational": 1.0 },
+    "description": "Major Hindi-language daily with national reach. Centrist-right, moderate sensationalism, strong readership in north India."
+  },
+  {
+    "id": "thedefensenews",
+    "name": "The Defense News",
+    "bias": { "political": 0.5, "sensational": 0.5 },
+    "description": "Defence-focused digital outlet. Factual reporting on procurement and military affairs, mild pro-establishment lean."
+  }
 ]

@@ -3,21 +3,35 @@
   "title": "Maharashtra Launches AI Policy 2026 and Wins MLC Seats Unopposed",
   "date": "2026-06-06",
   "category": "Maharashtra",
-  "summary": "The Fadnavis government unveiled an Artificial Intelligence Policy 2026 aimed at attracting tech investment. Separately, six Mahayuti candidates won Maharashtra Legislative Council seats unopposed, with Deputy CM Shinde predicting a clean sweep of all 17 alliance candidates in the upcoming biennial polls.",
+  "summary": "The Fadnavis government unveiled an Artificial Intelligence Policy 2026 aimed at attracting tech investment and creating skilled jobs. Separately, six Mahayuti candidates won Maharashtra Legislative Council seats unopposed, with Deputy CM Shinde predicting a clean sweep of all 17 alliance candidates in upcoming biennial polls.",
   "coverages": [
     {
       "source_id": "newsonair",
       "headline": "Maharashtra Government Announces AI Policy 2026 to Boost Investment and Jobs",
       "url": "https://www.newsonair.gov.in/maharashtra-government-announces-artificial-intelligence-policy-2026-to-boost-investment-and-jobs/",
-      "excerpt": "The Fadnavis government has unveiled a new Artificial Intelligence Policy 2026, aimed at attracting technology investment and generating skilled employment across the state.",
-      "bias_notes": "Government broadcaster covers government policy announcement — a structural alignment between the source and the story. 'Aimed at' is appropriately hedged language since the policy's actual outcomes are unknown. What's absent: any independent technology expert assessment of whether the policy is ambitious, realistic, or distinguishable from similar policies announced by other states."
+      "excerpt": "The Fadnavis government unveiled its Artificial Intelligence Policy 2026, committing to establish AI centres of excellence across Pune, Mumbai, and Nagpur, incentivise AI startups through a ₹500 crore fund, and mandate AI literacy in government schools. The policy targets attracting ₹10,000 crore in technology investment and creating 200,000 skilled jobs by 2030.",
+      "bias_notes": "Government broadcaster covers government policy announcement — structural alignment between source and story. The specific targets are reported without any independent assessment of whether they are achievable, how they compare to Karnataka and Telangana's competing AI policies, or how the previous Maharashtra tech policy performed against its own targets."
     },
     {
       "source_id": "hindustantimes",
+      "headline": "Maharashtra AI Policy: Ambitious targets, but implementation is the real question",
+      "url": "https://www.hindustantimes.com/cities/mumbai-news/maharashtra-ai-policy-2026-ambitious-targets-but-implementation-is-the-real-question-101749200000000.html",
+      "excerpt": "While the Maharashtra AI Policy 2026 sets ambitious targets for investment and job creation, industry insiders note that the state's previous technology policies — including the IT Policy 2023 — fell short of their targets by wide margins. The new policy's success will depend entirely on execution, which has historically been the weak link in Maharashtra's technology governance.",
+      "bias_notes": "The 'ambitious but...' framing avoids saying the policy is bad while signalling scepticism. The reference to the IT Policy 2023 underperformance is the most valuable element — it gives readers a baseline for assessing the new claims. 'Industry insiders' without naming them is a weak sourcing standard."
+    },
+    {
+      "source_id": "punjabkesari",
       "headline": "Mahayuti Wins Thane-Palghar MLC Seat Unopposed; Shinde Calls It 'Beginning of Clean Sweep'",
       "url": "https://english.punjabkesari.com/india/thane-palghar-leads-the-way-for-mahayutis-unopposed-victory-in-state-council-polls-dcm-eknath-shinde/",
-      "excerpt": "Six Mahayuti candidates have been elected unopposed to the Maharashtra Legislative Council; Deputy CM Eknath Shinde says all 17 alliance candidates will win in the upcoming biennial council polls.",
-      "bias_notes": "Winning a seat 'unopposed' is often less a sign of political strength than of an opposition too weak or too divided to contest. The headline frames it as a triumph; the political context — why no opposition candidate stood — is not explored. 'Clean sweep' is Shinde's own language, quoted without examination of whether the biennial polls will actually deliver that result."
+      "excerpt": "Six Mahayuti candidates were elected unopposed to the Maharashtra Legislative Council in the biennial elections, with no opposition candidate filing nominations in any of the six constituencies. Deputy CM Eknath Shinde declared this 'the beginning of a clean sweep' and predicted all 17 Mahayuti candidates would win the full biennial poll cycle.",
+      "bias_notes": "Winning 'unopposed' is frequently framed as political strength when it often signals opposition weakness or strategic withdrawal. The article does not ask why no opposition candidate stood, or what the biennial MLC elections actually decide in terms of real legislative power."
+    },
+    {
+      "source_id": "theprint",
+      "headline": "Maharashtra's AI policy is the third such announcement in two years. Will this one be different?",
+      "url": "https://theprint.in/india/maharashtra-ai-policy-third-announcement-two-years-will-this-one-be-different/2845000/",
+      "excerpt": "Maharashtra has now announced three AI or technology-adjacent policies since 2024. Each has been followed by press releases and ribbon-cutting ceremonies — and each has struggled to convert announcements into implemented programmes. The AI Policy 2026 faces the same structural challenge: Maharashtra's bureaucracy is not optimised for the kind of experimental, iterative policy execution that technology governance requires.",
+      "bias_notes": "The Print directly asks whether this announcement will differ from its predecessors. 'Third such announcement in two years' is a damning framing if accurate. Reflects The Print's consistent editorial approach of treating government announcements as hypotheses to be tested rather than facts to be reported."
     }
   ]
 }

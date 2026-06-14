@@ -3,21 +3,35 @@
   "title": "The Trust Deficit in India-Bangladesh Ties",
   "date": "2026-06-09",
   "category": "Geopolitical",
-  "summary": "India-Bangladesh relations have entered a period of sustained strain following political shifts in Dhaka. Analysts warn of a growing trust gap affecting bilateral cooperation on trade, water-sharing, and border management — with implications for India's northeast connectivity and its broader neighbourhood-first policy.",
+  "summary": "India-Bangladesh relations have entered a period of sustained strain following the political transition in Dhaka. A growing trust gap is affecting bilateral trade, water-sharing, border management, and India's northeast connectivity — with the neighbourhood-first policy fraying on multiple fronts simultaneously.",
   "coverages": [
     {
       "source_id": "thehindu",
       "headline": "The trust deficit in India-Bangladesh ties",
       "url": "https://www.thehindu.com/opinion/op-ed/the-trust-deficit-in-india-bangladesh-ties/article71078152.ece",
-      "excerpt": "Analysis of strained India-Bangladesh relations amid political shifts in Dhaka and a growing trust gap affecting bilateral cooperation on trade, connectivity, and security.",
-      "bias_notes": "The Hindu's op-ed treats the trust deficit as a structural problem rather than a BJP foreign policy failure — measured language that avoids partisanship while still raising accountability questions. The absence of any official Indian government response or counter-narrative in the piece is a notable gap."
+      "excerpt": "The political transition in Dhaka has exposed the fragility of a bilateral relationship largely built on personal ties between Sheikh Hasina's Awami League and the Indian establishment. The new dispensation in Bangladesh has signalled a desire for a more equitable relationship — one that does not treat Bangladesh as a junior partner — creating friction across nearly every domain of bilateral cooperation.",
+      "bias_notes": "The Hindu treats the trust deficit as a structural problem — measured analysis that avoids partisanship. What it does not ask: whether India's historically patronising approach to Bangladesh was the root cause. Sympathetic to the diplomatic difficulty without assigning responsibility for how it was created. No Indian government response is included."
     },
     {
       "source_id": "indianexpress",
       "headline": "The US-India special relationship is withering. It's now cold transactionalism",
       "url": "https://indianexpress.com/article/opinion/columns/us-india-special-relationship-trump-xi-modi-10730039/",
-      "excerpt": "The Modi-era warmth in US-India ties has given way to a purely transactional calculus under Trump, with no strategic depth remaining — a pattern also visible in India's neighbourhood relationships.",
-      "bias_notes": "The Indian Express places India-Bangladesh strain within a broader argument about India's declining strategic relationships. The 'cold transactionalism' framing is a strong editorial claim — accurate in some respects but the piece does not adequately credit India's continued infrastructure investments in Bangladesh as evidence of sustained engagement."
+      "excerpt": "The pattern visible in US-India ties — strategic warmth giving way to purely transactional calculus — mirrors what is happening in India's relationships with Bangladesh, the Maldives, and Sri Lanka. India's neighbours no longer see New Delhi as a partner they can rely on for anything beyond commerce, and sometimes not even that.",
+      "bias_notes": "The Indian Express situates Bangladesh within a broader argument about India's declining neighbourhood relationships. 'Cold transactionalism' is analytically strong but does not credit India's continued infrastructure investments — highways, power lines, rail links — as evidence of sustained engagement. Withdrawal of goodwill is not the same as withdrawal of investment."
+    },
+    {
+      "source_id": "theprint",
+      "headline": "Bangladesh wants to reset ties with India on its own terms. New Delhi isn't ready",
+      "url": "https://theprint.in/diplomacy/bangladesh-wants-to-reset-ties-with-india-on-its-own-terms-new-delhi-isnt-ready/2844100/",
+      "excerpt": "The new Dhaka government wants renegotiation of the Teesta water-sharing agreement, review of the power purchase arrangements, and an equal voice on border management. New Delhi's silence on each of these points is being read in Dhaka as unwillingness rather than deliberation.",
+      "bias_notes": "The Print's diplomatic reporting is the most specific — naming the Teesta agreement, power purchase terms, and border management as the three concrete friction points. This is useful for readers who want to understand what the trust deficit means in practice. 'New Delhi isn't ready' is an editorial assertion, not a documented government position."
+    },
+    {
+      "source_id": "aljazeera",
+      "headline": "Bangladesh-India tensions: What's driving the cooling of ties?",
+      "url": "https://www.aljazeera.com/features/2026/5/12/bangladesh-india-tensions-whats-driving-the-cooling-of-ties",
+      "excerpt": "The new Dhaka government sees India's influence in Bangladesh as having extended well beyond commercial and security interests into domestic political affairs — a perception that has hardened significantly since Sheikh Hasina's departure. Bangladesh is now actively seeking to diversify its relationships with China, Turkey, and the Gulf states.",
+      "bias_notes": "Al Jazeera consistently foregrounds the perspective of the smaller or less Western-aligned country in bilateral disputes — analytically useful as a corrective to Indian domestic coverage but the frame itself has a direction. The China-Turkey-Gulf diversification angle is real and important; Indian domestic outlets almost entirely ignore it."
     }
   ]
 }

@@ -6,6 +6,51 @@
   <title>Net Neutral News</title>
   <meta name="description" content="Understand the news without the bias. Compare coverage. Think critically.">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .recent-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 1.25rem;
+    }
+    .load-more-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .load-more-bar .rule { flex: 1; height: 1px; background: var(--rule); }
+    #load-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--r-full);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      cursor: pointer;
+      background: var(--paper-2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    #load-more-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    #load-more-btn .arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+    }
+    #load-more-btn.open .arrow { transform: rotate(180deg); }
+    #older-stories { display: none; }
+    #older-stories.visible { display: block; }
+  </style>
 </head>
 <body>
   <div id="navbar-slot"></div>
@@ -31,23 +76,35 @@
   <script>
     renderSiteChrome('home');
 
-    const CATEGORY_ORDER = ['Geopolitical', 'Economy', 'Maharashtra', 'Mumbai', 'Template'];
+    const RECENT_COUNT = 5;
+
+    function storyCardHTML(s) {
+      return `
+        <a class="story-card" href="/news/?slug=${encodeURIComponent(s.slug)}">
+          <div class="story-card-inner">
+            <div style="flex:1;">
+              <h2>${escapeHTML(s.title)}</h2>
+              <p class="summary">${escapeHTML(s.summary)}</p>
+              <div class="meta">
+                <span>${formatDate(s.date)}</span>
+                <span>·</span>
+                <span>${(s.coverages || []).length} sources compared</span>
+              </div>
+            </div>
+            <span class="source-count">${(s.coverages || []).length} sources →</span>
+          </div>
+        </a>`;
+    }
 
     (async function () {
       const listEl = document.getElementById('stories-list');
       try {
         const slugs = await loadJSON('stories/index.json');
-        console.log('Loaded slugs:', slugs);
-
-        if (!slugs.length) {
-          listEl.innerHTML = '<p class="empty">No stories yet.</p>';
-          return;
-        }
+        if (!slugs.length) { listEl.innerHTML = '<p class="empty">No stories yet.</p>'; return; }
 
         const results = await Promise.allSettled(
           slugs.map(s => loadJSON('stories/' + s + '.json'))
         );
-
         const stories = results
           .map((r, i) => {
             if (r.status === 'rejected') { console.warn('Failed:', slugs[i], r.reason); return null; }
@@ -55,49 +112,44 @@
           })
           .filter(Boolean);
 
-        console.log('Stories loaded:', stories.length);
-
-        if (!stories.length) {
-          listEl.innerHTML = '<p class="empty">No stories could be loaded.</p>';
-          return;
-        }
+        if (!stories.length) { listEl.innerHTML = '<p class="empty">No stories could be loaded.</p>'; return; }
 
         stories.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        const grouped = {};
-        for (const s of stories) {
-          const cat = s.category || 'Other';
-          if (!grouped[cat]) grouped[cat] = [];
-          grouped[cat].push(s);
+        const recent = stories.slice(0, RECENT_COUNT);
+        const older  = stories.slice(RECENT_COUNT);
+
+        let html = `<p class="recent-label">Latest stories</p>`;
+        html += recent.map(storyCardHTML).join('');
+
+        if (older.length) {
+          html += `
+            <div class="load-more-bar">
+              <div class="rule"></div>
+              <button id="load-more-btn">
+                <span>${older.length} older stories</span>
+                <span class="arrow">↓</span>
+              </button>
+              <div class="rule"></div>
+            </div>
+            <div id="older-stories">
+              ${older.map(storyCardHTML).join('')}
+            </div>`;
         }
 
-        const cats = [
-          ...CATEGORY_ORDER.filter(c => grouped[c]),
-          ...Object.keys(grouped).filter(c => !CATEGORY_ORDER.includes(c))
-        ];
+        listEl.innerHTML = html;
 
-        listEl.innerHTML = cats.map(cat => `
-          <div class="section-divider">
-            <span class="section-divider-label">${escapeHTML(cat)}</span>
-            <span class="section-divider-rule"></span>
-          </div>
-          ${grouped[cat].map(s => `
-            <a class="story-card" href="/news/?slug=${encodeURIComponent(s.slug)}">
-              <div class="story-card-inner">
-                <div style="flex:1;">
-                  <h2>${escapeHTML(s.title)}</h2>
-                  <p class="summary">${escapeHTML(s.summary)}</p>
-                  <div class="meta">
-                    <span>${formatDate(s.date)}</span>
-                    <span class="dot">·</span>
-                    <span>${(s.coverages || []).length} sources compared</span>
-                  </div>
-                </div>
-                <span class="source-count">${(s.coverages || []).length} sources →</span>
-              </div>
-            </a>
-          `).join('')}
-        `).join('');
+        const btn   = document.getElementById('load-more-btn');
+        const panel = document.getElementById('older-stories');
+        if (btn && panel) {
+          btn.addEventListener('click', () => {
+            const isOpen = panel.classList.toggle('visible');
+            btn.classList.toggle('open', isOpen);
+            btn.querySelector('span').textContent = isOpen
+              ? 'Show fewer stories'
+              : `${older.length} older stories`;
+          });
+        }
 
       } catch(err) {
         console.error('Loader error:', err);
