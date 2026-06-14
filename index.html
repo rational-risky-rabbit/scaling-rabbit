@@ -7,6 +7,202 @@
   <meta name="description" content="Understand the news without the bias. Compare coverage. Think critically.">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
+    .category-section {
+      margin-bottom: 5rem;
+    }
+    .domain-label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 2px solid var(--rule);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .load-more-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .load-more-bar .rule { flex: 1; height: 1px; background: var(--rule); }
+    .load-more-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--r-full);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      cursor: pointer;
+      background: var(--paper-2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .load-more-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .load-more-btn .arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+    }
+    .load-more-btn.open .arrow { transform: rotate(180deg); }
+    .older-stories { display: none; }
+    .older-stories.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <div class="container">
+    <div style="max-width:40rem; margin-bottom:4rem; padding-bottom:3rem; border-bottom:1px solid var(--rule);">
+      <p class="eyebrow eyebrow-accent">Media Literacy Project</p>
+      <h1 class="hero">One story.<br><span class="grad-text">Many versions.</span></h1>
+      <p class="lede">
+        We take a single news story and show you how different outlets cover it —
+        then break down what each outlet's framing reveals about their editorial choices.
+      </p>
+    </div>
+
+    <div id="stories-list">
+      <p class="empty">Loading stories…</p>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="/assets/js/site.js"></script>
+  <script>
+    renderSiteChrome('home');
+
+    const RECENT_COUNT = 5;
+
+    function storyCardHTML(s) {
+      return `
+        <a class="story-card" href="/news/?slug=${encodeURIComponent(s.slug)}">
+          <div class="story-card-inner">
+            <div style="flex:1;">
+              <h2>${escapeHTML(s.title)}</h2>
+              <p class="summary">${escapeHTML(s.summary)}</p>
+              <div class="meta">
+                <span>${formatDate(s.date)}</span>
+                <span>·</span>
+                <span>${(s.coverages || []).length} sources compared</span>
+              </div>
+            </div>
+            <span class="source-count">${(s.coverages || []).length} sources →</span>
+          </div>
+        </a>`;
+    }
+
+    (async function () {
+      const listEl = document.getElementById('stories-list');
+      try {
+        const slugs = await loadJSON('stories/index.json');
+        if (!slugs.length) { listEl.innerHTML = '<p class="empty">No stories yet.</p>'; return; }
+
+        const results = await Promise.allSettled(
+          slugs.map(s => loadJSON('stories/' + s + '.json'))
+        );
+        const stories = results
+          .map((r, i) => {
+            if (r.status === 'rejected') { console.warn('Failed:', slugs[i], r.reason); return null; }
+            return r.value;
+          })
+          .filter(Boolean);
+
+        if (!stories.length) { listEl.innerHTML = '<p class="empty">No stories could be loaded.</p>'; return; }
+
+        // Sort all stories globally by date (newest first)
+        stories.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Group stories by domain/category
+        const groupedStories = {};
+        stories.forEach(story => {
+          const category = story.category || 'Other';
+          if (!groupedStories[category]) {
+            groupedStories[category] = [];
+          }
+          groupedStories[category].push(story);
+        });
+
+        let html = '';
+
+        // Build the HTML for each category
+        for (const [category, catStories] of Object.entries(groupedStories)) {
+          const recent = catStories.slice(0, RECENT_COUNT);
+          const older  = catStories.slice(RECENT_COUNT);
+          
+          // Create a safe ID for the toggle panel
+          const safeCatId = category.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+          html += `<div class="category-section">`;
+          html += `<h2 class="domain-label">${escapeHTML(category)}</h2>`;
+          
+          // Add the up-to 5 recent stories
+          html += recent.map(storyCardHTML).join('');
+
+          // Add load more button & hidden panel if there are more than 5 stories
+          if (older.length > 0) {
+            html += `
+              <div class="load-more-bar">
+                <div class="rule"></div>
+                <button class="load-more-btn" data-target="older-${safeCatId}" data-count="${older.length}">
+                  <span class="btn-text">${older.length} older stories</span>
+                  <span class="arrow">↓</span>
+                </button>
+                <div class="rule"></div>
+              </div>
+              <div id="older-${safeCatId}" class="older-stories">
+                ${older.map(storyCardHTML).join('')}
+              </div>`;
+          }
+          
+          html += `</div>`;
+        }
+
+        listEl.innerHTML = html;
+
+        // Attach event listeners to all load-more buttons
+        const buttons = document.querySelectorAll('.load-more-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            const panel = document.getElementById(targetId);
+            const count = btn.getAttribute('data-count');
+            
+            if (panel) {
+              const isOpen = panel.classList.toggle('visible');
+              btn.classList.toggle('open', isOpen);
+              btn.querySelector('.btn-text').textContent = isOpen
+                ? 'Show fewer stories'
+                : `${count} older stories`;
+            }
+          });
+        });
+
+      } catch(err) {
+        console.error('Loader error:', err);
+        listEl.innerHTML = '<p class="empty">Error: ' + escapeHTML(err.message) + '</p>';
+      }
+    })();
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Neutral News</title>
+  <meta name="description" content="Understand the news without the bias. Compare coverage. Think critically.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
     .recent-label {
       font-family: var(--font-mono);
       font-size: 0.7rem;
