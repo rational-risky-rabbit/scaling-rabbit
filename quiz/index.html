@@ -66,6 +66,38 @@
     .mode-card .eyebrow { color: var(--ink-3); }
     .mode-card .last-result { margin-top: 1rem; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--ink-3); }
 
+    /* ─── Data Gate Form ───────────────────────────────────── */
+    .demographic-form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+      background: var(--paper-2);
+      padding: 2rem;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+    }
+    .demographic-form label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .demographic-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      outline: none;
+    }
+    .demographic-form select:focus { border-color: var(--accent); }
+
     /* ─── Result card (on-screen preview) ──────────────────── */
     .result-preview {
       background:
@@ -101,7 +133,6 @@
       text-align: center;
       margin-bottom: 1.5rem;
     }
-    .result-preview canvas { display: block; margin: 0 auto 1.5rem; }
     .rp-bar-row {
       display: flex;
       align-items: center;
@@ -194,13 +225,13 @@
         <a class="mode-card" href="?type=compass">
           <p class="eyebrow">Survey One</p>
           <h2>How do you see the world?</h2>
-          <p>30 statements about governance, economics, and how you process information. We plot your position on three independent scales.</p>
+          <p>30 situational statements mapping your Economic, Social, and Information perspectives to one of eight core archetypes.</p>
           <div class="last-result" id="compass-last-result"></div>
         </a>
         <a class="mode-card" href="?type=literacy">
           <p class="eyebrow">Survey Two</p>
           <h2>What kind of news reader are you?</h2>
-          <p>32 statements about how you read and react to news. You'll get one of eight reader archetypes — from The Owl to The Cyclone.</p>
+          <p>32 behavioral statements about how you read and react to news, revealing your specific reader archetype.</p>
           <div class="last-result" id="literacy-last-result"></div>
         </a>
       </div>
@@ -213,6 +244,55 @@
       <h1 id="quiz-title" class="hero" style="font-size:2.25rem;"></h1>
       <p class="lede" id="quiz-description" style="margin-bottom:3rem;"></p>
       <div id="quiz-runner"></div>
+    </div>
+
+    <!-- Data Gate (Demographics) -->
+    <div id="data-view" class="hidden" style="text-align: center;">
+      <p class="eyebrow eyebrow-accent">One last thing...</p>
+      <h1 class="hero" style="font-size:2.25rem;">Help us map the news</h1>
+      <p class="lede" style="margin-bottom:2rem;">Your result is ready! Before we reveal it, optionally share some basic info. This is 100% anonymous and helps us build an open-source predictive model.</p>
+      
+      <form id="demographic-form" class="demographic-form">
+        <label>Age Band</label>
+        <select name="age">
+          <option value="">Prefer not to say</option>
+          <option value="18-24">18 - 24</option>
+          <option value="25-34">25 - 34</option>
+          <option value="35-44">35 - 44</option>
+          <option value="45-54">45 - 54</option>
+          <option value="55+">55+</option>
+        </select>
+
+        <label>Gender</label>
+        <select name="gender">
+          <option value="">Prefer not to say</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>Highest Education</label>
+        <select name="education">
+          <option value="">Prefer not to say</option>
+          <option value="High School">High School</option>
+          <option value="Bachelors">Bachelor's Degree</option>
+          <option value="Masters">Master's Degree</option>
+          <option value="PhD">Doctorate</option>
+        </select>
+
+        <label>Employment Sector</label>
+        <select name="sector">
+          <option value="">Prefer not to say</option>
+          <option value="Organized">Organized / Corporate</option>
+          <option value="Unorganized">Unorganized / Freelance</option>
+          <option value="Student">Student</option>
+        </select>
+
+        <div class="save-actions" style="margin-top: 2rem;">
+          <button type="submit" class="btn">Submit & See Result →</button>
+          <button type="button" class="btn btn-ghost" id="skip-demographics">Skip & show result</button>
+        </div>
+      </form>
     </div>
 
     <!-- Result -->
@@ -237,12 +317,13 @@
       if (lastCmp) {
         const d = JSON.parse(lastCmp);
         document.getElementById('compass-last-result').textContent =
-          'Last: ' + d.summary + ' (' + d.date + ')';
+          'Last: ' + d.verdict + ' (' + d.date + ')';
       }
     } catch(e) {}
 
     const chooserView = document.getElementById('chooser-view');
     const quizView    = document.getElementById('quiz-view');
+    const dataView    = document.getElementById('data-view');
     const resultView  = document.getElementById('result-view');
     const params      = new URLSearchParams(window.location.search);
     const quizType    = params.get('type');
@@ -250,8 +331,34 @@
     if (quizType === 'compass')       startCompassQuiz();
     else if (quizType === 'literacy') startLiteracyQuiz();
 
+    // ─── Data Gate Logic ───────────────────────────────────────────────
+    function transitionToDataGate(onCompleteCallback, state) {
+      quizView.classList.add('hidden');
+      dataView.classList.remove('hidden');
+
+      const form = document.getElementById('demographic-form');
+      const skipBtn = document.getElementById('skip-demographics');
+
+      const submitData = (e) => {
+        if(e) e.preventDefault();
+        const formData = new FormData(form);
+        const demographics = Object.fromEntries(formData.entries());
+        
+        // --- Optional: Fetch POST to your backend goes here ---
+        const payload = { demographics, answers: state.answers };
+        console.log("Submitting payload for regression model:", payload);
+        // fetch('https://your-api.com/submit', { method: 'POST', body: JSON.stringify(payload) });
+
+        dataView.classList.add('hidden');
+        onCompleteCallback(demographics);
+      };
+
+      form.onsubmit = submitData;
+      skipBtn.onclick = () => submitData(null);
+    }
+
     // ═══════════════════════════════════════════════════════════════════
-    // COMPASS QUIZ
+    // COMPASS QUIZ (Updated to Archetypes)
     // ═══════════════════════════════════════════════════════════════════
 
     async function startCompassQuiz() {
@@ -267,6 +374,7 @@
         answers: {},
         axes: data.axes,
         questions: [...data.questions].sort(() => Math.random() - 0.5),
+        _onFinish: () => transitionToDataGate((demogs) => showCompassResult(state, data, demogs), state)
       };
       renderLikert(state, data);
     }
@@ -305,7 +413,7 @@
         <div class="likert-next-row">
           ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn">← Back</button>' : ''}
           <button class="btn" id="next-btn" ${existing === undefined ? 'disabled style="opacity:0.35;cursor:not-allowed;"' : ''}>
-            ${state.index + 1 >= total ? 'See results →' : 'Next →'}
+            ${state.index + 1 >= total ? 'Next →' : 'Next →'}
           </button>
         </div>`;
 
@@ -319,14 +427,13 @@
       const nb = document.getElementById('next-btn');
       if (existing !== undefined) {
         nb.addEventListener('click', () => {
-          if (state.index + 1 >= total) showCompassResult(state, data);
+          if (state.index + 1 >= total) state._onFinish();
           else { state.index++; renderLikert(state, data); }
         });
       }
     }
 
-    function showCompassResult(state, data) {
-      quizView.classList.add('hidden');
+    function showCompassResult(state, data, demographics) {
       resultView.classList.remove('hidden');
 
       // Score each axis
@@ -336,19 +443,20 @@
         const a = state.answers[q.id];
         if (a !== undefined) { totals[q.axis] += a * q.direction; counts[q.axis]++; }
       });
+      
       const scores = {};
       Object.keys(data.axes).forEach(ax => {
         scores[ax] = counts[ax] > 0 ? (totals[ax] / (counts[ax] * 2)) * 3 : 0;
       });
 
-      function axLabel(ax, v) {
-        const a = data.axes[ax];
-        if (Math.abs(v) < 0.5) return 'Centrist';
-        if (Math.abs(v) < 1.5) return 'Leaning ' + (v > 0 ? a.high_label : a.low_label);
-        return 'Strong ' + (v > 0 ? a.high_label : a.low_label);
-      }
+      // Calculate new Archetype Pattern (I/S, L/A, F/E)
+      const pattern = 
+        (scores.econ < 0 ? 'I' : 'S') + 
+        (scores.social < 0 ? 'L' : 'A') + 
+        (scores.info < 0 ? 'F' : 'E');
+        
+      const archetype = data.archetypes.find(a => a.pattern === pattern) || data.archetypes[0];
 
-      const summary = Object.keys(data.axes).map(ax => axLabel(ax, scores[ax])).join(' · ');
       const shareUrl = location.origin + '/quiz/?type=compass'
         + '&ec=' + scores.econ.toFixed(2)
         + '&so=' + scores.social.toFixed(2)
@@ -356,7 +464,7 @@
 
       try {
         localStorage.setItem('nnn_compass_result', JSON.stringify({
-          summary, scores, date: new Date().toLocaleDateString('en-GB')
+          verdict: archetype.name, scores, date: new Date().toLocaleDateString('en-GB')
         }));
       } catch(e) {}
 
@@ -367,7 +475,6 @@
         const v = scores[ax];
         const fillPct = (Math.abs(v) / 3) * 50;
         const marginLeft = v >= 0 ? 50 : 50 - fillPct;
-        const activeLabel = v >= 0 ? a.high_label : v < 0 ? a.low_label : null;
         return `
           <div class="rp-bar-row">
             <span class="rp-bar-label" style="${v < 0 ? 'color:#4d8ef0;' : ''}">${escapeHTML(a.low_label)}</span>
@@ -377,17 +484,23 @@
             </div>
             <span class="rp-bar-label right-label" style="${v >= 0 ? 'color:#4d8ef0;' : ''}">${escapeHTML(a.high_label)}</span>
           </div>
-          <div class="rp-bar-value">${escapeHTML(axLabel(ax, v))} · <strong style="color:#4d8ef0;">${v.toFixed(2)}</strong> / 3.00</div>`;
+          <div class="rp-bar-value">${escapeHTML(a.name)} · <strong style="color:#4d8ef0;">${v.toFixed(2)}</strong> / 3.00</div>`;
       }).join('');
 
       resultView.innerHTML = `
-        <p class="eyebrow eyebrow-accent" style="margin-bottom:0.5rem;">Your position</p>
-        <div class="quiz-verdict" style="margin-bottom:2rem;">${escapeHTML(summary)}</div>
+        <p class="eyebrow eyebrow-accent" style="margin-bottom:0.5rem;text-align:center;">Your worldview archetype</p>
 
         <div class="result-preview" id="result-preview">
           <div class="rp-brand">Net Neutral <span>News</span></div>
-          <div class="rp-title">My News Compass</div>
-          <canvas id="radar-canvas" width="320" height="280"></canvas>
+
+          <div style="text-align:center; margin:1rem 0 0.5rem;">
+            <img src="${archetype.image_url}" alt="${archetype.name}" style="width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover;">
+          </div>
+          <div class="rp-title" style="font-size:2rem;margin-bottom:0.5rem;">${escapeHTML(archetype.name)}</div>
+          <div style="text-align:center;font-family:'Lora',Georgia,serif;font-style:italic;color:rgba(232,228,220,0.6);font-size:0.95rem;margin-bottom:1.5rem;">"${escapeHTML(archetype.tagline)}"</div>
+
+          <div style="font-family:'Lora',Georgia,serif;color:rgba(232,228,220,0.8);font-size:0.875rem;line-height:1.65;margin-bottom:1.75rem;padding:0 0.5rem; text-align: center;">${escapeHTML(archetype.description)}</div>
+
           ${barsHTML}
           <div class="rp-footer">netneutralnews.in · understand the news without the bias</div>
         </div>
@@ -405,108 +518,18 @@
           <a class="btn btn-ghost" href="/quiz/?type=literacy">Try the other survey</a>
         </div>`;
 
-      // Draw on-screen radar (small, decorative)
-      drawRadar('radar-canvas', scores, data.axes, 320, 280, 95);
-
       // Wire save button
       document.getElementById('save-img-btn').addEventListener('click', () => {
-        saveCompassImage(scores, data.axes, summary);
+        saveCompassImage(archetype, scores, data.axes);
       });
     }
 
-    // ─── Radar drawing (reusable) ──────────────────────────────────────
-
-    function drawRadar(canvasId, scores, axes, W, H, R) {
-      const canvas = document.getElementById(canvasId);
-      if (!canvas) return;
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width  = W * dpr;
-      canvas.height = H * dpr;
-      canvas.style.width  = W + 'px';
-      canvas.style.height = H + 'px';
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-
-      const cx = W / 2, cy = H / 2 + 8;
-      const axisKeys = Object.keys(axes);
-      const ao = -Math.PI / 2;
-
-      function angle(i) { return ao + (2 * Math.PI * i) / axisKeys.length; }
-      function pt(i, r) { return { x: cx + Math.cos(angle(i)) * r, y: cy + Math.sin(angle(i)) * r }; }
-
-      // Grid rings
-      for (let ring = 1; ring <= 3; ring++) {
-        const r = (ring / 3) * R;
-        ctx.beginPath();
-        axisKeys.forEach((_, i) => {
-          const p = pt(i % axisKeys.length, r);
-          i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
-        });
-        ctx.closePath();
-        ctx.strokeStyle = 'rgba(232,228,220,0.12)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      // Axis spokes
-      axisKeys.forEach((_, i) => {
-        const p = pt(i, R);
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(p.x, p.y);
-        ctx.strokeStyle = 'rgba(232,228,220,0.2)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      });
-
-      // User shape
-      const userPts = axisKeys.map((ax, i) => pt(i, (Math.abs(scores[ax]) / 3) * R));
-      ctx.beginPath();
-      userPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(77,142,240,0.2)';
-      ctx.fill();
-      ctx.strokeStyle = '#4d8ef0';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Dots at vertices
-      userPts.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-        ctx.fillStyle = '#4d8ef0';
-        ctx.fill();
-        ctx.strokeStyle = '#0D0D0D';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      });
-
-      // Axis labels
-      ctx.textAlign = 'center';
-      axisKeys.forEach((ax, i) => {
-        const v = scores[ax];
-        const label = v >= 0 ? axes[ax].high_label : axes[ax].low_label;
-        const color = v >= 0 ? '#4d8ef0' : '#e05252';
-        const lp = pt(i, R + 22);
-        ctx.font = `600 ${Math.round(W * 0.034)}px Inter, sans-serif`;
-        ctx.fillStyle = color;
-        ctx.fillText(label, lp.x, lp.y + 4);
-
-        const np = pt(i, R + 36);
-        ctx.font = `400 ${Math.round(W * 0.026)}px Inter, sans-serif`;
-        ctx.fillStyle = 'rgba(232,228,220,0.3)';
-        ctx.fillText(axes[ax].name, np.x, np.y + 4);
-      });
-    }
-
-    // ─── High-res image export ─────────────────────────────────────────
-
-    function saveCompassImage(scores, axes, summary) {
+    // ─── High-res archetype image export (Compass) ─────────────────────────
+    function saveCompassImage(archetype, scores, axes) {
       const btn = document.getElementById('save-img-btn');
       btn.textContent = 'Generating…';
       btn.disabled = true;
 
-      // Slight delay so fonts have time to be available
       setTimeout(() => {
         const W = 1080, H = 1350;
         const c = document.createElement('canvas');
@@ -516,14 +539,11 @@
         const PAD = 72;
         const ACCENT = '#4d8ef0';
         const DIM = 'rgba(232,228,220,0.4)';
-        const DIMMER = 'rgba(232,228,220,0.2)';
         const TEXT = '#E8E4DC';
 
         // Background
         ctx.fillStyle = '#0D0D0D';
         ctx.fillRect(0, 0, W, H);
-
-        // Subtle top gradient
         const grad = ctx.createLinearGradient(0, 0, 0, 400);
         grad.addColorStop(0, 'rgba(77,142,240,0.06)');
         grad.addColorStop(1, 'rgba(77,142,240,0)');
@@ -539,7 +559,7 @@
         ctx.fillStyle = ACCENT;
         ctx.fillText('News', PAD + bw, 80);
 
-        // Divider line
+        // Divider
         ctx.strokeStyle = 'rgba(232,228,220,0.1)';
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -547,164 +567,132 @@
         ctx.lineTo(W - PAD, 100);
         ctx.stroke();
 
-        // Title
-        ctx.font = '600 52px Georgia, serif';
+        // Eyebrow
+        ctx.font = '600 18px Inter, Arial, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillStyle = TEXT;
-        ctx.fillText('My News Compass', W / 2, 175);
+        ctx.fillStyle = ACCENT;
+        ctx.fillText('YOUR WORLDVIEW ARCHETYPE', W / 2, 160);
 
-        // Summary line
-        ctx.font = '400 26px Georgia, serif';
-        ctx.fillStyle = DIM;
-        // Word-wrap summary if too long
-        const maxW = W - PAD * 2;
-        wrapText(ctx, summary, W / 2, 225, maxW, 36);
+        // Draw Image Placeholder (or actual image if loaded, here fallback to circle/text)
+        const img = new Image();
+        img.src = archetype.image_url;
+        
+        const drawContent = () => {
+            // Name
+            ctx.font = '600 76px Georgia, serif';
+            ctx.fillStyle = TEXT;
+            ctx.fillText(archetype.name, W / 2, 480);
 
-        // ─── Radar chart ───────────────────────────────────────
-        const RX = W / 2, RY = 620, R = 260;
-        const axisKeys = Object.keys(axes);
-        const ao = -Math.PI / 2;
-        function angle(i) { return ao + (2 * Math.PI * i) / axisKeys.length; }
-        function pt(i, r) { return { x: RX + Math.cos(angle(i)) * r, y: RY + Math.sin(angle(i)) * r }; }
+            // Tagline
+            ctx.font = 'italic 400 28px Georgia, serif';
+            ctx.fillStyle = DIM;
+            wrapText(ctx, '"' + archetype.tagline + '"', W / 2, 530, W - PAD * 2, 36);
 
-        // Grid rings
-        for (let ring = 1; ring <= 3; ring++) {
-          const r = (ring / 3) * R;
-          ctx.beginPath();
-          axisKeys.forEach((_, i) => {
-            const p = pt(i % axisKeys.length, r);
-            i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
-          });
-          ctx.closePath();
-          ctx.strokeStyle = ring === 3 ? 'rgba(232,228,220,0.2)' : 'rgba(232,228,220,0.1)';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
+            // Description
+            ctx.font = '400 22px Inter, Arial, sans-serif';
+            ctx.fillStyle = 'rgba(232,228,220,0.7)';
+            wrapText(ctx, archetype.description, W / 2, 620, W - PAD * 2 - 40, 32);
 
-        // Spokes
-        axisKeys.forEach((_, i) => {
-          const p = pt(i, R);
-          ctx.beginPath();
-          ctx.moveTo(RX, RY);
-          ctx.lineTo(p.x, p.y);
-          ctx.strokeStyle = 'rgba(232,228,220,0.15)';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        });
+            // Axis bars
+            const axisKeys = Object.keys(axes);
+            const BAR_TOP = 980;
+            const BAR_H = 8;
+            const BAR_GAP = 90;
+            const LABEL_W = 200;
+            const BAR_W = W - PAD * 2 - LABEL_W * 2;
 
-        // User shape
-        const userPts = axisKeys.map((ax, i) => pt(i, (Math.abs(scores[ax]) / 3) * R));
-        ctx.beginPath();
-        userPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
-        ctx.closePath();
-        ctx.fillStyle = 'rgba(77,142,240,0.18)';
-        ctx.fill();
-        ctx.strokeStyle = ACCENT;
-        ctx.lineWidth = 3;
-        ctx.stroke();
+            axisKeys.forEach((ax, idx) => {
+              const a = axes[ax];
+              const v = scores[ax];
+              const y = BAR_TOP + idx * BAR_GAP;
 
-        // Vertex dots
-        userPts.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
-          ctx.fillStyle = ACCENT;
-          ctx.fill();
-          ctx.strokeStyle = '#0D0D0D';
-          ctx.lineWidth = 3;
-          ctx.stroke();
-        });
+              // Low label
+              ctx.font = v < 0 ? '600 22px Inter, Arial, sans-serif' : '400 22px Inter, Arial, sans-serif';
+              ctx.textAlign = 'right';
+              ctx.fillStyle = v < 0 ? ACCENT : DIM;
+              ctx.fillText(a.low_label, PAD + LABEL_W - 16, y + BAR_H / 2 + 8);
 
-        // Axis labels on radar
-        axisKeys.forEach((ax, i) => {
-          const v = scores[ax];
-          const label = v >= 0 ? axes[ax].high_label : axes[ax].low_label;
-          const color = ACCENT;
-          const lp = pt(i, R + 54);
-          ctx.font = '600 26px Inter, Arial, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillStyle = color;
-          ctx.fillText(label, lp.x, lp.y + 5);
+              // Track
+              const bx = PAD + LABEL_W;
+              ctx.fillStyle = 'rgba(232,228,220,0.08)';
+              ctx.beginPath();
+              ctx.roundRect(bx, y, BAR_W, BAR_H, 4);
+              ctx.fill();
 
-          const np = pt(i, R + 82);
-          ctx.font = '400 20px Inter, Arial, sans-serif';
-          ctx.fillStyle = 'rgba(232,228,220,0.3)';
-          ctx.fillText(axes[ax].name, np.x, np.y + 5);
-        });
+              // Center tick
+              ctx.fillStyle = 'rgba(232,228,220,0.25)';
+              ctx.fillRect(bx + BAR_W / 2 - 1, y - 5, 2, BAR_H + 10);
 
-        // ─── Axis bars ─────────────────────────────────────────
-        const BAR_TOP = 960;
-        const BAR_H = 8;
-        const BAR_GAP = 90;
-        const LABEL_W = 200;
-        const BAR_W = W - PAD * 2 - LABEL_W * 2;
+              // Fill
+              const fillW = (Math.abs(v) / 3) * (BAR_W / 2);
+              const fillX = v >= 0 ? bx + BAR_W / 2 : bx + BAR_W / 2 - fillW;
+              ctx.fillStyle = ACCENT;
+              ctx.beginPath();
+              ctx.roundRect(fillX, y, Math.max(fillW, 4), BAR_H, 3);
+              ctx.fill();
 
-        axisKeys.forEach((ax, idx) => {
-          const a = axes[ax];
-          const v = scores[ax];
-          const y = BAR_TOP + idx * BAR_GAP;
+              // High label
+              ctx.font = v >= 0 ? '600 22px Inter, Arial, sans-serif' : '400 22px Inter, Arial, sans-serif';
+              ctx.textAlign = 'left';
+              ctx.fillStyle = v >= 0 ? ACCENT : DIM;
+              ctx.fillText(a.high_label, PAD + LABEL_W + BAR_W + 16, y + BAR_H / 2 + 8);
 
-          // Low label — highlight if leaning that way
-          ctx.font = v < 0 ? '600 22px Inter, Arial, sans-serif' : '400 22px Inter, Arial, sans-serif';
-          ctx.textAlign = 'right';
-          ctx.fillStyle = v < 0 ? ACCENT : DIM;
-          ctx.fillText(a.low_label, PAD + LABEL_W - 16, y + BAR_H / 2 + 8);
+              // Value
+              ctx.textAlign = 'center';
+              ctx.font = '400 18px Inter, Arial, sans-serif';
+              ctx.fillStyle = 'rgba(232,228,220,0.3)';
+              ctx.fillText(a.name + '  ·  ' + v.toFixed(2) + ' / 3.00', W / 2, y + BAR_H + 26);
+            });
 
-          // Track
-          const bx = PAD + LABEL_W;
-          ctx.fillStyle = 'rgba(232,228,220,0.08)';
-          ctx.beginPath();
-          ctx.roundRect(bx, y, BAR_W, BAR_H, 4);
-          ctx.fill();
+            // Footer
+            ctx.strokeStyle = 'rgba(232,228,220,0.08)';
+            ctx.beginPath();
+            ctx.moveTo(PAD, H - 80);
+            ctx.lineTo(W - PAD, H - 80);
+            ctx.stroke();
 
-          // Center tick
-          ctx.fillStyle = 'rgba(232,228,220,0.25)';
-          ctx.fillRect(bx + BAR_W / 2 - 1, y - 5, 2, BAR_H + 10);
+            ctx.font = '400 20px Inter, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = 'rgba(232,228,220,0.18)';
+            ctx.fillText('NETNEUTRALNEWS.IN · UNDERSTAND THE NEWS WITHOUT THE BIAS', W / 2, H - 44);
 
-          // Fill — always blue, positioned by direction
-          const fillW = (Math.abs(v) / 3) * (BAR_W / 2);
-          const fillX = v >= 0 ? bx + BAR_W / 2 : bx + BAR_W / 2 - fillW;
-          ctx.fillStyle = ACCENT;
-          ctx.beginPath();
-          ctx.roundRect(fillX, y, Math.max(fillW, 4), BAR_H, 3);
-          ctx.fill();
+            const link = document.createElement('a');
+            link.download = 'my-compass-archetype-' + archetype.code + '.png';
+            link.href = c.toDataURL('image/png');
+            link.click();
 
-          // High label — highlight if leaning that way
-          ctx.font = v >= 0 ? '600 22px Inter, Arial, sans-serif' : '400 22px Inter, Arial, sans-serif';
-          ctx.textAlign = 'left';
-          ctx.fillStyle = v >= 0 ? ACCENT : DIM;
-          ctx.fillText(a.high_label, PAD + LABEL_W + BAR_W + 16, y + BAR_H / 2 + 8);
+            btn.textContent = '↓ Save as image';
+            btn.disabled = false;
+        };
 
-          // Value label — show label + numeric score
-          ctx.textAlign = 'center';
-          ctx.font = '400 18px Inter, Arial, sans-serif';
-          ctx.fillStyle = 'rgba(232,228,220,0.3)';
-          const dirLabel = Math.abs(v) < 0.5
-            ? 'Centrist'
-            : (v >= 0 ? 'Leaning ' + a.high_label : 'Leaning ' + a.low_label);
-          ctx.fillText(dirLabel + '  ·  ' + v.toFixed(2) + ' / 3.00', W / 2, y + BAR_H + 26);
-        });
+        img.onload = () => {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(W / 2, 280, 100, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.clip();
+            ctx.drawImage(img, W / 2 - 100, 180, 200, 200);
+            ctx.restore();
+            ctx.beginPath();
+            ctx.arc(W / 2, 280, 100, 0, Math.PI * 2, true);
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = ACCENT;
+            ctx.stroke();
+            drawContent();
+        };
 
-        // Footer
-        ctx.strokeStyle = 'rgba(232,228,220,0.08)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(PAD, H - 80);
-        ctx.lineTo(W - PAD, H - 80);
-        ctx.stroke();
+        img.onerror = () => {
+            // Fallback circle if image fails to load during export
+            ctx.beginPath();
+            ctx.arc(W / 2, 280, 100, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(77,142,240,0.1)';
+            ctx.fill();
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = ACCENT;
+            ctx.stroke();
+            drawContent();
+        };
 
-        ctx.font = '400 20px Inter, Arial, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillStyle = 'rgba(232,228,220,0.18)';
-        ctx.fillText('NETNEUTRALNEWS.IN · UNDERSTAND THE NEWS WITHOUT THE BIAS', W / 2, H - 44);
-
-        // Download
-        const link = document.createElement('a');
-        link.download = 'my-news-compass.png';
-        link.href = c.toDataURL('image/png');
-        link.click();
-
-        btn.textContent = '↓ Save as image';
-        btn.disabled = false;
       }, 100);
     }
 
@@ -725,7 +713,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════════
-    // LITERACY QUIZ — Likert format, 3 axes, archetype result
+    // LITERACY QUIZ
     // ═══════════════════════════════════════════════════════════════════
 
     async function startLiteracyQuiz() {
@@ -741,13 +729,12 @@
         answers: {},
         axes: data.axes,
         questions: [...data.questions].sort(() => Math.random() - 0.5),
-        _onFinish: () => showLiteracyResult(state, data),
+        _onFinish: () => transitionToDataGate((demogs) => showLiteracyResult(state, data, demogs), state)
       };
       renderLikertLiteracy(state, data);
     }
 
     function renderLikertLiteracy(state, data) {
-      // Reuses the same UI as the compass Likert, just different onFinish
       const runner = document.getElementById('quiz-runner');
       const q = state.questions[state.index];
       const existing = state.answers[q.id];
@@ -781,7 +768,7 @@
         <div class="likert-next-row">
           ${state.index > 0 ? '<button class="btn btn-ghost" id="prev-btn">← Back</button>' : ''}
           <button class="btn" id="next-btn" ${existing === undefined ? 'disabled style="opacity:0.35;cursor:not-allowed;"' : ''}>
-            ${state.index + 1 >= total ? 'See result →' : 'Next →'}
+            ${state.index + 1 >= total ? 'Next →' : 'Next →'}
           </button>
         </div>`;
 
@@ -801,11 +788,10 @@
       }
     }
 
-    function showLiteracyResult(state, data) {
-      quizView.classList.add('hidden');
+    function showLiteracyResult(state, data, demographics) {
       resultView.classList.remove('hidden');
 
-      // Score each axis (-3..+3 range)
+      // Score each axis (-3..+3 range)[cite: 3]
       const totals = {}, counts = {};
       Object.keys(data.axes).forEach(ax => { totals[ax] = 0; counts[ax] = 0; });
       state.questions.forEach(q => {
@@ -891,7 +877,7 @@
       });
     }
 
-    // ─── High-res archetype image export ─────────────────────────────
+    // ─── High-res archetype image export (Literacy) ─────────────────────────────
     function saveLiteracyImage(archetype, scores, axes) {
       const btn = document.getElementById('save-img-btn');
       btn.textContent = 'Generating…';
