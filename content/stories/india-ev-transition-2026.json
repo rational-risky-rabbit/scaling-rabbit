@@ -3,14 +3,35 @@
   "title": "Is India Ready for Mandatory EVs by 2028? The China Battery Problem",
   "date": "2026-06-09",
   "category": "National",
-  "summary": "A proposed mandatory shift to electric vehicles by 2028 is drawing scrutiny over India's near-total dependence on Chinese lithium batteries and rare-earth supply chains. With the Iran war already disrupting energy imports, analysts warn that rushing the EV transition without domestic battery manufacturing creates a new and potentially worse strategic dependency.",
+  "summary": "A proposed mandatory shift to electric vehicles by 2028 is drawing scrutiny over India's near-total dependence on Chinese lithium batteries and rare-earth supply chains. With the Iran war already disrupting one energy import dependency, analysts warn that rushing EV adoption without domestic battery manufacturing trades one strategic vulnerability for another.",
   "coverages": [
     {
       "source_id": "indianexpress",
       "headline": "Is India ready for a mandatory shift to electric vehicles by 2028?",
       "url": "https://indianexpress.com/article/opinion/columns/india-ev-shift-china-batteries-rare-earth-pollition-electric-vehicles-2028-10729432/",
-      "excerpt": "India's readiness for a proposed mandatory EV transition by 2028 is in question, with dependence on Chinese batteries and rare-earth supply chain risks presenting a structural challenge.",
-      "bias_notes": "The Indian Express op-ed raises the China dependency angle — a question that cuts across party lines but is uncomfortable for a government simultaneously pursuing Make in India and trying to reduce strategic exposure to China. The 2028 date is government-proposed; the piece treats it as a fixed deadline without examining whether it originated in industrial lobbying or policy research."
+      "excerpt": "India currently imports over 90% of its lithium-ion battery cells from China and Chinese-affiliated manufacturers. A mandatory EV transition by 2028 — without a functioning domestic battery supply chain — would replace dependence on Gulf crude with dependence on Chinese batteries and the rare-earth minerals required to produce them, most of which are controlled by China.",
+      "bias_notes": "The op-ed raises the China dependency angle accurately. What it misses: the government's PLI scheme for battery manufacturing is the official response to exactly this concern. The 2028 deadline is treated as a fixed constraint without examining whether it emerged from serious policy analysis, industry lobbying, or electoral optics."
+    },
+    {
+      "source_id": "thehindu",
+      "headline": "India's EV ambitions outpace charging infrastructure buildout",
+      "url": "https://www.thehindu.com/sci-tech/energy-and-environment/indias-ev-push-ambition-outpacing-infrastructure/article71075000.ece",
+      "excerpt": "India has fewer than 12,000 public EV charging stations for a country of 1.4 billion people, compared to China's 9 million and the US's 160,000. A mandatory EV deadline of 2028 would require not just a battery supply chain but a charging infrastructure buildout that currently has no credible funding plan or timeline.",
+      "bias_notes": "The Hindu's data-led approach gives the infrastructure gap concrete scale. Comparing India's 12,000 charging points to China's 9 million makes the policy critique actionable. The piece notes the PLI scheme but correctly observes that disbursements have been slower than announced — which is the relevant accountability point."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "India's battery manufacturing ambitions face rare earth reality check",
+      "url": "https://www.business-standard.com/industry/auto/ev-sector-india-s-battery-manufacturing-ambitions-face-rare-earth-reality-check-126060800145_1.html",
+      "excerpt": "India has negligible deposits of lithium, cobalt, or nickel — the three critical minerals required for lithium-ion batteries. Securing mining rights in friendly jurisdictions is proceeding slowly, and Chinese processing dominance over rare earths means even imported ore must often return to China for refining.",
+      "bias_notes": "Business Standard's analysis is the most technically complete — naming the specific minerals, the friendly-country mining strategy, and the Chinese processing bottleneck. Does not discuss sodium-ion batteries as a potential alternative that would reduce rare-earth dependency — a significant omission in current battery technology coverage."
+    },
+    {
+      "source_id": "ndtv",
+      "headline": "India EV sales hit record in FY26 but rural market remains untouched",
+      "url": "https://www.ndtv.com/india-news/india-ev-sales-hit-record-fy26-rural-market-untouched-8234560",
+      "excerpt": "India's EV sales reached a record 2.1 million units in FY26, up 48% year-on-year, driven almost entirely by two-wheelers in urban tier-1 and tier-2 cities. The rural market — which accounts for 45% of India's vehicle sales — has seen almost no EV penetration, with charging infrastructure nonexistent beyond district headquarters.",
+      "bias_notes": "The record sales headline frames the story as a success when the rural data tells a more complicated story. 2.1 million EV units in a country that sells 25+ million vehicles annually is single-digit penetration. 48% year-on-year growth from a small base looks dramatic without context — exactly the kind of selective framing this site exists to flag."
     }
   ]
 }
