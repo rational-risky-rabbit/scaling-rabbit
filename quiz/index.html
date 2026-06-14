@@ -124,7 +124,7 @@
         const demographics = Object.fromEntries(formData.entries());
         const payload = { demographics, answers: state.answers };
         
-        fetch('PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE', { 
+        fetch('https://script.google.com/macros/s/AKfycbxfEEJ2ez241XwVO7ExH05WzI0zfm8HC9m8y9Q8tRfv5gWA0h7QPck-NeYJ6PtgeITf/exec', { 
           method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) 
         }).catch(err => console.error(err));
 
