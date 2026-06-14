@@ -20,185 +20,36 @@
     }
   },
   "questions": [
-    {
-      "id": "EC01",
-      "axis": "econ",
-      "direction": 1,
-      "statement": "Essential services like water, electricity, and railways should be owned and run by the government."
-    },
-    {
-      "id": "EC02",
-      "axis": "econ",
-      "direction": -1,
-      "statement": "The free market, left alone, generally produces better outcomes than government intervention."
-    },
-    {
-      "id": "EC03",
-      "axis": "econ",
-      "direction": 1,
-      "statement": "The government should set maximum prices on essential goods during a crisis."
-    },
-    {
-      "id": "EC04",
-      "axis": "econ",
-      "direction": -1,
-      "statement": "Reducing taxes and regulations is the best way to create jobs."
-    },
-    {
-      "id": "EC05",
-      "axis": "econ",
-      "direction": 1,
-      "statement": "Universal basic income funded by taxpayers is a good idea for a modern economy."
-    },
-    {
-      "id": "EC06",
-      "axis": "econ",
-      "direction": -1,
-      "statement": "Private hospitals and schools generally provide better quality than government ones."
-    },
-    {
-      "id": "EC07",
-      "axis": "econ",
-      "direction": 1,
-      "statement": "Large corporations should be taxed heavily to fund public welfare."
-    },
-    {
-      "id": "EC08",
-      "axis": "econ",
-      "direction": -1,
-      "statement": "If a government-run company is inefficient, it should be privatised rather than reformed."
-    },
-    {
-      "id": "EC09",
-      "axis": "econ",
-      "direction": 1,
-      "statement": "The wealth gap is primarily a failure of government policy, not individual effort."
-    },
-    {
-      "id": "EC10",
-      "axis": "econ",
-      "direction": -1,
-      "statement": "Entrepreneurs who take risks and build businesses deserve to keep the majority of their profits."
-    },
-    {
-      "id": "SO01",
-      "axis": "social",
-      "direction": 1,
-      "statement": "A strong leader who can act quickly is more important than slow democratic processes."
-    },
-    {
-      "id": "SO02",
-      "axis": "social",
-      "direction": 1,
-      "statement": "The government should be able to monitor private communications if it helps prevent crime."
-    },
-    {
-      "id": "SO03",
-      "axis": "social",
-      "direction": -1,
-      "statement": "People should be free to say things that most of society finds offensive."
-    },
-    {
-      "id": "SO04",
-      "axis": "social",
-      "direction": 1,
-      "statement": "National security is more important than individual privacy."
-    },
-    {
-      "id": "SO05",
-      "axis": "social",
-      "direction": -1,
-      "statement": "Citizens should always have the right to protest, even if it disrupts daily life."
-    },
-    {
-      "id": "SO06",
-      "axis": "social",
-      "direction": 1,
-      "statement": "Some information is too dangerous for the general public and should be restricted."
-    },
-    {
-      "id": "SO07",
-      "axis": "social",
-      "direction": -1,
-      "statement": "No government should have the power to shut down the internet, even temporarily."
-    },
-    {
-      "id": "SO08",
-      "axis": "social",
-      "direction": 1,
-      "statement": "It is reasonable for the government to require citizens to carry identification at all times."
-    },
-    {
-      "id": "SO09",
-      "axis": "social",
-      "direction": -1,
-      "statement": "People should be able to choose their own lifestyle without societal or legal judgement."
-    },
-    {
-      "id": "SO10",
-      "axis": "social",
-      "direction": 1,
-      "statement": "Courts should hand down harsher sentences to deter crime, even for first-time offenders."
-    },
-    {
-      "id": "IF01",
-      "axis": "info",
-      "direction": 1,
-      "statement": "When I read a news story, my emotional reaction usually tells me whether it is true."
-    },
-    {
-      "id": "IF02",
-      "axis": "info",
-      "direction": -1,
-      "statement": "I would change my opinion on an issue if I saw strong enough data contradicting it."
-    },
-    {
-      "id": "IF03",
-      "axis": "info",
-      "direction": 1,
-      "statement": "An article with a personal, emotional story is more convincing than one filled with statistics."
-    },
-    {
-      "id": "IF04",
-      "axis": "info",
-      "direction": -1,
-      "statement": "I regularly read news from sources I disagree with."
-    },
-    {
-      "id": "IF05",
-      "axis": "info",
-      "direction": 1,
-      "statement": "If most people around me believe something, it is probably true."
-    },
-    {
-      "id": "IF06",
-      "axis": "info",
-      "direction": -1,
-      "statement": "Before forming an opinion on a new topic, I try to find at least three independent sources."
-    },
-    {
-      "id": "IF07",
-      "axis": "info",
-      "direction": 1,
-      "statement": "I am more likely to share a news article if the headline makes me feel angry or excited."
-    },
-    {
-      "id": "IF08",
-      "axis": "info",
-      "direction": -1,
-      "statement": "I can usually tell the difference between an opinion column and a factual news report."
-    },
-    {
-      "id": "IF09",
-      "axis": "info",
-      "direction": 1,
-      "statement": "A confident, decisive speaker is usually more trustworthy than someone who qualifies every statement."
-    },
-    {
-      "id": "IF10",
-      "axis": "info",
-      "direction": -1,
-      "statement": "I have changed my mind on an important issue in the last two years because of new evidence."
-    }
+    { "id": "EC01", "axis": "econ", "direction": 1, "statement": "If a pharmaceutical company develops a breakthrough drug, the government should have the moral right to override the patent to ensure affordable access." },
+    { "id": "EC02", "axis": "econ", "direction": -1, "statement": "It is more fair for a struggling corporation to go bankrupt than for taxpayer money to be used to save its employees' jobs." },
+    { "id": "EC03", "axis": "econ", "direction": 1, "statement": "During a severe housing shortage, landlords should be legally restricted from raising rents to match market demand." },
+    { "id": "EC04", "axis": "econ", "direction": -1, "statement": "A person who builds a highly profitable business should not be forced to hand over a majority of their profits, even to fund poverty elimination." },
+    { "id": "EC05", "axis": "econ", "direction": 1, "statement": "The primary cause of extreme poverty is systemic inequality, not a lack of individual drive or poor personal choices." },
+    { "id": "EC06", "axis": "econ", "direction": -1, "statement": "People should be allowed to completely opt out of state pension or healthcare systems if they prefer to invest that money privately." },
+    { "id": "EC07", "axis": "econ", "direction": 1, "statement": "Key infrastructure like railways and water should be managed as public utilities, even if a private company could run them more efficiently." },
+    { "id": "EC08", "axis": "econ", "direction": -1, "statement": "A society where everyone is equally poor is worse than a society with extreme wealth alongside moderate poverty." },
+    { "id": "EC09", "axis": "econ", "direction": 1, "statement": "It is fundamentally unjust that someone can inherit vast generational wealth without having worked for it." },
+    { "id": "EC10", "axis": "econ", "direction": -1, "statement": "Environmental regulations should be relaxed if they threaten to destroy a significant number of working-class jobs." },
+
+    { "id": "SO01", "axis": "social", "direction": 1, "statement": "Schools should prioritize teaching students how to fit into society and follow established norms rather than encouraging them to question authority." },
+    { "id": "SO02", "axis": "social", "direction": 1, "statement": "In times of severe national crisis, the media should temporarily delay publishing stories that might severely lower public morale." },
+    { "id": "SO03", "axis": "social", "direction": -1, "statement": "A person’s decision to consume harmful substances in the privacy of their own home is entirely their own business." },
+    { "id": "SO04", "axis": "social", "direction": 1, "statement": "It is reasonable for authorities to use facial recognition in public spaces if it drastically reduces violent crime." },
+    { "id": "SO05", "axis": "social", "direction": -1, "statement": "Citizens should have the right to peacefully protest, even if it blocks major roads and disrupts the local economy." },
+    { "id": "SO06", "axis": "social", "direction": 1, "statement": "Certain dangerous ideologies are too harmful to be debated publicly and should be actively censored." },
+    { "id": "SO07", "axis": "social", "direction": -1, "statement": "I would rather see a guilty person go free than give the police sweeping powers to search homes without a warrant." },
+    { "id": "SO08", "axis": "social", "direction": 1, "statement": "Respect for elders and authority figures is a crucial value that is fading in modern society." },
+    { "id": "SO09", "axis": "social", "direction": -1, "statement": "Victimless crimes, such as gambling or sex work, should be completely decriminalized." },
+    { "id": "SO10", "axis": "social", "direction": 1, "statement": "The military or police are often better equipped to handle a chaotic crisis than elected politicians." },
+
+    { "id": "IF01", "axis": "info", "direction": 1, "statement": "A single, well-documented story of a family's struggle tells you more about the economy than a spreadsheet of unemployment statistics." },
+    { "id": "IF02", "axis": "info", "direction": -1, "statement": "I frequently find myself looking for the methodology section when an article quotes a new scientific study." },
+    { "id": "IF03", "axis": "info", "direction": 1, "statement": "The best journalism appeals to the heart first and the mind second." },
+    { "id": "IF04", "axis": "info", "direction": -1, "statement": "If a politician makes a controversial claim, I prefer to find the raw video transcript rather than a journalist's summary of what was said." },
+    { "id": "IF05", "axis": "info", "direction": 1, "statement": "Lived experience is a more reliable guide to societal problems than academic research." },
+    { "id": "IF06", "axis": "info", "direction": -1, "statement": "I often get frustrated when documentaries use dramatic music to tell me how I should feel about a scene." },
+    { "id": "IF07", "axis": "info", "direction": 1, "statement": "You can usually judge the real importance of a news story by how intensely people are reacting to it on social media." },
+    { "id": "IF08", "axis": "info", "direction": -1, "statement": "I am highly skeptical of articles that do not include charts, graphs, or numerical data to back up their core claims." },
+    { "id": "IF09", "axis": "info", "direction": 1, "statement": "When two people debate, the one who speaks with more passion and conviction is usually the one telling the truth." },
+    { "id": "IF10", "axis": "info", "direction": -1, "statement": "I would rather read a dry, boring account of an event than a highly stylized, dramatic retelling." }
   ]
-}
