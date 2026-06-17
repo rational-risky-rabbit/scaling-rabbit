@@ -1,0 +1,23 @@
+{
+  "slug": "jio-ipo-june2026",
+  "title": "Jio Platforms IPO: Potentially India's Largest-Ever Issue Ahead of Reliance AGM",
+  "date": "2026-06-17",
+  "category": "Economy",
+  "summary": "Reliance Jio's DRHP is expected to be filed with SEBI within days, ahead of Mukesh Ambani's June 19 AGM where the IPO structure is likely to be confirmed. The all-fresh-issue offering is tipped to be the largest in Indian market history. With markets cautious ahead of the US Fed rate decision and GIFT Nifty signalling a flat open, the Jio announcement arrives at a volatile moment for Indian equities.",
+  "coverages": [
+    {
+      "source_id": "businesstoday",
+      "headline": "Jio Platforms IPO: All Eyes on Reliance AGM 2026 on 19 June",
+      "url": "https://www.businesstoday.in/markets/ipo-corner/story/jio-platforms-ipo-all-eyes-on-reliance-agm-2026-on-19-june-issue-valuation-expectations-537207-2026-06-16",
+      "excerpt": "Reliance Jio's DRHP is expected to be filed with SEBI within days ahead of Mukesh Ambani's June 19 AGM address, with the all-fresh issue IPO tipped to be the largest in Indian market history.",
+      "bias_notes": "BusinessToday treats 'India's largest ever IPO' as an established fact in the framing ('tipped to be') when it is a market expectation, not a filed document. The valuation range and proposed size — the two numbers that actually matter to investors — are not prominently stated. 'All eyes on' is a common financial media construction that generates excitement without specifying whose eyes and what they expect to see. The piece doesn't examine what a record-breaking IPO from a single conglomerate means for capital allocation across the rest of the market, or whether SEBI's retail investor protection mechanisms are calibrated for an offering of this scale."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "Stock Market Live June 17: GIFT Nifty Signals Tepid Open; Asia Mixed as Traders Await US Fed Decision",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-june-17-nse-bse-sensex-today-nifty-gift-nifty-us-iran-deal-brent-crude-oil-price-share-market-news-126061700106_1.html",
+      "excerpt": "Markets are expected to open cautiously today with GIFT Nifty signalling a flat-to-weak start as investors await the US Fed's rate decision; Nifty 50 closed yesterday at 23,989.15 and Sensex at 76,808.48.",
+      "bias_notes": "Business Standard's live market blog provides the necessary context that BusinessToday's Jio piece lacks: the Jio IPO announcement lands into a market that is waiting on the US Fed and digesting the Iran deal simultaneously. A record IPO absorbs significant liquidity from secondary markets — the timing relative to a cautious market open and a Fed rate decision is genuinely material information for retail investors that neither outlet connects. The GIFT Nifty signal is the most reliable early indicator of Indian market direction; Business Standard is correct to lead with it. The Iran deal's crude impact and the Fed's rate decision will move Indian markets more on June 17 than any Jio announcement."
+    }
+  ]
+}

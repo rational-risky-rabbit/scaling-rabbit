@@ -1,0 +1,30 @@
+{
+  "slug": "us-iran-peace-deal-june2026",
+  "title": "US-Iran Peace Deal Ends 107-Day War. For India, the Complications Are Just Beginning.",
+  "date": "2026-06-17",
+  "category": "Geopolitical",
+  "summary": "The US and Iran have agreed to end their 107-day conflict with a formal peace signing scheduled in Switzerland on June 19, reopening the Strait of Hormuz. Brent crude fell nearly 5% to around $84/barrel on the news, strengthening the Indian rupee and easing import costs. But the deal's consequences for India are deeply mixed: the opening for renewed Iranian oil imports collides with US pressure, Pakistan's claimed mediator role undermines India's post-Sindoor diplomatic narrative, and structural energy vulnerabilities in West Asia remain unresolved.",
+  "coverages": [
+    {
+      "source_id": "businessstandard",
+      "headline": "US-Iran to Sign Peace Deal: What It Means for India",
+      "url": "https://www.business-standard.com/economy/news/us-iran-deal-india-impact-oil-prices-rupee-imports-crude-brent-west-asia-126061500605_1.html",
+      "excerpt": "The US and Iran have agreed to end their 107-day conflict and reopen the Strait of Hormuz, with a formal peace signing scheduled in Switzerland on June 19; Brent crude fell nearly 5% to around $84/barrel and the Indian rupee strengthened by 0.7% in a single session.",
+      "bias_notes": "Business Standard leads with the economic metrics — crude price, rupee move — which is appropriate for a financial daily and gives readers the most actionable information. What it doesn't fully confront: the rupee gain and crude drop are one-session reactions to a geopolitical event, not structural improvements. The piece frames the deal as net positive for India without adequately weighing the strategic complications. The 'what it means for India' framing implies a settled answer where analysts are actually divided."
+    },
+    {
+      "source_id": "outlookindia",
+      "headline": "Iran-US Peace Deal Lowers Oil Prices, But India's Energy Security Risks Remain High",
+      "url": "https://www.outlookindia.com/national/after-iran-us-peace-deal-why-indias-energy-worries-are-far-from-over",
+      "excerpt": "While lower crude is a short-term relief for India — which imports over 85% of its oil — analysts warn that strategic vulnerabilities in West Asia remain, and the Modi government may now attempt to resume discounted Iranian oil imports despite the risk of renewed US sanctions pressure.",
+      "bias_notes": "Outlook correctly frames the crude price drop as short-term relief rather than structural improvement, which is the more intellectually honest position. The phrase 'energy worries are far from over' is accurate but also reflects Outlook's consistent editorial posture of skepticism toward government-adjacent positive narratives. The piece raises the Iranian oil import question — the most consequential policy choice India faces from this deal — but doesn't examine the US relationship cost of pursuing it."
+    },
+    {
+      "source_id": "thediplomat",
+      "headline": "A Year After Operation Sindoor: Rising Risks and Deepening Instability",
+      "url": "https://thediplomat.com/2026/05/a-year-after-operation-sindoor-rising-risks-and-deepening-instability/",
+      "excerpt": "One year on from India's multi-domain strike against Pakistan, analysis warns that the next India-Pakistan crisis will face compressed timelines, weaker external constraints, and a Pakistan emboldened by its claimed mediator role in the West Asia crisis.",
+      "bias_notes": "The Diplomat connects the Iran deal to the Sindoor strategic context — the link Indian domestic outlets almost uniformly ignore. Pakistan's role as a peace broker between the US and Iran directly contradicts India's post-Sindoor effort to position Pakistan as a state to be isolated rather than engaged. The analysis that 'external constraints' on the next India-Pakistan crisis are now weaker is important and sobering. The Diplomat's Western analytical lens means it frames this primarily as a regional stability question rather than an Indian domestic political one — a different blind spot, but a more honest framing overall."
+    }
+  ]
+}

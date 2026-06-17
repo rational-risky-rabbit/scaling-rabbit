@@ -1,0 +1,30 @@
+{
+  "slug": "modi-g7-evian-june2026",
+  "title": "Modi at G7 Évian: India's Seventh Consecutive Summit Appearance as Invited Partner",
+  "date": "2026-06-17",
+  "category": "Geopolitical",
+  "summary": "Prime Minister Modi is attending the final day of the 52nd G7 Summit in Évian-les-Bains, France, participating in a session on 'Forging New Partnerships and Rebuilding International Solidarity.' India is attending as an invited partner for the 13th time alongside China, Brazil, South Korea, and Kenya. The summit backdrop — US-Iran peace deal, trade tensions, and India's fraught post-Sindoor geopolitical position — makes Modi's presence as much about signalling as about any particular deliverable.",
+  "coverages": [
+    {
+      "source_id": "tribuneindia",
+      "headline": "Reached Evian: PM Modi Arrives at G7 Summit Venue in France",
+      "url": "https://www.tribuneindia.com/news/world/reached-evian-pm-modi-arrives-at-g7-summit-venue-in-france/amp/",
+      "excerpt": "India is attending the G7 as an invited partner for the 13th time, with Modi making his seventh consecutive appearance at the summit.",
+      "bias_notes": "Tribune's coverage is a wire-service style dispatch — records the arrival, cites the statistics, moves on. The 'seventh consecutive' framing subtly signals continuity and diplomatic stature without asking what India has actually achieved at these summits as an invited partner rather than a member. Being invited for the 13th time is a fact about attendance, not about influence. Worth noting: India has attended thirteen G7 summits and is still not a member."
+    },
+    {
+      "source_id": "cfr",
+      "headline": "G7 Summit, Évian, France, 15–17 June 2026",
+      "url": "https://www.consilium.europa.eu/en/meetings/international-summit/2026/06/15-17/",
+      "excerpt": "The 52nd G7 Summit in Évian-les-Bains (June 15–17) is focused on macroeconomic imbalances and global governance, with India, China, Brazil, South Korea, and Kenya attending as invited partners.",
+      "bias_notes": "The EU Council's official communique is the neutral factual baseline — no editorial spin, just what the summit agenda actually covers. The critical context it provides: India is attending the same summit as China, which puts the 'India vs China strategic rivalry' framing that dominates domestic Indian coverage in a more complicated light. At Évian, both are guests of the same Western club, not rivals in a bilateral contest. The official framing also confirms that 'global governance' and 'macroeconomic imbalances' are the agenda — neither topic where India has a particularly strong track record of delivering outcomes."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "Stock Market Live June 17: GIFT Nifty Signals Tepid Open; Asia Mixed as Traders Await US Fed Decision",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-june-17-nse-bse-sensex-today-nifty-gift-nifty-us-iran-deal-brent-crude-oil-price-share-market-news-126061700106_1.html",
+      "excerpt": "Markets are expected to open cautiously today with GIFT Nifty signalling a flat-to-weak start as investors await the US Fed's rate decision alongside the G7 summit wrap-up; Nifty 50 closed yesterday at 23,989.",
+      "bias_notes": "Business Standard's market live blog mentions the G7 only as a market variable alongside the Fed decision — which is actually an honest representation of how much weight financial markets assign to Modi's summit appearances versus US monetary policy. The G7 attendance generates significant domestic political coverage in India; it generates almost no market movement. The juxtaposition is instructive about the gap between diplomatic signalling and economic significance."
+    }
+  ]
+}

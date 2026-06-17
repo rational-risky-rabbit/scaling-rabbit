@@ -1,0 +1,30 @@
+{
+  "slug": "mumbai-monsoon-delayed-june2026",
+  "title": "Mumbai's Monsoon Is Late, Soft, and Arriving Into a City That Isn't Ready",
+  "date": "2026-06-17",
+  "category": "Mumbai",
+  "summary": "Mumbai has missed its normal June 11 monsoon onset. IMD's original June 5 forecast proved wrong; Skymet now warns the monsoon may not arrive until after June 25, driven by a stalled Arabian Sea branch and developing El Niño conditions projecting a below-normal season. The delay compounds unresolved BMC preparedness failures — incomplete desilting, the unfixed Andheri subway — that were flagged before the season began.",
+  "coverages": [
+    {
+      "source_id": "indiatvnews",
+      "headline": "Mumbai Still Waiting for Monsoon: Why the City Missed Its Rain Date and When Showers Are Likely",
+      "url": "https://www.indiatvnews.com/amp/maharashtra/mumbai-still-waiting-for-monsoon-why-the-city-missed-its-rain-date-and-when-showers-are-likely-explained-2026-06-12-1044615",
+      "excerpt": "Mumbai has missed its normal June 11 monsoon onset due to a stalled Arabian Sea branch and El Niño conditions; Skymet now warns of an even later arrival past June 25, with this season's onset expected to be 'soft' rather than dramatic.",
+      "bias_notes": "India TV News produces a rare well-structured explainer — the meteorological reasons for the delay (Arabian Sea branch stall, El Niño) are correctly named and the Skymet source is credible. 'Soft' vs 'dramatic' onset is a meaningful distinction that most outlets don't bother to explain: a soft onset means gradual, unreliable early rainfall rather than the definitive break that fills reservoirs. The piece doesn't connect the delayed onset to Mumbai's already-critically-low reservoir levels — a significant editorial omission given that 45-day water supply estimates were circulating only two weeks ago."
+    },
+    {
+      "source_id": "freepressjournal",
+      "headline": "Mumbai Monsoon 2026 Date: IMD Forecasts Rains To Arrive in City Around June 5",
+      "url": "https://www.freepressjournal.in/mumbai/mumbai-monsoon-2026-date-imd-forecasts-rains-to-arrive-in-city-around-june-5",
+      "excerpt": "The IMD's original forecast of a June 5 onset proved overly optimistic; below-normal rainfall is now projected across India for the 2026 monsoon season due to developing El Niño conditions.",
+      "bias_notes": "Free Press Journal is running a headline that is now outdated — 'IMD forecasts rains around June 5' — when it is June 17 and the monsoon still hasn't arrived. The article itself has been updated with the El Niño below-normal projection, but the headline was never changed. This is a minor but instructive example of how digital news archives produce silent misinformation: the headline is still being indexed and shared even though the forecast it states has been superseded. The below-normal monsoon projection is the most consequential agricultural and water security story in India right now; it sits at the bottom of a monsoon arrival timeline piece."
+    },
+    {
+      "source_id": "mumbailive",
+      "headline": "Fire Breaks Out at Metro Line-2B Construction Site; No Injuries Reported",
+      "url": "https://www.mumbailive.com/en/civic/mumbai-fire-breaks-out-at-metro-line-2b-construction-site-no-injuries-reported-93203",
+      "excerpt": "A fire involving wooden shuttering materials at the Metro 2B Bandra construction site was swiftly controlled; MMRDA has initiated a safety inquiry as burning debris fell near moving traffic.",
+      "bias_notes": "The Metro 2B fire is included here because its timing — a construction safety incident at one of Mumbai's major infrastructure projects just before an already-delayed monsoon — is directly relevant to the city's monsoon readiness picture. Mumbai Live's reporting is factual and appropriately local. What it doesn't examine: MMRDA's track record on safety inquiries from previous incidents, or what 'initiated a safety inquiry' means in practice for a project with years of deadline slippage. 'No injuries reported' is the correct lead for a safety story; 'burning debris fell near moving traffic' is the detail that deserves more than a subordinate clause."
+    }
+  ]
+}
