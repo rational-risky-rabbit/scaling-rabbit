@@ -1,0 +1,30 @@
+{
+  "slug": "west-asia-economic-impact-june2026",
+  "title": "The 15-Week Tab: How the West Asia Crisis Actually Hit India's Economy",
+  "date": "2026-06-17",
+  "category": "Economy",
+  "summary": "A full accounting of the conflict's economic damage: Brent crude above $100/barrel for sustained periods, petrol at ₹102.12/litre in Delhi (up ₹7.38 from mid-May), WPI inflation at 9.68% in May versus 8.3% in April, exports to West Asia down 58% in March, and the rupee touching record lows. The peace deal now promises a partial reversal on every one of these fronts simultaneously — a rare case of multiple economic indicators all turning on a single geopolitical event.",
+  "coverages": [
+    {
+      "source_id": "businessstandard",
+      "headline": "West Asia conflict: From oil to inflation, how did the crisis impact India?",
+      "url": "https://www.business-standard.com/economy/news/us-iran-deal-west-asia-conflict-oil-inflation-trade-hormuz-india-impact-126061500479_1.html",
+      "excerpt": "Brent above $100/barrel, petrol at ₹102.12/litre in Delhi (up ₹7.38/litre from mid-May), WPI at 9.68% in May (vs. 8.3% in April), exports to West Asia down 58% in March, rupee at record lows. The peace deal now promises partial reversal on all fronts.",
+      "bias_notes": "This is the most data-dense and useful piece in today's economic coverage — it compiles five separate metrics (crude, retail fuel, wholesale inflation, export volumes, currency) into a single accounting of crisis impact, which most single-metric market reports don't attempt. The risk in this kind of comprehensive damage report is implying that reversal will be equally fast and complete across all five metrics — inflation and export relationships typically lag price changes by months, while currency and crude can move within days. The piece would be stronger if it distinguished between fast-reversing and slow-reversing indicators rather than presenting all five as equally responsive to the peace deal."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "US-Iran peace deal may help boost India's exports, stabilise rupee",
+      "url": "https://www.business-standard.com/economy/news/us-iran-peace-deal-may-help-boost-india-s-exports-stabilise-rupee-126061500223_1.html",
+      "excerpt": "With the Hormuz blockade set to end, India's goods exports — down 7.44% in March — could revive; the rupee, which hit a record low of ₹96.90 per dollar, may stabilise as crude retreats; West Asia remittance flows of roughly $40 billion annually should also normalise.",
+      "bias_notes": "The ₹96.90/$ record low is a striking figure that deserves more prominence than it gets buried mid-paragraph — a rupee at that level represents a historic currency stress event, not a routine market fluctuation. The $40 billion remittance figure is significant and underappreciated in most coverage of the West Asia crisis: remittance flows from Indian workers in the Gulf are a larger and more stable source of foreign exchange than many trade or investment flows, and their disruption has direct household-level effects across millions of Indian families that don't show up in headline GDP figures."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "More measures likely to attract foreign capital, says FM Sitharaman",
+      "url": "https://www.business-standard.com/economy/news/more-measures-likely-to-attract-foreign-capital-says-fm-sitharaman-126061500294_1.html",
+      "excerpt": "FM Sitharaman confirmed more policy steps are coming on top of initial withholding tax and capital gains exemptions for foreign G-sec investors; the push comes as India's current account deficit widened materially through the crisis period.",
+      "bias_notes": "The piece reports Sitharaman's statement largely at face value — 'more measures likely' is a forward-looking government signal, not a confirmed policy, and the article doesn't probe what specific measures are under consideration or on what timeline. The framing of this as a response to a widened current account deficit is the more analytically useful context: it positions the G-sec tax exemptions not as a standalone reform but as crisis management for a balance-of-payments problem that the West Asia conflict significantly worsened. Readers comparing this to the bond market reform story from earlier in June should note the same policy tool is now being explicitly linked to crisis response rather than long-term structural liberalisation."
+    }
+  ]
+}

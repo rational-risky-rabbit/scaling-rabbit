@@ -1,0 +1,23 @@
+{
+  "slug": "jio-ipo-agm-june19",
+  "title": "Reliance's 49th AGM: Bankers on 30-Minute Standby to File Jio's $100 Billion IPO",
+  "date": "2026-06-19",
+  "category": "Economy",
+  "summary": "Mukesh Ambani addresses Reliance Industries' 49th AGM today, with bankers reportedly on standby to file Jio's draft red herring prospectus within 30 minutes of getting the go-ahead. Jio is valued above $100 billion and would represent India's largest-ever IPO if confirmed. The announcement lands on a day when Indian markets are already under heavy pressure, with the Sensex down roughly 500 points at pre-open and IT stocks dragged by Accenture's weak revenue guidance overnight.",
+  "coverages": [
+    {
+      "source_id": "businesstoday",
+      "headline": "RIL AGM 2026: Jio IPO to AI strategy — 5 key expectations from Reliance Industries' AGM",
+      "url": "https://www.business-standard.com/markets/news/ril-agm-2026-jio-ipo-to-ai-strategy-5-key-expectations-from-reliance-industries-agm-126061800150_1.html",
+      "excerpt": "Mukesh Ambani addresses Reliance's 49th AGM today; bankers are reportedly on standby to file the Jio IPO draft red herring prospectus within 30 minutes of getting the go-ahead, with Jio valued above $100 billion.",
+      "bias_notes": "The '30-minute standby' detail is a striking and specific claim that, if accurate, reveals just how prepared and rehearsed this filing process is — yet the sourcing for that figure isn't made clear, and 'reportedly' is doing a lot of work in a sentence about a transaction of this scale. The $100 billion-plus valuation is presented as settled when an IPO valuation of this size, for a company that hasn't yet filed its prospectus, remains an estimate subject to market conditions on the actual filing and listing dates — conditions that, as the same day's market coverage shows, are currently quite volatile."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "Stock Market LIVE: Sensex down 500 pts at pre-open, Nifty below 24,000; IT shares in focus",
+      "url": "https://www.business-standard.com/markets/news/stock-market-live-june-19-nse-bse-sensex-today-nifty-gift-nifty-us-iran-deal-reliance-agm-jio-ipo-it-stocks-126061900111_1.html",
+      "excerpt": "Markets open deep in the red as Accenture's soft revenue guidance drags IT sector ADRs — Infosys fell 9.7% and Wipro 3.6% on Wall Street overnight; RIL AGM and Jio IPO filing also in focus.",
+      "bias_notes": "The Infosys 9.7% and Wipro 3.6% overnight US ADR drops are significant leading indicators correctly flagged here — IT sector weakness driven by a single client's (Accenture) guidance miss reveals how concentrated and correlated the Indian IT sector's revenue exposure is to a handful of large enterprise software and consulting relationships. The piece is right to flag this as the dominant story of the day's open, ahead of the Jio AGM news; markets are responding far more to global IT demand signals than to domestic corporate announcements, a useful corrective to coverage elsewhere that treats the AGM as the day's central financial event."
+    }
+  ]
+}

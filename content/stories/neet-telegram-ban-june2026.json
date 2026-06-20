@@ -1,0 +1,16 @@
+{
+  "slug": "neet-telegram-ban-june2026",
+  "title": "Government Suspends Telegram for 150 Million Users to Stop NEET Paper-Leak Rumours",
+  "date": "2026-06-17",
+  "category": "National",
+  "summary": "The NTA launched a dedicated complaint portal for flagging suspicious activity ahead of the rescheduled NEET-UG re-exam on June 21. In a far more drastic step, the government temporarily suspended Telegram access across India — affecting an estimated 150 million users — until June 22, to cut off the channels reportedly being used to circulate fake paper-leak content.",
+  "coverages": [
+    {
+      "source_id": "businessstandard",
+      "headline": "NEET-UG 2026 re-exam: Complaint portal launched to curb paper leak ahead of June 21 test",
+      "url": "https://www.business-standard.com/education/news/neet-ug-2026-re-exam-updates-compliant-portal-launched-to-curb-paper-leak-nc-126061600334_1.html",
+      "excerpt": "NTA launched a dedicated complaint portal for flagging suspicious activity as the government also temporarily suspended Telegram access across India — affecting roughly 150 million users — until June 22, to cut off channels used to circulate fake paper-leak content before the rescheduled exam.",
+      "bias_notes": "The complaint portal and the Telegram suspension are reported in the same breath, but they are wildly different in scale and consequence — one is a narrow administrative tool, the other is a blanket communications shutdown affecting 150 million people for a problem connected to a single exam's integrity. Business Standard does not interrogate whether banning an entire platform is proportionate, what the actual evidence is that Telegram specifically (rather than other platforms) is the leak vector, or what precedent this sets for future platform shutdowns justified by exam security. The 'fake paper-leak content' framing also assumes the leak claims circulating are false, when the entire premise of this re-exam is that an actual leak occurred in the original test."
+    }
+  ]
+}

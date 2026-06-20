@@ -1,0 +1,23 @@
+{
+  "slug": "modi-trump-trade-eu-fta-june19",
+  "title": "Modi-Trump Push Early Trade Deal at G7; Von der Leyen Confirms India-EU FTA by Year-End",
+  "date": "2026-06-19",
+  "category": "Geopolitical",
+  "summary": "Following their G7 sideline meeting at Évian-les-Bains, Modi and Trump directed officials to fast-track a 'commercially meaningful' trade agreement, with USTR Jamieson Greer travelling to New Delhi next week to advance talks. Separately, EU Commission President Ursula von der Leyen confirmed the long-pending India-EU free trade agreement will be signed before December 2026 — marking a second major trade breakthrough emerging from Modi's France visit within the same week.",
+  "coverages": [
+    {
+      "source_id": "businessstandard",
+      "headline": "PM Modi, Trump push for early India-US trade deal; USTR Greer to visit next week",
+      "url": "https://www.business-standard.com/world-news/pm-modi-trump-push-for-early-india-us-trade-deal-greer-to-visit-next-week-126061800161_1.html",
+      "excerpt": "Following their G7 sideline meeting at Evian-les-Bains, Modi and Trump directed officials to fast-track a 'commercially meaningful' trade agreement; USTR Jamieson Greer will travel to New Delhi next week to advance talks.",
+      "bias_notes": "'Commercially meaningful' is the diplomats' own phrase, used in quotes, which is the correct way to signal that this is the negotiators' framing rather than the reporter's assessment — good practice. The piece doesn't connect this to the earlier reporting from June that the trade deal's first tranche had already slipped from a June timeline to mid-July; 'push for early' implies fresh momentum on a deal that has already missed at least one self-imposed deadline. Readers following this story across multiple months would benefit from that continuity, which is absent here."
+    },
+    {
+      "source_id": "businessstandard",
+      "headline": "India-EU free trade deal to be inked by year-end: Von der Leyen",
+      "url": "https://www.business-standard.com/world-news/india-eu-free-trade-deal-to-be-inked-by-year-end-ursula-von-der-leyen-126061700985_1.html",
+      "excerpt": "EU Commission President von der Leyen confirmed the long-pending India-EU FTA will be signed before December 2026, marking a second major trade breakthrough from Modi's France visit.",
+      "bias_notes": "The India-EU FTA has been 'long-pending' for well over a decade of on-and-off negotiation, a fact the article acknowledges only in passing through that single word. A firm year-end commitment from the Commission President is more concrete than most previous signals on this deal, but the piece doesn't address the specific sticking points — agricultural market access, data protection standards, carbon border tariffs — that have repeatedly stalled negotiations in the past, leaving readers without the context to judge whether 'by year-end' is a credible target or an optimistic one."
+    }
+  ]
+}
