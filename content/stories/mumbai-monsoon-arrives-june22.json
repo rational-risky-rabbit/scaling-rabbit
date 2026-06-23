@@ -1,0 +1,23 @@
+{
+  "slug": "mumbai-monsoon-arrives-june22",
+  "title": "Monsoon Finally Reaches Mumbai After Driest June in 146 Years",
+  "date": "2026-06-22",
+  "category": "Mumbai",
+  "summary": "Revived Arabian Sea winds brought the stalled southwest monsoon to Mumbai on June 22, delivering the first meaningful rainfall after a 46% national deficit. June 2026 is now on track to be recorded as the driest June in over a century of meteorological observation. Heavy rain and thunderstorms under an IMD orange alert brought waterlogging to Bandra East and several western suburbs on the same day the monsoon revival also helped ease crude prices, signalling a broader seasonal turn relevant to kharif-sowing states nationally.",
+  "coverages": [
+    {
+      "source_id": "businesstoday",
+      "headline": "India monsoon revival: Mumbai, Gujarat get rain relief after driest June in a century",
+      "url": "https://www.businesstoday.in/india/story/india-monsoon-revival-mumbai-gujarat-rain-june-2026-driest-century-538530-2026-06-22",
+      "excerpt": "Arabian Sea winds revived the stalled southwest monsoon over Mumbai on June 22, bringing the first meaningful rainfall after a 46% national deficit; June 2026 is now pegged as the driest in over a century of recorded observations.",
+      "bias_notes": "The '146 years' / 'over a century' superlative is a striking claim that deserves a named data source — IMD record-keeping comparisons of this kind are usually attributable to specific meteorological records, and the piece would be stronger with that citation made explicit rather than implied. The connection drawn to easing crude prices is plausible (monsoon revival affects broader commodity sentiment) but the causal mechanism isn't explained — readers are left to infer the link between Mumbai rainfall and Brent crude pricing without the piece walking through why that connection exists."
+    },
+    {
+      "source_id": "businesstoday",
+      "headline": "Mumbai gets monsoon relief but heavy rains, thunderstorms bring back waterlogging and traffic chaos",
+      "url": "https://www.businesstoday.in/india/story/mumbai-gets-monsoon-relief-but-heavy-rains-thunderstorms-bring-back-waterlogging-and-traffic-chaos-538382-2026-06-22",
+      "excerpt": "Heavy rain and thunderstorms lashed Mumbai on Monday morning under an IMD orange alert, with waterlogging reported in Bandra East and several western suburbs.",
+      "bias_notes": "The headline's 'relief but...' construction captures the genuine duality of the story — water-starved reservoirs needed this rain badly, yet the same rain immediately exposed unresolved civic infrastructure problems (waterlogging, traffic chaos) flagged in BMC desilting coverage from earlier in June. This is the predictable consequence of a city entering monsoon season with incomplete drain clearing; the piece reports the waterlogging as a weather event rather than connecting it explicitly to the readiness failures documented weeks earlier, missing an opportunity for accountability framing that the facts clearly support."
+    }
+  ]
+}

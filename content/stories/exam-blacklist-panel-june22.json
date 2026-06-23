@@ -1,0 +1,16 @@
+{
+  "slug": "exam-blacklist-panel-june22",
+  "title": "Parliamentary Panel Wants Nationwide Blacklist of Exam Firms After NEET Leak",
+  "date": "2026-06-22",
+  "category": "National",
+  "summary": "A Rajya Sabha parliamentary panel has recommended creating a national register of blacklisted examination agencies, noting that firms barred by one authority continue winning government contracts elsewhere. The recommendation is a direct policy response to the NEET-UG 2026 paper leak scandal, which forced the cancellation of the original May 3 exam and a re-test held under heavy security on June 21.",
+  "coverages": [
+    {
+      "source_id": "theprint",
+      "headline": "Parliament panel wants nationwide blacklist of exam firms to stop tainted vendors getting contracts",
+      "url": "https://theprint.in/india/governance/parliament-panel-wants-nationwide-blacklist-of-exam-firms-to-stop-tainted-vendors-getting-contracts/2965225/",
+      "excerpt": "An RS Parliamentary panel recommended creating a national register of blacklisted examination agencies, noting that firms barred by one authority continue winning government contracts elsewhere — a direct response to the NEET paper leak scandal.",
+      "bias_notes": "This is a genuinely substantive structural fix being proposed — the observation that a vendor blacklisted by one state or authority can simply win contracts elsewhere exposes a real coordination failure in how India vets exam contractors, and it's the kind of policy detail that rarely survives into mainstream daily coverage of exam scandals, which tends to focus on individual culprits rather than systemic vendor accountability. The piece doesn't specify which agencies or how many have this blacklist-evasion track record, which would have made the recommendation's urgency more concrete. Worth watching whether this recommendation translates into an actual government registry or stalls as a committee suggestion with no implementation timeline — parliamentary panel recommendations frequently do the latter."
+    }
+  ]
+}
